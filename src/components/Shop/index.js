@@ -1,11 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
+import SHOP_DATA from './data'
+import { CollectionPreview } from '../CollectionPreview'
 
-export const Shop = ({ children }) => {
+export default function Shop() {
+  const [data, setData] = useState(SHOP_DATA)
   return (
-    <div>
+    <div className="shop-page">
       <h1>Shop Component</h1>
       <hr />
-      {children}
+      {data.map(items => (
+        <CollectionPreview {...items} key={items.id} />
+      ))}
     </div>
   )
 }

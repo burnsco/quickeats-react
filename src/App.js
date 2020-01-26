@@ -4,18 +4,7 @@ import { Router } from '@reach/router'
 import { Header } from './components/Header'
 
 const Home = lazy(() => import('./pages/Home'))
-const Shop = ({ children }) => (
-  <div>
-    <h1>Shop</h1>
-    <hr />
-    {children}
-  </div>
-)
-const Hats = () => <h3>Hats Page</h3>
-const Jackets = () => <h3>Jackets Page</h3>
-const Sneakers = () => <h3>Sneakers Page</h3>
-const Womens = () => <h3>Womens Page</h3>
-const Mens = () => <h3>Menms Page</h3>
+const Shop = lazy(() => import('./components/Shop'))
 
 const App = () => (
   <div>
@@ -30,10 +19,7 @@ const App = () => (
       >
         <Router>
           <Home path="/" />
-          <Shop path="shop">
-            <Hats path="hats" />
-            <Jackets path="jackets" />
-          </Shop>
+          <Shop path="/shop" />
         </Router>
       </Suspense>
     </ErrorBoundary>
