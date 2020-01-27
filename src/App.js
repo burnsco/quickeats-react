@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react'
 import ErrorBoundary from './components/Error/ErrorBoundary'
 import { Router } from '@reach/router'
 import { Header } from './components/Header'
-import { auth } from './firebase/utils'
+import { auth, createUserProfileDocument } from './firebase/utils'
 
 const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))
@@ -16,8 +16,21 @@ class App extends React.Component {
   unSubscribeFromAuth = null
 
   componentDidMount() {
-    this.unSubscribeFromAuth = auth.onAuthStateChanged(user => {
-      this.setState({ currentUser: user })
+    this.unSubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth)
+
+        userRef.onSnapshot(snapShot => {
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data()
+            }
+          })
+        })
+      } else {
+        this.setState({ currentUser: userAuth })
+      }
     })
   }
 

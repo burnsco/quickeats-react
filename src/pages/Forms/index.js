@@ -1,7 +1,15 @@
 import React from 'react'
 
 import SignIn from './SignIn'
+import SignUp from './SignUp'
 
-const Forms = () => <SignIn />
+import './styles.scss'
+
+const Forms = () => (
+  <div className="signInAndSignUp">
+    <SignIn />
+    <SignUp />
+  </div>
+)
 
 export default Forms
