@@ -4,7 +4,7 @@ import { Router } from '@reach/router'
 import { Header } from './components/Header'
 
 const Home = lazy(() => import('./pages/Home'))
-const Shop = lazy(() => import('./components/Shop'))
+const Shop = lazy(() => import('./pages/Shop'))
 
 const App = () => (
   <div>
