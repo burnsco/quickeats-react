@@ -5,6 +5,7 @@ import { Header } from './components/Header'
 
 const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))
+const Forms = lazy(() => import('./pages/Forms'))
 
 const App = () => (
   <div>
@@ -19,6 +20,7 @@ const App = () => (
       >
         <Router>
           <Home path="/" />
+          <Forms path="/forms" />
           <Shop path="/shop" />
         </Router>
       </Suspense>

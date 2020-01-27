@@ -2,10 +2,6 @@ import React from 'react'
 
 import './styles.scss'
 
-export const CustomButton = () => {
-  return (
-    <div>
-      <button>Custom</button>
-    </div>
-  )
-}
+export const CustomButton = ({ label }) => (
+  <button className="custom-button">{label}</button>
+)
