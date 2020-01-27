@@ -1,6 +1,13 @@
 body {
-  margin: 40px;
+  margin: 0px;
+  padding: 20px 40px;
   font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }

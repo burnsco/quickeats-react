@@ -12,7 +12,7 @@ export const MenuItem = ({ title, imageUrl, linkUrl }) => (
       }}
     ></div>
     <div className="content">
-      <Link style={{ textDecoration: 'none' }} to={linkUrl}>
+      <Link to={linkUrl}>
         <div className="title">{title}</div>
         <div className="subtitle">Click to Browse</div>
       </Link>

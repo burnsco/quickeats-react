@@ -1,8 +1,28 @@
 import React from 'react'
 import { Link } from '@reach/router'
+import { ReactComponent as Logo } from '../../assets/crown.svg'
+
+import './styles.scss'
 
 export const Header = () => (
-  <nav>
-    <Link to="/">Home</Link> |<Link to="/shop">Shop</Link> |
-  </nav>
+  <div className="header">
+    <div className="logo-container">
+      <Logo />
+    </div>
+
+    <nav className="options">
+      <Link className="option" to="/">
+        SHOP
+      </Link>
+      <Link className="option" to="/shop">
+        CONTACT
+      </Link>
+      <Link className="option" to="/shop">
+        SIGN IN
+      </Link>
+      <Link className="option" to="/cart">
+        ((Cart))
+      </Link>
+    </nav>
+  </div>
 )
