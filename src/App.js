@@ -1,7 +1,9 @@
 import React, { lazy, Suspense } from 'react'
 import ErrorBoundary from './components/Error/ErrorBoundary'
+import { connect } from 'react-redux'
+import { setCurrentUser } from './redux/actions/user'
 import { Router } from '@reach/router'
-import { Header } from './components/Header'
+import Header from './components/Header'
 import { auth, createUserProfileDocument } from './firebase/utils'
 
 const Home = lazy(() => import('./pages/Home'))
@@ -9,27 +11,23 @@ const Shop = lazy(() => import('./pages/Shop'))
 const Forms = lazy(() => import('./pages/Forms'))
 
 class App extends React.Component {
-  state = {
-    currentUser: null
-  }
-
   unSubscribeFromAuth = null
 
   componentDidMount() {
+    const { setCurrentUser } = this.props
+
     this.unSubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth)
 
         userRef.onSnapshot(snapShot => {
-          this.setState({
-            currentUser: {
-              id: snapShot.id,
-              ...snapShot.data()
-            }
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data()
           })
         })
       } else {
-        this.setState({ currentUser: userAuth })
+        setCurrentUser(userAuth)
       }
     })
   }
@@ -42,7 +40,7 @@ class App extends React.Component {
     return (
       <div>
         <ErrorBoundary>
-          <Header currentUser={this.state.currentUser} />
+          <Header />
           <Suspense
             fallback={
               <div style={{ marginTop: 50 + 'px', fontSize: 50 + 'px' }}>
@@ -62,4 +60,8 @@ class App extends React.Component {
   }
 }
 
-export default App
+const mapDispatchToProps = dispatch => ({
+  setCurrentUser: user => dispatch(setCurrentUser(user))
+})
+
+export default connect(null, mapDispatchToProps)(App)
