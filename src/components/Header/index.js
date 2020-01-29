@@ -6,6 +6,8 @@ import { ReactComponent as Logo } from '../../assets/crown.svg'
 import { auth } from '../../firebase/utils'
 
 import './styles.scss'
+import CartIcon from '../CartIcon'
+import { CartDropDown } from '../CartDropDown'
 
 const Header = ({ currentUser }) => {
   return (
@@ -32,9 +34,10 @@ const Header = ({ currentUser }) => {
         )}
 
         <Link className="option" to="/cart">
-          ((Cart))
+          <CartIcon />
         </Link>
       </nav>
+      <CartDropDown />
     </div>
   )
 }

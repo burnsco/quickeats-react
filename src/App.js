@@ -2,7 +2,7 @@ import React, { lazy, Suspense } from 'react'
 import ErrorBoundary from './components/Error/ErrorBoundary'
 import { connect } from 'react-redux'
 import { setCurrentUser } from './redux/actions/user'
-import { Router } from '@reach/router'
+import { Router, navigate } from '@reach/router'
 import Header from './components/Header'
 import { auth, createUserProfileDocument } from './firebase/utils'
 
@@ -20,14 +20,15 @@ class App extends React.Component {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth)
 
-        userRef.onSnapshot(snapShot => {
-          setCurrentUser({
+        await userRef.onSnapshot(async snapShot => {
+          await setCurrentUser({
             id: snapShot.id,
             ...snapShot.data()
           })
+          await navigate('/')
         })
       } else {
-        setCurrentUser(userAuth)
+        await setCurrentUser(userAuth)
       }
     })
   }
@@ -60,8 +61,12 @@ class App extends React.Component {
   }
 }
 
+const mapStateToProps = ({ user }) => ({
+  currentUser: user.currentUser
+})
+
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user))
 })
 
-export default connect(null, mapDispatchToProps)(App)
+export default connect(mapStateToProps, mapDispatchToProps)(App)
