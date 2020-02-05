@@ -33,9 +33,7 @@ const Header = ({ currentUser }) => {
           </Link>
         )}
 
-        <Link className="option" to="/cart">
-          <CartIcon />
-        </Link>
+        <CartIcon className="option" />
       </nav>
       <CartDropDown />
     </div>

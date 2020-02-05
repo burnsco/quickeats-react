@@ -5,7 +5,7 @@ import './styles.scss'
 
 export const CartDropDown = () => (
   <div className="cart-dropdown">
-    <div className="cart-items" />
+    {/* <div className="cart-items" /> */}
     <CustomButton>Go to Checkout</CustomButton>
   </div>
 )
