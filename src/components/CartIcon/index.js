@@ -6,8 +6,8 @@ import { ReactComponent as ShoppingIcon } from '../../assets/shopping-bag.svg'
 
 import './styles.scss'
 
-const CartIcon = ({ items }) => (
-  <div className="cart-icon">
+const CartIcon = ({ items, toggleCartHidden }) => (
+  <div className="cart-icon" onClick={toggleCartHidden}>
     <ShoppingIcon className="shopping-icon" />
     <span className="item-count">{items | '1'}</span>
   </div>

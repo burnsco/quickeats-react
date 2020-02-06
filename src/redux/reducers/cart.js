@@ -1,5 +1,5 @@
 const INITIAL_STATE = {
-  hidden: true;
+  hidden: true
 }
 
 const cartReducer = (state = INITIAL_STATE, action) => {
@@ -9,8 +9,8 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         ...state,
         hidden: !state.hidden
       }
-    default: 
-      return state;
+    default:
+      return state
   }
 }
 
