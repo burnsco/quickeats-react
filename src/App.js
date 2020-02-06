@@ -9,6 +9,7 @@ import { auth, createUserProfileDocument } from './firebase/utils'
 const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))
 const Forms = lazy(() => import('./pages/Forms'))
+const Checkout = lazy(() => import('./pages/Checkout'))
 
 class App extends React.Component {
   unSubscribeFromAuth = null
@@ -53,6 +54,7 @@ class App extends React.Component {
               <Home path="/" />
               <Forms path="/forms" />
               <Shop path="/shop" />
+              <Checkout path="/checkout" />
             </Router>
           </Suspense>
         </ErrorBoundary>
