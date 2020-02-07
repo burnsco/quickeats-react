@@ -19,7 +19,10 @@ export const CartDropDown = ({ cartItems, dispatch }) => (
     </div>
     <div className="button">
       <Link to="/checkout">
-        <CustomButton onClick={() => dispatch(toggleCartHidden())}>
+        <CustomButton
+          disabled={cartItems.length === 0}
+          onClick={() => dispatch(toggleCartHidden())}
+        >
           Go to Checkout
         </CustomButton>
       </Link>
