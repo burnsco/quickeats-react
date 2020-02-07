@@ -6,8 +6,9 @@ import { createStructuredSelector } from 'reselect'
 import CartItem from '../CartItem'
 import { selectCartItems } from '../../redux/selectors/cart'
 import { Link } from '@reach/router'
+import { toggleCartHidden } from '../../redux/actions/cart'
 
-export const CartDropDown = ({ cartItems }) => (
+export const CartDropDown = ({ cartItems, dispatch }) => (
   <div className="cart-dropdown">
     <div className="cart-items">
       {cartItems.length ? (
@@ -18,7 +19,9 @@ export const CartDropDown = ({ cartItems }) => (
     </div>
     <div className="button">
       <Link to="/checkout">
-        <CustomButton>Go to Checkout</CustomButton>
+        <CustomButton onClick={() => dispatch(toggleCartHidden())}>
+          Go to Checkout
+        </CustomButton>
       </Link>
     </div>
   </div>
