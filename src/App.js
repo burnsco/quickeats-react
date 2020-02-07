@@ -3,9 +3,9 @@ import ErrorBoundary from './components/Error/ErrorBoundary'
 import { connect } from 'react-redux'
 import { setCurrentUser } from './redux/actions/user'
 import { Router, navigate } from '@reach/router'
-import Header from './components/Header'
 import { auth, createUserProfileDocument } from './firebase/utils'
 
+import Header from './components/Header'
 const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))
 const Forms = lazy(() => import('./pages/Forms'))
@@ -52,7 +52,13 @@ class App extends React.Component {
             <Router>
               <Home path="/" />
               <Forms path="/forms" />
-              <Shop path="/shop" />
+              <Shop path="/shop">
+                {/* <Hats path="hats" />
+                <Jackets path="jackets" />
+                <Sneakers path="sneakers" />
+                <Womens path="womens" />
+                <Mens path="mens" /> */}
+              </Shop>
               <Checkout path="/checkout" />
             </Router>
           </Suspense>
