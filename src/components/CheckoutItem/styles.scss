@@ -22,8 +22,20 @@
     width: 23%;
   }
 
+  .price {
+    margin-left: 5px;
+  }
+
   .quantity {
-    padding-left: 20px;
+    display: flex;
+    margin-right: 5px;
+
+    .value {
+      margin: 0 10px;
+    }
+    .arrow {
+      cursor: pointer;
+    }
   }
 
   .remove-button {
