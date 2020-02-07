@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
-
-import SHOP_DATA from './data'
-
+import React from 'react'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 import CollectionPreview from '../../components/CollectionPreview'
+import { selectCollections } from '../../redux/selectors/shop'
 
-export default function Shop() {
-  const [collections] = useState(SHOP_DATA)
-
+const Shop = ({ collections }) => {
   return (
     <div className="shop-page">
       <h2>Collections</h2>
@@ -16,3 +14,9 @@ export default function Shop() {
     </div>
   )
 }
+
+const mapStateToProps = createStructuredSelector({
+  collections: selectCollections
+})
+
+export default connect(mapStateToProps)(Shop)
