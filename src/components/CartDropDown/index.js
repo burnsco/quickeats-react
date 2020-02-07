@@ -4,10 +4,7 @@ import CustomButton from '../CustomButton'
 import './styles.scss'
 import { createStructuredSelector } from 'reselect'
 import CartItem from '../CartItem'
-import {
-  selectCartItems,
-  selectCartItemsCount
-} from '../../redux/selectors/cart'
+import { selectCartItems } from '../../redux/selectors/cart'
 import { Link } from '@reach/router'
 
 export const CartDropDown = ({ cartItems }) => (
