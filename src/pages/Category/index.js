@@ -1,14 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect'
-import {selectCollections} from '../../redux/selectors/shop'
+import {selectCollectionsForPreview} from '../../redux/selectors/shop'
 
 import './styles.scss'
 import CollectionItem from '../../components/CollectionItem'
 
 const Category = ({collections, category}) => {
   let filtered = collections.filter(items => items.routeName === category)
-  console.log(filtered[0].items)
   return (
     <div className="category">
       <h2 className="title">{category.toUpperCase()}</h2>
@@ -22,7 +21,7 @@ const Category = ({collections, category}) => {
 }
 
 const mapStateToProps = createStructuredSelector({
-  collections: selectCollections
+  collections: selectCollectionsForPreview
 })
 
 export default connect(mapStateToProps)(Category)
