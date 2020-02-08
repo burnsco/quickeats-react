@@ -2,14 +2,17 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect'
 import {selectCollections} from '../../redux/selectors/shop'
-import CollectionPreview from '../CollectionPreview'
 
 import './styles.scss'
+import CollectionPreview from '../../components/CollectionPreview'
 
 const CollectionsOverview = ({collections, category}) => {
+  const categoryCollection = collections.filter(
+    item => item.routeName === category
+  )
   return (
     <div className="collections-overview">
-      {collections.map(({id, ...otherCollectionProps}) => (
+      {categoryCollection.map(({id, ...otherCollectionProps}) => (
         <CollectionPreview {...otherCollectionProps} key={id} />
       ))}
     </div>

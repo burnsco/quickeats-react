@@ -1,14 +1,13 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
 import CustomButton from '../CustomButton'
-import { addItemToCart } from '../../redux/actions/cart'
+import {addItemToCart} from '../../redux/actions/cart'
 
 import './styles.scss'
 
-const CollectionItem = ({ item, addItemToCart }) => {
-  const { name, price, imageUrl } = item
-
+const CollectionItem = ({item, addItemToCart}) => {
+  const {name, price, imageUrl} = item
   return (
     <div className="collection-item">
       <div

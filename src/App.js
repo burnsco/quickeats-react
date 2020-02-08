@@ -1,11 +1,12 @@
-import React, { lazy, Suspense } from 'react'
+import React, {lazy, Suspense} from 'react'
 import ErrorBoundary from './components/Error/ErrorBoundary'
-import { connect } from 'react-redux'
-import { setCurrentUser } from './redux/actions/user'
-import { Router, navigate } from '@reach/router'
-import { auth, createUserProfileDocument } from './firebase/utils'
+import {connect} from 'react-redux'
+import {setCurrentUser} from './redux/actions/user'
+import {Router, navigate} from '@reach/router'
+import {auth, createUserProfileDocument} from './firebase/utils'
 
 import Header from './components/Header'
+const Category = lazy(() => import('./pages/Category'))
 const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))
 const Forms = lazy(() => import('./pages/Forms'))
@@ -15,7 +16,7 @@ class App extends React.Component {
   unSubscribeFromAuth = null
 
   componentDidMount() {
-    const { setCurrentUser } = this.props
+    const {setCurrentUser} = this.props
 
     this.unSubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -44,7 +45,7 @@ class App extends React.Component {
           <Header />
           <Suspense
             fallback={
-              <div style={{ marginTop: 50 + 'px', fontSize: 50 + 'px' }}>
+              <div style={{marginTop: 50 + 'px', fontSize: 50 + 'px'}}>
                 Loading...
               </div>
             }
@@ -52,13 +53,8 @@ class App extends React.Component {
             <Router>
               <Home path="/" />
               <Forms path="/forms" />
-              <Shop path="/shop">
-                {/* <Hats path="hats" />
-                <Jackets path="jackets" />
-                <Sneakers path="sneakers" />
-                <Womens path="womens" />
-                <Mens path="mens" /> */}
-              </Shop>
+              <Shop path="/shop" />
+              <Category path="/shop/:category" />
               <Checkout path="/checkout" />
             </Router>
           </Suspense>
@@ -68,7 +64,7 @@ class App extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user }) => ({
+const mapStateToProps = ({user}) => ({
   currentUser: user.currentUser
 })
 
