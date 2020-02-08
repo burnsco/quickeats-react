@@ -1,7 +1,6 @@
 .collection-preview {
   display: flex;
   flex-direction: column;
-  margin-bottom: 30px;
 
   .title {
     font-size: 28px;
@@ -9,7 +8,24 @@
   }
 
   .preview {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+  }
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+
+  .title {
+    font-size: 38px;
+    margin: 0 auto 30px;
+  }
+
+  .items {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
   }
 }

@@ -6,7 +6,7 @@ import CollectionPreview from '../CollectionPreview'
 
 import './styles.scss'
 
-const CollectionsOverview = ({collections, category}) => {
+const CollectionsOverview = ({collections}) => {
   return (
     <div className="collections-overview">
       {collections.map(({id, ...otherCollectionProps}) => (

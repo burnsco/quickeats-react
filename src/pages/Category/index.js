@@ -4,17 +4,19 @@ import {createStructuredSelector} from 'reselect'
 import {selectCollections} from '../../redux/selectors/shop'
 
 import './styles.scss'
-import CollectionPreview from '../../components/CollectionPreview'
+import CollectionItem from '../../components/CollectionItem'
 
-const CollectionsOverview = ({collections, category}) => {
-  const categoryCollection = collections.filter(
-    item => item.routeName === category
-  )
+const Category = ({collections, category}) => {
+  let filtered = collections.filter(items => items.routeName === category)
+  console.log(filtered[0].items)
   return (
-    <div className="collections-overview">
-      {categoryCollection.map(({id, ...otherCollectionProps}) => (
-        <CollectionPreview {...otherCollectionProps} key={id} />
-      ))}
+    <div className="category">
+      <h2 className="title">{category.toUpperCase()}</h2>
+      <div className="items">
+        {filtered[0].items.map(item => (
+          <CollectionItem item={item} key={item.id} />
+        ))}
+      </div>
     </div>
   )
 }
@@ -23,4 +25,4 @@ const mapStateToProps = createStructuredSelector({
   collections: selectCollections
 })
 
-export default connect(mapStateToProps)(CollectionsOverview)
+export default connect(mapStateToProps)(Category)

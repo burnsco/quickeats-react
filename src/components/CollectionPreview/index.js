@@ -4,7 +4,7 @@ import CollectionItem from '../CollectionItem'
 
 import './styles.scss'
 
-const CollectionPreview = ({items, title}) => {
+const CollectionPreview = ({ items, title, previewOnly }) => {
   return (
     <div className="collection-preview">
       <h1 className="title">{title}</h1>

@@ -6,6 +6,7 @@ import {Router, navigate} from '@reach/router'
 import {auth, createUserProfileDocument} from './firebase/utils'
 
 import Header from './components/Header'
+
 const Category = lazy(() => import('./pages/Category'))
 const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))
