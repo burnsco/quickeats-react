@@ -1,13 +1,17 @@
 import React from 'react'
-
-import './styles.scss'
-
+import styled from 'styled-components'
 import Directory from '../../components/Directory'
 
-export default function Home() {
-  return (
-    <div className="homepage">
-      <Directory />
-    </div>
-  )
-}
+const Container = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Home = () => (
+  <Container>
+    <Directory />
+  </Container>
+)
+
+export default Home
