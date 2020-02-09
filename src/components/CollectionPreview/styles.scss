@@ -1,28 +1,23 @@
-@import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
 .collection-preview {
   display: flex;
-  margin-bottom: 15px;
   flex-direction: column;
 
   .link {
-    font-size: 26px;
-    margin-bottom: 25px;
-    display: flex;
     .title {
+      font-size: 38px;
       font-family: 'Open Sans Condensed', sans-serif;
-
-      margin-top: 10px;
+      margin: 0 auto 30px;
       &:hover {
         border-bottom: 1px solid black;
         border-width: thick;
       }
     }
   }
+}
 
-  .preview {
-    margin-top: 2em;
-    display: grid;
-    grid-row-gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  }
+.preview {
+  margin-top: 2em;
+  display: grid;
+  grid-row-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }

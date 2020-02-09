@@ -1,8 +1,7 @@
-.sign-up {
+.signInAndSignUp {
   display: flex;
+  width: 70%;
   flex-direction: column;
-  width: 380px;
-  .title {
-    margin: 10px 0;
-  }
+  margin-right: 10px;
+  margin-left: 10px;
 }
