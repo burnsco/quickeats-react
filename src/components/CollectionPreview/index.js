@@ -9,7 +9,7 @@ const CollectionPreview = ({items, title, previewOnly, routeName}) => {
     <div className="collection-preview">
       <Link to={`/shop/${routeName}`} className="link">
         <h3>
-          <span className="title">{title}</span>
+          <span className="title lined-thick">{title}</span>
         </h3>
       </Link>
 

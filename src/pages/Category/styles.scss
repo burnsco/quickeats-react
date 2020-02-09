@@ -1,5 +1,6 @@
 .category {
   display: flex;
+  margin: 0 auto;
   flex-direction: column;
 
   .title {
@@ -9,7 +10,33 @@
 
   .items {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
+    // grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    grid-gap: 25px;
+  }
+}
+.collection-preview {
+  display: flex;
+  margin-bottom: 15px;
+  flex-direction: column;
+
+  .link {
+    font-size: 26px;
+    margin-bottom: 25px;
+    display: flex;
+    .title {
+      margin-top: 10px;
+      &:hover {
+        border-bottom: 1px solid black;
+        border-width: thick;
+      }
+    }
+  }
+
+  .preview {
+    display: grid;
+    // grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
+    grid-gap: 25px;
   }
 }

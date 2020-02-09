@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
 .collection-preview {
   display: flex;
   margin-bottom: 15px;
@@ -8,6 +9,7 @@
     margin-bottom: 25px;
     display: flex;
     .title {
+      font-family: 'Patrick Hand SC', cursive;
       margin-top: 10px;
       &:hover {
         border-bottom: 1px solid black;
