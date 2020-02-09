@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import FormInput from '../../components/FormInput'
 import CustomButton from '../../components/CustomButton'
-import { auth, signInWithGoogle } from '../../firebase/utils.js'
+import {auth, signInWithGoogle} from '../../firebase/utils.js'
 
 const SignIn = () => {
   const [email, setEmail] = useState('')
@@ -19,7 +19,7 @@ const SignIn = () => {
   }
 
   const handleChange = event => {
-    const { value, name } = event.target
+    const {value, name} = event.target
     if (name === 'email') {
       setEmail(value)
     } else {
@@ -51,11 +51,8 @@ const SignIn = () => {
         />
         <div className="buttons">
           <CustomButton type="submit"> Sign in </CustomButton>
-          <CustomButton
-            style={{ marginLeft: 10 + 'px' }}
-            onClick={signInWithGoogle}
-            isGoogleSignIn
-          >
+          <br />
+          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
             Sign in with Google
           </CustomButton>
         </div>

@@ -1,14 +1,14 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 import CustomButton from '../CustomButton'
 import './styles.scss'
-import { createStructuredSelector } from 'reselect'
+import {createStructuredSelector} from 'reselect'
 import CartItem from '../CartItem'
-import { selectCartItems } from '../../redux/selectors/cart'
-import { Link } from '@reach/router'
-import { toggleCartHidden } from '../../redux/actions/cart'
+import {selectCartItems} from '../../redux/selectors/cart'
+import {Link} from '@reach/router'
+import {toggleCartHidden} from '../../redux/actions/cart'
 
-export const CartDropDown = ({ cartItems, dispatch }) => (
+export const CartDropDown = ({cartItems, dispatch}) => (
   <div className="cart-dropdown">
     <div className="cart-items">
       {cartItems.length ? (
@@ -20,6 +20,7 @@ export const CartDropDown = ({ cartItems, dispatch }) => (
     <div className="button">
       <Link to="/checkout">
         <CustomButton
+          style={{marginTop: 10 + 'px', width: 210 + 'px'}}
           disabled={cartItems.length === 0}
           onClick={() => dispatch(toggleCartHidden())}
         >
