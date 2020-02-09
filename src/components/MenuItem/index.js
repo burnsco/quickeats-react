@@ -3,8 +3,8 @@ import {Link} from '@reach/router'
 
 import './styles.scss'
 
-export const MenuItem = ({title, imageUrl, linkUrl}) => (
-  <div className="menu-item ">
+export const MenuItem = ({title, imageUrl, linkUrl, size}) => (
+  <div className={`${size} menu-item`}>
     <div
       className="background-image"
       style={{

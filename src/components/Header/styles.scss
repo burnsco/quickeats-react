@@ -19,8 +19,9 @@
     justify-content: flex-end;
 
     .option {
+      font-size: 14px;
       padding: 10px 25px;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
 
       &:hover {
         border-bottom: 1px solid black;

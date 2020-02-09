@@ -19,10 +19,10 @@ const Header = ({currentUser, hidden}) => {
 
       <nav className="options">
         <Link className="option" to="/">
-          SHOP
+          HOME
         </Link>
         <Link className="option" to="/shop">
-          CONTACT
+          SHOP
         </Link>
         {currentUser ? (
           <Link className="option" to="/forms" onClick={() => auth.signOut()}>
