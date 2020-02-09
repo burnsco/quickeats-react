@@ -1,5 +1,11 @@
 import React from 'react'
-import {NavLink, NavContainer, LogoContainer, Container} from './index.styled'
+import {
+  NavLink,
+  NavContainer,
+  LogoContainer,
+  Container,
+  SignOutLink
+} from './index.styled'
 import {connect} from 'react-redux'
 import {ReactComponent as Logo} from '../../assets/crown.svg'
 import {createStructuredSelector} from 'reselect'
@@ -9,30 +15,26 @@ import CartDropDown from '../CartDropDown'
 import {selectCurrentUser} from '../../redux/selectors/user'
 import {selectCartHidden} from '../../redux/selectors/cart'
 
-const Header = ({currentUser, hidden}) => {
-  return (
-    <Container>
-      <LogoContainer>
-        <Logo />
-      </LogoContainer>
+const Header = ({currentUser, hidden}) => (
+  <Container>
+    <LogoContainer>
+      <Logo />
+    </LogoContainer>
 
-      <NavContainer>
-        <NavLink to="/">HOME</NavLink>
-        <NavLink to="/shop">SHOP</NavLink>
-        {currentUser ? (
-          <NavLink to="/forms" onClick={() => auth.signOut()}>
-            SIGN OUT
-          </NavLink>
-        ) : (
-          <NavLink to="/forms">SIGN IN</NavLink>
-        )}
+    <NavContainer>
+      <NavLink to="/">HOME</NavLink>
+      <NavLink to="/shop">SHOP</NavLink>
+      {currentUser ? (
+        <SignOutLink onClick={() => auth.signOut()}>SIGN OUT</SignOutLink>
+      ) : (
+        <NavLink to="/forms">SIGN IN</NavLink>
+      )}
 
-        <CartIcon />
-      </NavContainer>
-      {hidden ? null : <CartDropDown />}
-    </Container>
-  )
-}
+      <CartIcon />
+    </NavContainer>
+    {hidden ? null : <CartDropDown />}
+  </Container>
+)
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,

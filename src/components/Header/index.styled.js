@@ -1,5 +1,17 @@
-import styled from 'styled-components'
+import styled, {css} from 'styled-components'
 import {Link} from '@reach/router'
+
+const NavContainerStyles = css`
+  font-size: 14px;
+  cursor: pointer;
+  padding: 10px 25px;
+  letter-spacing: 1px;
+
+  &:hover {
+    border-bottom: 1px solid black;
+    border-width: thick;
+  }
+`
 
 const Container = styled.header`
   height: 70px;
@@ -23,14 +35,11 @@ const NavContainer = styled.nav`
 `
 
 const NavLink = styled(Link)`
-  font-size: 14px;
-  padding: 10px 25px;
-  letter-spacing: 1px;
-
-  &:hover {
-    border-bottom: 1px solid black;
-    border-width: thick;
-  }
+  ${NavContainerStyles}
 `
 
-export {NavLink, NavContainer, LogoContainer, Container}
+const SignOutLink = styled.div`
+  ${NavContainerStyles}
+`
+
+export {NavLink, NavContainer, LogoContainer, Container, SignOutLink}
