@@ -26,5 +26,16 @@
   .footer {
     margin-top: 50px;
     display: flex;
+    flex-direction: column;
+
+    .total {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+
+    .test-number {
+      margin-top: 10px;
+      color: red;
+    }
   }
 }

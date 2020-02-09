@@ -30,13 +30,12 @@ const CheckOut = ({cartItems, total}) => (
       <CheckoutItem cartItem={item} key={item.id} />
     ))}
     <div className="footer">
+      <div className="total">TOTAL: ${total}</div>
+      <StripeButton price={total} />
       <div className="test-number">
         *Please use the following for test payments* 4242 4242 4242 4242 - Exp:
         02/2020 CW: 123
       </div>
-
-      <div className="total">TOTAL: ${total}</div>
-      <StripeButton price={total} />
     </div>
   </div>
 )
