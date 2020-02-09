@@ -1,12 +1,16 @@
-import { createStore, applyMiddleware } from 'redux'
+import {createStore, applyMiddleware} from 'redux'
 
-import { persistStore } from 'redux-persist'
+import {persistStore} from 'redux-persist'
 
 import logger from 'redux-logger'
 
 import rootReducer from './reducers/index'
 
-const middlewares = [logger]
+let middlewares = []
+
+if (process.env.NODE_ENV === 'development') {
+  middlewares = [logger]
+}
 
 export const store = createStore(rootReducer, applyMiddleware(...middlewares))
 
