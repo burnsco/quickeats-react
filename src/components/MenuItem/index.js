@@ -1,9 +1,9 @@
 import React from 'react'
-import { Link } from '@reach/router'
+import {Link} from '@reach/router'
 
 import './styles.scss'
 
-export const MenuItem = ({ title, imageUrl, linkUrl }) => (
+export const MenuItem = ({title, imageUrl, linkUrl}) => (
   <div className={`menu-item`}>
     <div
       className="background-image"

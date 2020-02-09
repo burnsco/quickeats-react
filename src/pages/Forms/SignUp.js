@@ -1,6 +1,6 @@
 import React from 'react'
 import './SignUpStyles.scss'
-import { auth, createUserProfileDocument } from '../../firebase/utils'
+import {auth, createUserProfileDocument} from '../../firebase/utils'
 import FormInput from '../../components/FormInput'
 import CustomButton from '../../components/CustomButton'
 
@@ -17,15 +17,15 @@ class SignUp extends React.Component {
   }
 
   handleChange = e => {
-    const { name, value } = e.target
+    const {name, value} = e.target
 
-    this.setState({ [name]: value })
+    this.setState({[name]: value})
   }
 
   handleSubmit = async event => {
     event.preventDefault()
 
-    const { displayName, email, password, confirmPassword } = this.state
+    const {displayName, email, password, confirmPassword} = this.state
 
     if (password !== confirmPassword) {
       alert('passwords dont match')
@@ -33,12 +33,9 @@ class SignUp extends React.Component {
     }
 
     try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      )
+      const {user} = await auth.createUserWithEmailAndPassword(email, password)
 
-      await createUserProfileDocument(user, { displayName })
+      await createUserProfileDocument(user, {displayName})
 
       this.setState({
         displayName: '',
@@ -52,7 +49,7 @@ class SignUp extends React.Component {
   }
 
   render() {
-    const { displayName, email, password, confirmPassword } = this.state
+    const {displayName, email, password, confirmPassword} = this.state
     return (
       <div className="sign-up">
         <h2 className="title">I do not have an account</h2>
