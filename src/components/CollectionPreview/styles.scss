@@ -9,7 +9,8 @@
     margin-bottom: 25px;
     display: flex;
     .title {
-      font-family: 'Patrick Hand SC', cursive;
+      font-family: 'Open Sans Condensed', sans-serif;
+
       margin-top: 10px;
       &:hover {
         border-bottom: 1px solid black;
@@ -19,9 +20,9 @@
   }
 
   .preview {
+    margin-top: 2em;
     display: grid;
-    // grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-columns: repeat(auto-fill, minmax(20%, 1fr));
-    grid-gap: 25px;
+    grid-row-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 }

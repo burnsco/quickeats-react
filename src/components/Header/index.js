@@ -29,7 +29,6 @@ const Header = ({currentUser, hidden}) => (
       ) : (
         <NavLink to="/forms">SIGN IN</NavLink>
       )}
-
       <CartIcon />
     </NavContainer>
     {hidden ? null : <CartDropDown />}

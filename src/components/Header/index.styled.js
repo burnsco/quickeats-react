@@ -21,12 +21,14 @@ const Container = styled.header`
   margin-bottom: 55px;
 `
 const LogoContainer = styled.div`
+  margin-left: 10px;
   height: 100%;
   width: 70px;
   padding: 15px;
 `
 
 const NavContainer = styled.nav`
+  margin-right: 10px;
   width: 50%;
   height: 100%;
   display: flex;

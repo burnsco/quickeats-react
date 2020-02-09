@@ -1,6 +1,12 @@
+// .directory-menu {
+//   width: 90%;
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: space-between;
+// }
 .directory-menu {
-  width: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  margin-top: 2em;
+  display: grid;
+  grid-row-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }

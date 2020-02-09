@@ -1,4 +1,5 @@
 import React, {lazy, Suspense} from 'react'
+import styled from 'styled-components'
 import ErrorBoundary from './components/Error/ErrorBoundary'
 import {connect} from 'react-redux'
 import {setCurrentUser} from './redux/actions/user'
@@ -6,12 +7,17 @@ import {Router, navigate} from '@reach/router'
 import {auth, createUserProfileDocument} from './firebase/utils'
 
 import Header from './components/Header'
+import Footer from './components/Footer'
 
 const Category = lazy(() => import('./pages/Category'))
 const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))
 const Forms = lazy(() => import('./pages/Forms'))
 const Checkout = lazy(() => import('./pages/Checkout'))
+
+const AppContainer = styled.div`
+  height: 100%;
+`
 
 class App extends React.Component {
   unSubscribeFromAuth = null
@@ -41,9 +47,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <AppContainer>
         <ErrorBoundary>
           <Header />
+
           <Suspense
             fallback={
               <div style={{marginTop: 50 + 'px', fontSize: 50 + 'px'}}>
@@ -60,7 +67,7 @@ class App extends React.Component {
             </Router>
           </Suspense>
         </ErrorBoundary>
-      </div>
+      </AppContainer>
     )
   }
 }
