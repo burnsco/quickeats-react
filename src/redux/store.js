@@ -9,7 +9,7 @@ import rootReducer from './reducers/index'
 let middlewares = []
 
 if (process.env.NODE_ENV === 'development') {
-  middlewares = [logger]
+  middlewares.push(logger)
 }
 
 export const store = createStore(rootReducer, applyMiddleware(...middlewares))
