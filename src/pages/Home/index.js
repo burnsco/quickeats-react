@@ -5,9 +5,6 @@ import Directory from '../../components/Directory'
 const Container = styled.section`
   margin-right: 25px;
   margin-left: 25px;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
 `
 
 const Home = () => (

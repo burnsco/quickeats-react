@@ -901,11 +901,6 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@ciar4n/izmir@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@ciar4n/izmir/-/izmir-1.0.0.tgz#324e50b0de5215df28af52f267d4f7ebf4458aa8"
-  integrity sha512-W5R3C30TqNCB5vMR7ok2HF6aIPpV4H7OnWg4dbRRIDO1vbI18ocHYXf8bz8Z9X0f5Hu5IHfAo0g0MxBwI/U2mA==
-
 "@cnakazawa/watch@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.3.tgz#099139eaec7ebf07a27c1786a3ff64f39464d2ef"

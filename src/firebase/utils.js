@@ -13,12 +13,14 @@ const config = {
   measurementId: 'G-C3BBRHYK9T'
 }
 
+firebase.initializeApp(config)
+
 export const createUserProfileDocument = async (userAuth, data) => {
   if (!userAuth) return
-  console.log(userAuth)
+
   const userRef = firestore.doc(`users/${userAuth.uid}`)
+
   const snapShot = await userRef.get()
-  console.log(snapShot.data())
 
   if (!snapShot.exists) {
     const {displayName, email} = userAuth
@@ -32,13 +34,27 @@ export const createUserProfileDocument = async (userAuth, data) => {
         ...data
       })
     } catch (err) {
-      console.log(err)
+      console.log(`error creating user ${err.message}`)
     }
   }
   return userRef
 }
 
-firebase.initializeApp(config)
+export const addCollectionAndDocuments = async (
+  collectionKey,
+  objectsToAdd
+) => {
+  const collectionRef = firestore.collection(collectionKey)
+
+  const batch = firestore.batch()
+  objectsToAdd.forEach(obj => {
+    const newDocRef = collectionRef.doc(obj.title)
+    console.log(newDocRef)
+    batch.set(newDocRef, obj)
+  })
+
+  return await batch.commit()
+}
 
 export const auth = firebase.auth()
 export const firestore = firebase.firestore()
