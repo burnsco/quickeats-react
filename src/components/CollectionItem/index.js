@@ -35,9 +35,16 @@ const Footer = styled.div`
   font-size: 18px;
 `
 
-const ProductName = styled.h4`
+const NamePriceContainer = styled.h4`
+  display: flex;
+  margin-bottom: 15px;
+  justify-content: space-between;
+`
+const Name = styled.div`
   margin-left: 20px;
-  margin-bottom: 25px;
+`
+const Price = styled.div`
+  margin-right: 10px;
 `
 
 const CollectionItem = ({item, addItemToCart}) => {
@@ -51,9 +58,9 @@ const CollectionItem = ({item, addItemToCart}) => {
       ></ImageContainer>
 
       <Footer>
-        <ProductName>
-          {name} - ${price}
-        </ProductName>
+        <NamePriceContainer>
+          <Name>{name}</Name> <Price>${price}</Price>
+        </NamePriceContainer>
 
         <CustomButton
           style={{width: 100 + '%'}}
@@ -61,7 +68,7 @@ const CollectionItem = ({item, addItemToCart}) => {
           className="custom-button"
           inverted
         >
-          Add to cart
+          <strong>ADD TO CART</strong>
         </CustomButton>
       </Footer>
     </CardContainer>
