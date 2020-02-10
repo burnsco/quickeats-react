@@ -6,12 +6,7 @@ import {createStructuredSelector} from 'reselect'
 import {setCurrentUser} from './redux/actions/user'
 import {selectCurrentUser} from './redux/selectors/user'
 import {Router, navigate} from '@reach/router'
-import {
-  auth,
-  createUserProfileDocument,
-  addCollectionAndDocuments
-} from './firebase/utils'
-import {selectCollectionsForPreview} from './redux/selectors/shop'
+import {auth, createUserProfileDocument} from './firebase/utils'
 
 import Header from './components/Header'
 const Category = lazy(() => import('./pages/Category'))
@@ -28,7 +23,7 @@ class App extends React.Component {
   unSubscribeFromAuth = null
 
   componentDidMount() {
-    const {setCurrentUser, collectionsArray} = this.props
+    const {setCurrentUser} = this.props
 
     this.unSubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -43,10 +38,6 @@ class App extends React.Component {
         })
       }
       setCurrentUser(userAuth)
-      addCollectionAndDocuments(
-        'collections',
-        collectionsArray.map(({title, items}) => ({title, items}))
-      )
     })
   }
   componentWillUnmount() {
@@ -81,8 +72,7 @@ class App extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
-  collectionsArray: selectCollectionsForPreview
+  currentUser: selectCurrentUser
 })
 
 const mapDispatchToProps = dispatch => ({
