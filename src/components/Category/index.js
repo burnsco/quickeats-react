@@ -6,10 +6,11 @@ import './styles.scss'
 import CollectionItem from '../CollectionItem'
 
 const Category = ({collection, category}) => {
-  let {items, title} = collection
+  console.log(category)
+  const {title, items} = collection
   return (
     <div className="category">
-      <h2 className="title">{title.toUpperCase()}</h2>
+      <h2 className="title">{title}</h2>
       <div className="items">
         {items.map(item => (
           <CollectionItem item={item} key={item.id} />

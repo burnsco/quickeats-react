@@ -3,12 +3,13 @@ import {connect} from 'react-redux'
 import {firestore, convertCollectionsSnapshotToMap} from '../../firebase/utils'
 import {updateCollections} from '../../redux/actions/shop'
 import CollectionsOverview from '../../components/CollectionsOverview'
+import {Match} from '@reach/router'
+import Category from '../../components/Category'
 
 class Shop extends React.Component {
   state = {
     loading: true
   }
-
   unsubscribeFromSnapshot = null
 
   componentDidMount() {
@@ -23,7 +24,17 @@ class Shop extends React.Component {
   }
 
   render() {
-    return <CollectionsOverview />
+    return (
+      <Match path=":category">
+        {props =>
+          props.match ? (
+            <Category {...this.props} />
+          ) : (
+            <CollectionsOverview {...this.props} />
+          )
+        }
+      </Match>
+    )
   }
 }
 

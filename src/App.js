@@ -8,8 +8,8 @@ import {selectCurrentUser} from './redux/selectors/user'
 import {auth, createUserProfileDocument} from './firebase/utils'
 
 import Header from './components/Header'
+import Category from './components/Category'
 
-const Category = lazy(() => import('./components/Category'))
 const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))
 const Forms = lazy(() => import('./pages/Forms'))
@@ -58,6 +58,7 @@ class App extends React.Component {
               <Forms path="/forms" />
               <Shop path="/shop" />
               <Category path="/shop/:category" />
+
               <Checkout path="/checkout" />
             </Router>
           </Suspense>

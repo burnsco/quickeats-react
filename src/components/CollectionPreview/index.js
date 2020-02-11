@@ -7,7 +7,7 @@ import './styles.scss'
 const CollectionPreview = ({items, title, history, match, routeName}) => {
   return (
     <div className="collection-preview">
-      <Link to={`/shop/${match.path}`} className="link">
+      <Link to={`/shop/${routeName}`} className="link">
         <h3>
           <span className="title lined-thick">{title}</span>
         </h3>
