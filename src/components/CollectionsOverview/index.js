@@ -5,10 +5,7 @@ import {selectCollectionsForPreview} from '../../redux/selectors/shop'
 import CollectionPreview from '../CollectionPreview'
 
 import styled from 'styled-components'
-const Container = styled.section`
-  margin-right: 20px;
-  margin-left: 20px;
-`
+const Container = styled.section``
 
 const CollectionsOverview = ({collections}) => {
   return (

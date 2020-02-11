@@ -2,21 +2,25 @@ import styled from 'styled-components'
 
 export const CollectionPreviewContainer = styled.div`
   display: flex;
+  margin-right: 10px;
+  margin-left: 10px;
   flex-direction: column;
-  margin-bottom: 30px;
 `
 
 export const TitleContainer = styled.h1`
-  font-size: 28px;
-  margin-bottom: 25px;
-  cursor: pointer;
-
+  margin-top: 50px;
+  font-size: 34px;
+  font-family: 'Open Sans Condensed', sans-serif;
+  margin: 0 auto 30px;
   &:hover {
-    color: grey;
+    border-bottom: 1px solid black;
+    border-width: thick;
   }
 `
 
 export const PreviewContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
+  margin-top: 2em;
+  display: grid;
+  grid-row-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 `
