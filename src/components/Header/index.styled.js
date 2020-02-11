@@ -12,7 +12,6 @@ const NavContainerStyles = css`
     border-width: thick;
   }
 `
-
 const Container = styled.header`
   height: 70px;
   width: 100%;
@@ -26,7 +25,6 @@ const LogoContainer = styled.div`
   width: 70px;
   padding: 15px;
 `
-
 const NavContainer = styled.nav`
   margin-right: 10px;
   width: 70%;
@@ -35,11 +33,9 @@ const NavContainer = styled.nav`
   align-items: center;
   justify-content: flex-end;
 `
-
 const NavLink = styled(Link)`
   ${NavContainerStyles}
 `
-
 const SignOutLink = styled.div`
   ${NavContainerStyles}
 `
