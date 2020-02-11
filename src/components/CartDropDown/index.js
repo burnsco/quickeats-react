@@ -1,7 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import CustomButton from '../CustomButton'
-import './styles.scss'
 import {createStructuredSelector} from 'reselect'
 import CartItem from '../CartItem'
 import {selectCartItems} from '../../redux/selectors/cart'
