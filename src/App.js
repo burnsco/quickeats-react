@@ -6,10 +6,9 @@ import {createStructuredSelector} from 'reselect'
 import {setCurrentUser} from './redux/actions/user'
 import {selectCurrentUser} from './redux/selectors/user'
 import {auth, createUserProfileDocument} from './firebase/utils'
+import {CollectionsOverviewWithSpinner} from './pages/Shop'
 
 import Header from './components/Header'
-import Category from './components/Category'
-
 const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))
 const Forms = lazy(() => import('./pages/Forms'))
@@ -55,11 +54,12 @@ class App extends React.Component {
           >
             <Router>
               <Home path="/" />
-              <Forms path="/forms" />
-              <Shop path="/shop" />
-              <Category path="/shop/:category" />
+              <Forms path="forms" />
+              <Shop path="shop">
+                <CollectionsOverviewWithSpinner path="/" />
+              </Shop>
 
-              <Checkout path="/checkout" />
+              <Checkout path="checkout" />
             </Router>
           </Suspense>
         </ErrorBoundary>
