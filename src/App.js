@@ -7,8 +7,8 @@ import {setCurrentUser} from './redux/actions/user'
 import {selectCurrentUser} from './redux/selectors/user'
 import {auth, createUserProfileDocument} from './firebase/utils'
 
-import Header from './components/Header'
 import FallBackSpinner from './components/FallBackSpinner'
+import Header from './components/Header'
 const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))
 const Forms = lazy(() => import('./pages/Forms'))

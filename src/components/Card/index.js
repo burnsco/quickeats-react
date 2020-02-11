@@ -25,16 +25,16 @@ const ImageContainer = styled.div`
 `
 const ContentContainer = styled.div`
   padding: 2px 15px;
+  justify-content: center;
+  align-items: center;
+  justify-items: space-evenly;
+  display: flex;
 `
 const Title = styled.h3`
   font-weight: bold;
   margin: 0 6px 0;
   font-size: 22px;
   color: #4a4a4a;
-`
-const Subtitle = styled.p`
-  font-weight: lighter;
-  font-size: 16px;
 `
 
 const Card = ({title, imageUrl, history, linkUrl, match}) => (
@@ -47,7 +47,6 @@ const Card = ({title, imageUrl, history, linkUrl, match}) => (
 
     <ContentContainer>
       <Title>{title.toUpperCase()}</Title>
-      <Subtitle>Click to Browse</Subtitle>
     </ContentContainer>
   </CardContainer>
 )
