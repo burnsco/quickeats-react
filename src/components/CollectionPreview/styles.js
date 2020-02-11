@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const CollectionPreviewContainer = styled.div`
   display: flex;
+  margin-bottom: 40px;
   margin-right: 10px;
   margin-left: 10px;
   flex-direction: column;
