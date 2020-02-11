@@ -5,8 +5,7 @@ import {selectCollection} from '../../redux/selectors/shop'
 import './styles.scss'
 import CollectionItem from '../CollectionItem'
 
-const Category = ({collection, category}) => {
-  console.log(category)
+const Category = ({collection}) => {
   const {title, items} = collection
   return (
     <div className="category">
@@ -20,8 +19,8 @@ const Category = ({collection, category}) => {
   )
 }
 
-const mapStateToProps = (state, {category}) => ({
-  collection: selectCollection(category)(state)
+const mapStateToProps = (state, ownProps) => ({
+  collection: selectCollection(ownProps.match.params.category)(state)
 })
 
 export default connect(mapStateToProps)(Category)

@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import {firestore, convertCollectionsSnapshotToMap} from '../../firebase/utils'
 import {updateCollections} from '../../redux/actions/shop'
 import CollectionsOverview from '../../components/CollectionsOverview'
-import {Router} from '@reach/router'
+import {Route} from 'react-router-dom'
 import Category from '../../components/Category'
 import WithSpinner from '../../components/Spinner'
 
@@ -28,16 +28,24 @@ class Shop extends React.Component {
   }
 
   render() {
-    console.log('props')
-    console.log(this.props)
+    const {match} = this.props
+    const {loading} = this.state
     return (
-      <Router>
-        <CollectionsOverviewWithSpinner
-          path="/"
-          isLoading={this.state.loading}
-          {...this.props}
+      <div className="shop-page">
+        <Route
+          exact
+          path={`${match.path}`}
+          render={props => (
+            <CollectionsOverviewWithSpinner isLoading={loading} {...props} />
+          )}
         />
-      </Router>
+        <Route
+          path={`${match.path}/:category`}
+          render={props => (
+            <CategoryPageWithSpinner isLoading={loading} {...props} />
+          )}
+        />
+      </div>
     )
   }
 }

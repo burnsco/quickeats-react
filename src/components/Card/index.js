@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import {Link} from '@reach/router'
+import {withRouter} from 'react-router-dom'
 
 const CardContainer = styled.div`
   margin: 10px;
@@ -22,25 +22,22 @@ const ImageContainer = styled.div`
   background-size: cover;
   background-position: center;
 `
-
 const ContentContainer = styled.div`
   padding: 2px 15px;
 `
-
 const Title = styled.h3`
   font-weight: bold;
   margin: 0 6px 0;
   font-size: 22px;
   color: #4a4a4a;
 `
-
 const Subtitle = styled.p`
   font-weight: lighter;
   font-size: 16px;
 `
 
-export const Card = ({title, imageUrl, linkUrl, size}) => (
-  <CardContainer>
+const Card = ({title, imageUrl, history, linkUrl, match}) => (
+  <CardContainer onClick={() => history.push(`${match.url}${linkUrl}`)}>
     <ImageContainer
       style={{
         backgroundImage: `url(${imageUrl})`
@@ -48,12 +45,10 @@ export const Card = ({title, imageUrl, linkUrl, size}) => (
     ></ImageContainer>
 
     <ContentContainer>
-      <Link to={linkUrl}>
-        <Title>{title}</Title>
-        <Subtitle>Click to Browse</Subtitle>
-      </Link>
+      <Title>{title.toUpperCase()}</Title>
+      <Subtitle>Click to Browse</Subtitle>
     </ContentContainer>
   </CardContainer>
 )
 
-export default Card
+export default withRouter(Card)

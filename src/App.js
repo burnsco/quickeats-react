@@ -1,12 +1,11 @@
 import React, {lazy, Suspense} from 'react'
 import ErrorBoundary from './components/Error/ErrorBoundary'
-import {Router, navigate} from '@reach/router'
+import {Switch, Route, Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect'
 import {setCurrentUser} from './redux/actions/user'
 import {selectCurrentUser} from './redux/selectors/user'
 import {auth, createUserProfileDocument} from './firebase/utils'
-import {CollectionsOverviewWithSpinner} from './pages/Shop'
 
 import Header from './components/Header'
 const Home = lazy(() => import('./pages/Home'))
@@ -15,29 +14,29 @@ const Forms = lazy(() => import('./pages/Forms'))
 const Checkout = lazy(() => import('./pages/Checkout'))
 
 class App extends React.Component {
-  unSubscribeFromAuth = null
+  unsubscribeFromAuth = null
 
   componentDidMount() {
     const {setCurrentUser} = this.props
 
-    this.unSubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth)
 
-        await userRef.onSnapshot(async snapShot => {
-          await setCurrentUser({
+        userRef.onSnapshot(snapShot => {
+          setCurrentUser({
             id: snapShot.id,
             ...snapShot.data()
           })
-          await navigate('/')
         })
-      } else {
-        await setCurrentUser(userAuth)
       }
+
+      setCurrentUser(userAuth)
     })
   }
+
   componentWillUnmount() {
-    this.unSubscribeFromAuth()
+    this.unsubscribeFromAuth()
   }
 
   render() {
@@ -52,15 +51,18 @@ class App extends React.Component {
               </div>
             }
           >
-            <Router>
-              <Home path="/" />
-              <Forms path="forms" />
-              <Shop path="shop">
-                <CollectionsOverviewWithSpinner path="/" />
-              </Shop>
-
-              <Checkout path="checkout" />
-            </Router>
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route path="/shop" component={Shop} />
+              <Route exact path="/checkout" component={Checkout} />
+              <Route
+                exact
+                path="/forms"
+                render={() =>
+                  this.props.currentUser ? <Redirect to="/" /> : <Forms />
+                }
+              />
+            </Switch>
           </Suspense>
         </ErrorBoundary>
       </div>
