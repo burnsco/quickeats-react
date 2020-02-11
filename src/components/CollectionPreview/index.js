@@ -1,8 +1,6 @@
 import React from 'react'
 import {withRouter} from 'react-router-dom'
 import CollectionItem from '../CollectionItem'
-
-import './styles.scss'
 import {
   CollectionPreviewContainer,
   TitleContainer,
