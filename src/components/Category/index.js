@@ -19,8 +19,8 @@ const Category = ({collection, category}) => {
   )
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  collection: selectCollection(ownProps.category)(state)
+const mapStateToProps = (state, {category}) => ({
+  collection: selectCollection(category)(state)
 })
 
 export default connect(mapStateToProps)(Category)
