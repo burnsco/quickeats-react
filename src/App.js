@@ -1,6 +1,6 @@
 import React, {lazy, Suspense} from 'react'
 import ErrorBoundary from './components/Error/ErrorBoundary'
-import {Switch, Route, Redirect} from 'react-router-dom'
+import {Router, navigate} from '@reach/router'
 import {connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect'
 import {setCurrentUser} from './redux/actions/user'
@@ -9,6 +9,7 @@ import {auth, createUserProfileDocument} from './firebase/utils'
 
 import Header from './components/Header'
 
+const Category = lazy(() => import('./pages/Category'))
 const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))
 const Forms = lazy(() => import('./pages/Forms'))
@@ -24,14 +25,16 @@ class App extends React.Component {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth)
 
-        userRef.onSnapshot(snapShot => {
-          setCurrentUser({
+        await userRef.onSnapshot(async snapShot => {
+          await setCurrentUser({
             id: snapShot.id,
             ...snapShot.data()
           })
+          await navigate('/')
         })
+      } else {
+        await setCurrentUser(userAuth)
       }
-      setCurrentUser(userAuth)
     })
   }
   componentWillUnmount() {
@@ -40,7 +43,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <div>
         <ErrorBoundary>
           <Header />
           <Suspense
@@ -50,21 +53,16 @@ class App extends React.Component {
               </div>
             }
           >
-            <Switch>
-              <Route exact path="/" component={Home} />
-              <Route path="/shop" component={Shop} />
-              <Route exact path="/checkout" component={Checkout} />
-              <Route
-                exact
-                path="/signin"
-                render={() =>
-                  this.props.currentUser ? <Redirect to="/" /> : <Forms />
-                }
-              />
-            </Switch>
+            <Router>
+              <Home path="/" />
+              <Forms path="/forms" />
+              <Shop path="/shop" />
+              <Category path="/shop/:category" />
+              <Checkout path="/checkout" />
+            </Router>
           </Suspense>
         </ErrorBoundary>
-      </>
+      </div>
     )
   }
 }

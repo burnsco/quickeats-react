@@ -1,13 +1,13 @@
 import React from 'react'
-import {Link} from '@reach/router'
+import {Link} from 'react-router-dom'
 import CollectionItem from '../CollectionItem'
 
 import './styles.scss'
 
-const CollectionPreview = ({items, title, previewOnly, routeName}) => {
+const CollectionPreview = ({items, title, history, match, routeName}) => {
   return (
     <div className="collection-preview">
-      <Link to={`/shop/${routeName}`} className="link">
+      <Link to={`/shop/${match.path}`} className="link">
         <h3>
           <span className="title lined-thick">{title}</span>
         </h3>

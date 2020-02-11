@@ -1,29 +1,30 @@
-import React, {useEffect} from 'react'
-import {Match} from '@reach/router'
+import React from 'react'
 import {connect} from 'react-redux'
 import {firestore, convertCollectionsSnapshotToMap} from '../../firebase/utils'
 import {updateCollections} from '../../redux/actions/shop'
 import CollectionsOverview from '../../components/CollectionsOverview'
-import Category from '../Category'
 
-const Shop = ({updateCollections, match, ...props}) => {
-  useEffect(() => {
+class Shop extends React.Component {
+  state = {
+    loading: true
+  }
+
+  unsubscribeFromSnapshot = null
+
+  componentDidMount() {
+    const {updateCollections} = this.props
     const collectionRef = firestore.collection('collections')
-    return () => {
-      collectionRef.get().then(snapshot => {
-        const collectionsMap = convertCollectionsSnapshotToMap(snapshot)
-        updateCollections(collectionsMap)
-      })
-    }
-  }, [updateCollections])
 
-  return (
-    <>
-      <Match path={`${match.path}/:collectionId`}>
-        {props => (props.match ? <CollectionsOverview /> : <Category />)}
-      </Match>
-    </>
-  )
+    collectionRef.get().then(snapshot => {
+      const collectionsMap = convertCollectionsSnapshotToMap(snapshot)
+      updateCollections(collectionsMap)
+      this.setState({loading: false})
+    })
+  }
+
+  render() {
+    return <CollectionsOverview />
+  }
 }
 
 const mapDispatchToProps = dispatch => ({
