@@ -8,6 +8,7 @@ import {selectCurrentUser} from './redux/selectors/user'
 import {auth, createUserProfileDocument} from './firebase/utils'
 
 import Header from './components/Header'
+import FallBackSpinner from './components/FallBackSpinner'
 const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))
 const Forms = lazy(() => import('./pages/Forms'))
@@ -44,13 +45,7 @@ class App extends React.Component {
       <div>
         <ErrorBoundary>
           <Header />
-          <Suspense
-            fallback={
-              <div style={{marginTop: 50 + 'px', fontSize: 50 + 'px'}}>
-                Loading...
-              </div>
-            }
-          >
+          <Suspense fallback={FallBackSpinner}>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/shop" component={Shop} />
