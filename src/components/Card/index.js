@@ -7,6 +7,7 @@ const CardContainer = styled.figure`
   --secondary-color: #f5af19;
   --image-opacity: 0.1;
   cursor: pointer;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin: 10px;
   margin-bottom: 10px;
   min-width: 15rem;

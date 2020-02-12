@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 
 import CustomButton from '../CustomButton'
 import {addItemToCart} from '../../redux/actions/cart'
+import FallBackSpinner from '../FallBackSpinner'
 
 const CardContainer = styled.div`
   margin: 10px;
@@ -12,6 +13,10 @@ const CardContainer = styled.div`
   margin-bottom: 10px;
   min-width: 15rem;
   :hover {
+    button {
+      opacity: 0.8;
+      display: flex;
+    }
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   }
   @media (max-width: 540px) {
@@ -21,6 +26,8 @@ const CardContainer = styled.div`
   }
 `
 const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
   height: 300px;
   min-width: 15rem;
   background-size: cover;
@@ -46,6 +53,17 @@ const Name = styled.div`
 const Price = styled.div`
   margin-right: 10px;
 `
+const AddItemButton = styled(CustomButton)`
+  align-self: flex-end;
+  margin-bottom: 5px;
+  width: 30%;
+  opacity: 0.7;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  text-decoration: none;
+  border: none;
+  display: none;
+`
 
 const CollectionItem = ({item, addItemToCart}) => {
   const {name, price, imageUrl} = item
@@ -55,21 +73,21 @@ const CollectionItem = ({item, addItemToCart}) => {
         style={{
           backgroundImage: `url(${imageUrl})`
         }}
-      ></ImageContainer>
+      >
+        <AddItemButton
+          invertedOrange
+          onClick={() => {
+            addItemToCart(item)
+          }}
+        >
+          <strong>ADD TO CART</strong>
+        </AddItemButton>
+      </ImageContainer>
 
       <Footer>
         <NamePriceContainer>
           <Name>{name}</Name> <Price>${price}</Price>
         </NamePriceContainer>
-
-        <CustomButton
-          style={{width: 100 + '%'}}
-          onClick={() => addItemToCart(item)}
-          className="custom-button"
-          inverted
-        >
-          <strong>ADD TO CART</strong>
-        </CustomButton>
       </Footer>
     </CardContainer>
   )

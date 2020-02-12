@@ -5,6 +5,6 @@
 - [ ] Refactor the Forms Page
 - [ ] Make a Footer Component
 - [x] Add Animations for Cards
-- [ ] Add Animations for Header
+- [x] Add Animations for Header
 - [ ] Spinner for add to cart
-- [ ] pop up that you added item to cart
+- [ ] PopUp when you added item to cart
