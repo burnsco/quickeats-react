@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect'
+import {animations} from 'react-animation'
 import CartItem from '../CartItem'
 import {selectCartItems} from '../../redux/selectors/cart'
 import {withRouter} from 'react-router-dom'
@@ -13,7 +14,7 @@ import {
 } from './styles'
 
 export const CartDropDown = ({cartItems, dispatch, history}) => (
-  <CartDropdownContainer>
+  <CartDropdownContainer style={{animation: animations.popIn}}>
     <CartItemsContainer>
       {cartItems.length ? (
         cartItems.map(item => <CartItem key={item.id} item={item} />)
