@@ -4,7 +4,6 @@ import {connect} from 'react-redux'
 
 import CustomButton from '../CustomButton'
 import {addItemToCart} from '../../redux/actions/cart'
-import FallBackSpinner from '../FallBackSpinner'
 
 const CardContainer = styled.div`
   margin: 10px;
@@ -57,7 +56,7 @@ const AddItemButton = styled(CustomButton)`
   align-self: flex-end;
   margin-bottom: 5px;
   width: 30%;
-  opacity: 0.7;
+  opacity: 0;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   text-decoration: none;

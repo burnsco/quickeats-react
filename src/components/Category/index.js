@@ -1,13 +1,14 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { selectCollection } from '../../redux/selectors/shop'
+import {animations} from 'react-animation'
+import {connect} from 'react-redux'
+import {selectCollection} from '../../redux/selectors/shop'
 import CollectionItem from '../CollectionItem'
-import { CollectionsWrapper, Title, CollectionItems } from './styles'
+import {CollectionsWrapper, Title, CollectionItems} from './styles'
 
-const Category = ({ collection }) => {
-  let { items, title } = collection
+const Category = ({collection}) => {
+  let {items, title} = collection
   return (
-    <CollectionsWrapper>
+    <CollectionsWrapper style={{animation: animations.fadeIn}}>
       <Title>{title}</Title>
       <CollectionItems>
         {items.map(item => (
