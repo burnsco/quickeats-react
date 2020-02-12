@@ -45,7 +45,7 @@ class App extends React.Component {
       <div>
         <ErrorBoundary>
           <Header />
-          <Suspense fallback={FallBackSpinner}>
+          <Suspense fallback={FallBackSpinner()}>
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/shop" component={Shop} />
