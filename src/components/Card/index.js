@@ -15,12 +15,7 @@ const CardContainer = styled.figure`
     padding: 0;
   }
 `
-const ImageContainer = styled.div`
-  height: 300px;
-  min-width: 15rem;
-  background-size: cover;
-  background-position: center;
-`
+
 const ContentContainer = styled.figcaption`
   padding: 5px 15px;
   /* justify-content: center;
