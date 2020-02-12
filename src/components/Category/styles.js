@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const CollectionsWrapper = styled.div`
   margin-right: 10px;
   margin-left: 10px;
   display: flex;

@@ -1,20 +1,20 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {selectCollection} from '../../redux/selectors/shop'
+import { connect } from 'react-redux'
+import { selectCollection } from '../../redux/selectors/shop'
 import CollectionItem from '../CollectionItem'
-import {Container, Title, CollectionItems} from './styles'
+import { CollectionsWrapper, Title, CollectionItems } from './styles'
 
-const Category = ({collection}) => {
-  const {title, items} = collection
+const Category = ({ collection }) => {
+  let { items, title } = collection
   return (
-    <Container>
+    <CollectionsWrapper>
       <Title>{title}</Title>
       <CollectionItems>
         {items.map(item => (
           <CollectionItem item={item} key={item.id} />
         ))}
       </CollectionItems>
-    </Container>
+    </CollectionsWrapper>
   )
 }
 
