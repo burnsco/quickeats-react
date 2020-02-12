@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import {withRouter} from 'react-router-dom'
 
 const CardContainer = styled.figure`
-  --primary-color: #f12711;
-  --secondary-color: #f5af19;
+  --primary-color: #e6dada;
+  --secondary-color: #274046;
   --image-opacity: 0.1;
   cursor: pointer;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);

@@ -1,11 +1,14 @@
-import React, { lazy, Suspense } from 'react'
+import React, {lazy, Suspense} from 'react'
 import ErrorBoundary from './components/Error/ErrorBoundary'
-import { Switch, Route, Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
-import { setCurrentUser } from './redux/actions/user'
-import { selectCurrentUser } from './redux/selectors/user'
-import { auth, createUserProfileDocument } from './firebase/utils'
+import {Switch, Route, Redirect} from 'react-router-dom'
+import {connect} from 'react-redux'
+import {createStructuredSelector} from 'reselect'
+import {setCurrentUser} from './redux/actions/user'
+import {selectCurrentUser} from './redux/selectors/user'
+import {auth, createUserProfileDocument} from './firebase/utils'
+
+import {toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 import FallBackSpinner from './components/FallBackSpinner'
 import Header from './components/Header'
@@ -14,11 +17,13 @@ const Shop = lazy(() => import('./pages/Shop'))
 const Forms = lazy(() => import('./pages/Forms'))
 const Checkout = lazy(() => import('./pages/Checkout'))
 
+toast.configure({autoClose: 2000})
+
 class App extends React.Component {
   unsubscribeFromAuth = null
 
   componentDidMount() {
-    const { setCurrentUser } = this.props
+    const {setCurrentUser} = this.props
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {

@@ -52,9 +52,9 @@ const getButtonStyles = ({isGoogleSignIn, inverted, invertedOrange}) => {
 }
 
 export const CustomButtonContainer = styled.button`
-  min-width: 145px;
+  min-width: 140px;
   width: auto;
-  height: 60px;
+  height: 50px;
   letter-spacing: 0.5px;
   line-height: 50px;
   padding: 0 35px 0 35px;

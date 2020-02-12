@@ -1,9 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import {connect} from 'react-redux'
-
+import {animations} from 'react-animation'
+import 'react-animation/dist/keyframes.css'
 import CustomButton from '../CustomButton'
 import {addItemToCart} from '../../redux/actions/cart'
+
+import {toast} from 'react-toastify'
 
 const CardContainer = styled.div`
   margin: 10px;
@@ -34,11 +37,10 @@ const ImageContainer = styled.div`
 `
 const Footer = styled.div`
   font-family: 'Roboto Condensed', sans-serif;
-  font-weight: 300;
   width: 100%;
   flex-direction: column;
   display: flex;
-  font-size: 18px;
+  font-size: 16px;
 `
 
 const NamePriceContainer = styled.h4`
@@ -74,9 +76,11 @@ const CollectionItem = ({item, addItemToCart}) => {
         }}
       >
         <AddItemButton
+          style={{animation: animations.popIn}}
           invertedOrange
           onClick={() => {
             addItemToCart(item)
+            toast(`Added ${item.name} to cart`)
           }}
         >
           <strong>ADD TO CART</strong>
