@@ -30,19 +30,12 @@ const Image = styled.img`
   width: 100%;
   height: 100%;
 `
-
 const Card = ({title, imageUrl, history, linkUrl, match}) => (
   <CardContainer
     className="c4-izmir c4-border-bottom-left c4-image-rotate-right c4-gradient-bottom-right"
     tabIndex="0"
     onClick={() => history.push(`${match.url}${linkUrl}`)}
   >
-    {/* <ImageContainer
-      style={{
-        backgroundImage: `url(${imageUrl})`
-      }}
-    ></ImageContainer> */}
-
     <Image src={imageUrl} />
 
     <ContentContainer className="c4-layout-bottom-left">

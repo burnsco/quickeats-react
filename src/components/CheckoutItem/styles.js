@@ -13,8 +13,10 @@ export const CheckoutItemContainer = styled.div`
 export const ImageContainer = styled.div`
   width: 23%;
   padding-right: 15px;
+  height: 300px;
 
   img {
+    object-fit: cover;
     width: 100%;
     height: 100%;
   }
