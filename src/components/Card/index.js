@@ -15,7 +15,6 @@ const Card = ({title, imageUrl, history, linkUrl, match}) => (
     onClick={() => history.push(`${match.url}${linkUrl}`)}
   >
     <CardImage src={imageUrl} />
-
     <CardContentContainer className="c4-layout-bottom-left">
       <CardTitleContainer className="c4-reveal-right c4-delay-100">
         <CardTitle className="c4-izmir-title">{title.toUpperCase()}</CardTitle>
