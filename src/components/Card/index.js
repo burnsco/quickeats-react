@@ -16,13 +16,8 @@ const CardContainer = styled.figure`
     padding: 0;
   }
 `
-
 const ContentContainer = styled.figcaption`
   padding: 5px 15px;
-  /* justify-content: center;
-  align-items: center;
-  justify-items: space-evenly;
-  display: flex; */
 `
 const Title = styled.h3`
   font-weight: bold;
@@ -30,10 +25,8 @@ const Title = styled.h3`
   font-size: 22px;
   color: #4a4a4a;
 `
-
 const Image = styled.img`
   object-fit: cover;
-  max-width: 100%;
   width: 100%;
   height: 100%;
 `

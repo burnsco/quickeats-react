@@ -14,6 +14,7 @@ const INITIAL_STATE = {
       id: 2,
       linkUrl: 'shop/jackets'
     },
+
     {
       title: 'SUSHI',
       imageUrl:
@@ -28,6 +29,7 @@ const INITIAL_STATE = {
       id: 4,
       linkUrl: 'shop/mens'
     },
+
     {
       title: 'SANDWICHES',
       imageUrl: 'https://i.ibb.co/0BSdyjw/sandwich-1603898.jpg',
