@@ -43,7 +43,7 @@ const Footer = styled.div`
   font-size: 16px;
 `
 
-const NamePriceContainer = styled.h4`
+const NamePriceContainer = styled.h5`
   display: flex;
   margin-bottom: 15px;
   justify-content: space-between;

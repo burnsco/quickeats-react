@@ -17,7 +17,7 @@ const Shop = lazy(() => import('./pages/Shop'))
 const Forms = lazy(() => import('./pages/Forms'))
 const Checkout = lazy(() => import('./pages/Checkout'))
 
-toast.configure({autoClose: 2000})
+toast.configure({autoClose: 2000, useLazyContainer: 'true'})
 
 class App extends React.Component {
   unsubscribeFromAuth = null
