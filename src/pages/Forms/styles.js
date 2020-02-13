@@ -2,8 +2,9 @@ import styled from 'styled-components'
 
 export const FormsPageContainer = styled.div`
   display: flex;
-  width: 70%;
+  width: 60%;
+  align-self: center;
+  align-content: center;
   flex-direction: column;
-  margin-right: 10px;
-  margin-left: 10px;
+  margin: 0 auto;
 `

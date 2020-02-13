@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import {auth, createUserProfileDocument} from '../../firebase/utils'
 import FormInput from '../../components/FormInput'
 import CustomButton from '../../components/CustomButton'

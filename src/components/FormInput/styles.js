@@ -2,13 +2,11 @@ import styled, {css} from 'styled-components'
 
 const subColor = 'grey'
 const mainColor = 'black'
-
 const shrinkLabelStyles = css`
   top: -14px;
   font-size: 12px;
   color: ${mainColor};
 `
-
 export const GroupContainer = styled.div`
   position: relative;
   margin: 45px 0;
@@ -17,7 +15,6 @@ export const GroupContainer = styled.div`
     letter-spacing: 0.3em;
   }
 `
-
 export const FormInputContainer = styled.input`
   background: none;
   background-color: white;
