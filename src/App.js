@@ -5,13 +5,17 @@ import {connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect'
 import {setCurrentUser} from './redux/actions/user'
 import {selectCurrentUser} from './redux/selectors/user'
-import {auth, createUserProfileDocument} from './firebase/utils'
-
+import {
+  auth,
+  createUserProfileDocument,
+  addCollectionAndDocuments
+} from './firebase/utils'
 import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import FallBackSpinner from './components/FallBackSpinner'
 
 import Header from './components/Header'
+import {selectCollectionsForPreview} from './redux/selectors/shop'
 const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))
 const Forms = lazy(() => import('./pages/Forms'))

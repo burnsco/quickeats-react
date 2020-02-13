@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CollectionsWrapper = styled.div`
+export const CategoryWrapper = styled.div`
   margin-right: 10px;
   margin-left: 10px;
   display: flex;

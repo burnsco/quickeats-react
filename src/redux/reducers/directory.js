@@ -2,39 +2,35 @@ const INITIAL_STATE = {
   sections: [
     {
       title: 'BURGERS',
-      imageUrl:
-        'https://i.ibb.co/xsVSt0f/ham-burger-with-vegetables-1639557.jpg',
+      imageUrl: 'https://i.ibb.co/Pjw1C4Y/burgers.jpg',
       id: 1,
-      linkUrl: 'shop/mens'
+      linkUrl: 'shop/burgers'
     },
     {
       title: 'CHICKEN',
-      imageUrl:
-        'https://i.ibb.co/WsdGLZN/barbecue-blur-chicken-citrus-209406.jpg',
+      imageUrl: 'https://i.ibb.co/6NgsQym/chicken.jpg',
       id: 2,
-      linkUrl: 'shop/jackets'
+      linkUrl: 'shop/chicken'
     },
 
     {
       title: 'SUSHI',
-      imageUrl:
-        'https://i.ibb.co/kQys5r3/closeup-photo-of-sushi-on-ceramic-plate-1028425.jpg',
+      imageUrl: 'https://i.ibb.co/x7tRTkx/sushi.jpg',
       id: 3,
-      linkUrl: 'shop/hats'
+      linkUrl: 'shop/sushi'
     },
     {
       title: 'PIZZA',
-      imageUrl:
-        'https://i.ibb.co/rG2M3XR/close-up-photo-of-person-holding-pizza-1653877.jpg',
+      imageUrl: 'https://i.ibb.co/wsLzLfd/pizza.jpg',
       id: 4,
-      linkUrl: 'shop/mens'
+      linkUrl: 'shop/pizza'
     },
 
     {
       title: 'SANDWICHES',
-      imageUrl: 'https://i.ibb.co/0BSdyjw/sandwich-1603898.jpg',
+      imageUrl: 'https://i.ibb.co/VJ5nhHx/sandwiches.jpg',
       id: 5,
-      linkUrl: 'shop/womens'
+      linkUrl: 'shop/sandwiches'
     }
   ]
 }

@@ -2,17 +2,6 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/auth'
 
-const config = {
-  apiKey: 'AIzaSyANILBdWUc8OpeTPnATlpuFndCY8zi-U9E',
-  authDomain: 'quikeats-d24d2.firebaseapp.com',
-  databaseURL: 'https://quikeats-d24d2.firebaseio.com',
-  projectId: 'quikeats-d24d2',
-  storageBucket: 'quikeats-d24d2.appspot.com',
-  messagingSenderId: '708033252363',
-  appId: '1:708033252363:web:385f17204525cd8959cb0e',
-  measurementId: 'G-TGZMLSDKHP'
-}
-
 firebase.initializeApp(config)
 
 export const createUserProfileDocument = async (userAuth, data) => {
