@@ -8,7 +8,6 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "firebase": "^7.7.0",
-    "node-sass": "^4.13.1",
     "proptypes": "^1.1.0",
     "react": "^16.12.0",
     "react-animation": "^1.2.2",

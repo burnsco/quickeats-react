@@ -9,8 +9,8 @@ import {auth, createUserProfileDocument} from './firebase/utils'
 
 import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-
 import FallBackSpinner from './components/FallBackSpinner'
+
 import Header from './components/Header'
 const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))

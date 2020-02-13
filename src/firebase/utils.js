@@ -3,14 +3,14 @@ import 'firebase/firestore'
 import 'firebase/auth'
 
 const config = {
-  apiKey: 'AIzaSyC0hg2LDxJ82yZ6YoFm9ro4AD5M-YiAt0A',
-  authDomain: 'crwn-db-52861.firebaseapp.com',
-  databaseURL: 'https://crwn-db-52861.firebaseio.com',
-  projectId: 'crwn-db-52861',
-  storageBucket: 'crwn-db-52861.appspot.com',
-  messagingSenderId: '767664389138',
-  appId: '1:767664389138:web:8f6cb472685c0f0e59accb',
-  measurementId: 'G-C3BBRHYK9T'
+  apiKey: 'AIzaSyANILBdWUc8OpeTPnATlpuFndCY8zi-U9E',
+  authDomain: 'quikeats-d24d2.firebaseapp.com',
+  databaseURL: 'https://quikeats-d24d2.firebaseio.com',
+  projectId: 'quikeats-d24d2',
+  storageBucket: 'quikeats-d24d2.appspot.com',
+  messagingSenderId: '708033252363',
+  appId: '1:708033252363:web:385f17204525cd8959cb0e',
+  measurementId: 'G-TGZMLSDKHP'
 }
 
 firebase.initializeApp(config)
