@@ -12,6 +12,7 @@ const NavContainerStyles = css`
     border-width: thick;
   }
 `
+
 const Container = styled.header`
   height: 70px;
   width: 100%;
@@ -22,8 +23,11 @@ const Container = styled.header`
 const LogoContainer = styled.div`
   margin-left: 10px;
   height: 100%;
-  width: 70px;
-  padding: 15px;
+  display: flex;
+`
+const LogoTitle = styled.h1`
+  font-family: 'Staatliches', cursive;
+  margin-bottom: 10px;
 `
 const NavContainer = styled.nav`
   margin-right: 10px;
@@ -40,4 +44,4 @@ const SignOutLink = styled.div`
   ${NavContainerStyles}
 `
 
-export {NavLink, NavContainer, LogoContainer, Container, SignOutLink}
+export {NavLink, NavContainer, LogoContainer, Container, SignOutLink, LogoTitle}

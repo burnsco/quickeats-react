@@ -8,6 +8,7 @@ import {PersistGate} from 'redux-persist/integration/react'
 import {store, persistor} from './redux/store'
 
 import './index.css'
+import './css/izmir.min.css'
 import App from './App'
 
 render(
