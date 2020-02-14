@@ -2,7 +2,12 @@ import React, { useState } from 'react'
 import CustomButton from '../../components/CustomButton'
 import FormInput from '../../components/FormInput'
 import { auth, signInWithGoogle } from '../../firebase/utils.js'
-import { ButtonsBarContainer, SignInContainer } from './styles'
+import {
+  ButtonsBarContainer,
+  CreateAccountLink,
+  SignInContainer,
+  WelcomePage
+} from './styles'
 
 const SignIn = () => {
   const [email, setEmail] = useState('')
@@ -29,35 +34,38 @@ const SignIn = () => {
   }
 
   return (
-    <SignInContainer>
-      <h1>Welcome back</h1>
-      <span>Sign in with your email and password</span>
+    <WelcomePage>
+      <SignInContainer>
+        <h1>Welcome back</h1>
+        <span>Sign in with your email and password</span>
 
-      <form onSubmit={handleSubmit}>
-        <FormInput
-          name="email"
-          type="email"
-          handleChange={handleChange}
-          value={email}
-          label="email"
-          required
-        />
-        <FormInput
-          name="password"
-          type="password"
-          value={password}
-          handleChange={handleChange}
-          label="password"
-          required
-        />
-        <ButtonsBarContainer>
-          <CustomButton type="submit"> Sign in </CustomButton>
-          <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
-            Sign in with Google
-          </CustomButton>
-        </ButtonsBarContainer>
-      </form>
-    </SignInContainer>
+        <form onSubmit={handleSubmit}>
+          <FormInput
+            name="email"
+            type="email"
+            handleChange={handleChange}
+            value={email}
+            label="email"
+            required
+          />
+          <FormInput
+            name="password"
+            type="password"
+            value={password}
+            handleChange={handleChange}
+            label="password"
+            required
+          />
+          <ButtonsBarContainer>
+            <CustomButton type="submit"> Sign in </CustomButton>
+            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+              Sign in with Google
+            </CustomButton>
+          </ButtonsBarContainer>
+        </form>
+        <CreateAccountLink to="/signup">Create an Account</CreateAccountLink>
+      </SignInContainer>
+    </WelcomePage>
   )
 }
 

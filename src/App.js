@@ -14,7 +14,8 @@ import { selectCurrentUser } from './redux/selectors/user'
 
 const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))
-const Forms = lazy(() => import('./pages/Forms'))
+const SignIn = lazy(() => import('./pages/Forms/SignIn'))
+const SignUp = lazy(() => import('./pages/Forms/SignUp'))
 const Checkout = lazy(() => import('./pages/Checkout'))
 
 toast.configure({ autoClose: 2000, useLazyContainer: 'true' })
@@ -58,9 +59,16 @@ class App extends React.Component {
               <Route exact path="/checkout" component={Checkout} />
               <Route
                 exact
-                path="/forms"
+                path="/signin"
                 render={() =>
-                  this.props.currentUser ? <Redirect to="/" /> : <Forms />
+                  this.props.currentUser ? <Redirect to="/" /> : <SignIn />
+                }
+              />
+              <Route
+                exact
+                path="/signup"
+                render={() =>
+                  this.props.currentUser ? <Redirect to="/" /> : <SignUp />
                 }
               />
             </Switch>

@@ -1,7 +1,7 @@
 import React from 'react'
 import StripeCheckout from 'react-stripe-checkout'
 
-const StripeButton = ({price}) => {
+const StripeButton = ({ price }) => {
   const priceForStripe = price * 100
   const publishableKey = 'pk_test_vpGSWYO2Gcy8v1FP2N7yqa0u007MEuVq3g'
 
@@ -12,10 +12,9 @@ const StripeButton = ({price}) => {
   return (
     <StripeCheckout
       label="Pay Now"
-      name="Crn Clothing Ltd"
+      name="Quik Eats Inc."
       billingAddress
       shippingAddress
-      image="https://svgshare.com/i/CUz.svg"
       description={`Your total is $${price}`}
       amount={priceForStripe}
       panelLabel="Pay Now"
