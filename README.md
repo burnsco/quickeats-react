@@ -1,4 +1,4 @@
-### Shopping Site
+### QUIK EATS ( an ubereats clone)
 
 ## Using React, Redux, Styled Components, SASS, Firebase, GraphQL and more
 
@@ -6,5 +6,5 @@
 - [ ] Make a Footer Component
 - [x] Add Animations for Cards
 - [x] Add Animations for Header
-- [ ] Spinner for add to cart
-- [ ] PopUp when you added item to cart
+- [x] Spinner for add to cart
+- [x] PopUp when you added item to cart

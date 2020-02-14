@@ -1,8 +1,8 @@
 import React from 'react'
-import {auth, createUserProfileDocument} from '../../firebase/utils'
-import FormInput from '../../components/FormInput'
 import CustomButton from '../../components/CustomButton'
-import {SignUpContainer} from './styles'
+import FormInput from '../../components/FormInput'
+import { auth, createUserProfileDocument } from '../../firebase/utils'
+import { ButtonsBarContainer, SignUpContainer } from './styles'
 
 class SignUp extends React.Component {
   constructor() {
@@ -16,13 +16,13 @@ class SignUp extends React.Component {
     }
   }
   handleChange = e => {
-    const {name, value} = e.target
-    this.setState({[name]: value})
+    const { name, value } = e.target
+    this.setState({ [name]: value })
   }
   handleSubmit = async event => {
     event.preventDefault()
 
-    const {displayName, email, password, confirmPassword} = this.state
+    const { displayName, email, password, confirmPassword } = this.state
 
     if (password !== confirmPassword) {
       alert('passwords dont match')
@@ -30,9 +30,12 @@ class SignUp extends React.Component {
     }
 
     try {
-      const {user} = await auth.createUserWithEmailAndPassword(email, password)
+      const { user } = await auth.createUserWithEmailAndPassword(
+        email,
+        password
+      )
 
-      await createUserProfileDocument(user, {displayName})
+      await createUserProfileDocument(user, { displayName })
 
       this.setState({
         displayName: '',
@@ -46,7 +49,7 @@ class SignUp extends React.Component {
   }
 
   render() {
-    const {displayName, email, password, confirmPassword} = this.state
+    const { displayName, email, password, confirmPassword } = this.state
 
     return (
       <SignUpContainer>
@@ -87,7 +90,10 @@ class SignUp extends React.Component {
             value={confirmPassword}
             required
           />
-          <CustomButton type="submit"> SIGN UP </CustomButton>
+          <ButtonsBarContainer>
+            <CustomButton type="submit"> SIGN UP </CustomButton>
+            <CustomButton> SIGN IN </CustomButton>
+          </ButtonsBarContainer>
         </form>
       </SignUpContainer>
     )

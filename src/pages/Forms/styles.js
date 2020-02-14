@@ -1,10 +1,9 @@
 import styled from 'styled-components'
 
 export const FormsPageContainer = styled.div`
-  width: 850px;
   display: flex;
-  justify-content: space-between;
-  margin: 30px auto;
+  flex-direction: column;
+  align-items: center;
 `
 export const SignInContainer = styled.div`
   width: 380px;

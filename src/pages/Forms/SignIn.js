@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
-import FormInput from '../../components/FormInput'
+import React, { useState } from 'react'
 import CustomButton from '../../components/CustomButton'
-import {auth, signInWithGoogle} from '../../firebase/utils.js'
-import {SignInContainer, ButtonsBarContainer} from './styles'
+import FormInput from '../../components/FormInput'
+import { auth, signInWithGoogle } from '../../firebase/utils.js'
+import { ButtonsBarContainer, SignInContainer } from './styles'
 
 const SignIn = () => {
   const [email, setEmail] = useState('')
@@ -20,7 +20,7 @@ const SignIn = () => {
   }
 
   const handleChange = event => {
-    const {value, name} = event.target
+    const { value, name } = event.target
     if (name === 'email') {
       setEmail(value)
     } else {
@@ -30,7 +30,7 @@ const SignIn = () => {
 
   return (
     <SignInContainer>
-      <SignInContainer>I already have an account</SignInContainer>
+      <h1>Welcome back</h1>
       <span>Sign in with your email and password</span>
 
       <form onSubmit={handleSubmit}>

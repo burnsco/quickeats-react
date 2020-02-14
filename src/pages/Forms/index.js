@@ -1,15 +1,35 @@
-import React from 'react'
-
+import React, { useState } from 'react'
+import styled from 'styled-components'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 
-import {FormsPageContainer} from './styles.js'
+const WelcomePage = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+const CreateAccountLink = styled.h3`
+  color: red;
+  margin-top: 50px;
+  &:hover {
+    text-decoration: underline;
+  }
+`
 
-const Forms = () => (
-  <FormsPageContainer>
-    <SignIn />
-    <SignUp />
-  </FormsPageContainer>
-)
+const Forms = () => {
+  const [signIn, setSignIn] = useState(true)
+  const toggle = () => setSignIn(!signIn)
+  return (
+    <WelcomePage>
+      {signIn ? <SignIn /> : <SignUp />}
+
+      {signIn && (
+        <CreateAccountLink onClick={toggle} style={{ color: 'red' }}>
+          Create an Account
+        </CreateAccountLink>
+      )}
+    </WelcomePage>
+  )
+}
 
 export default Forms

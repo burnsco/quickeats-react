@@ -1,12 +1,11 @@
 import React from 'react'
-import styled from 'styled-components'
-import {connect} from 'react-redux'
-import {animations} from 'react-animation'
+import { animations } from 'react-animation'
 import 'react-animation/dist/keyframes.css'
+import { connect } from 'react-redux'
+import { toast } from 'react-toastify'
+import styled from 'styled-components'
+import { addItemToCart } from '../../redux/actions/cart'
 import CustomButton from '../CustomButton'
-import {addItemToCart} from '../../redux/actions/cart'
-
-import {toast} from 'react-toastify'
 
 const CardContainer = styled.div`
   margin: 10px;
@@ -66,8 +65,8 @@ const AddItemButton = styled(CustomButton)`
   display: none;
 `
 
-const CollectionItem = ({item, addItemToCart}) => {
-  const {name, price, imageUrl} = item
+const CollectionItem = ({ item, addItemToCart }) => {
+  const { name, price, imageUrl } = item
   return (
     <CardContainer>
       <ImageContainer
@@ -76,7 +75,7 @@ const CollectionItem = ({item, addItemToCart}) => {
         }}
       >
         <AddItemButton
-          style={{animation: animations.popIn}}
+          style={{ animation: animations.popIn }}
           invertedOrange
           onClick={() => {
             addItemToCart(item)
