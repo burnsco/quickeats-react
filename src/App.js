@@ -9,6 +9,7 @@ import {auth, createUserProfileDocument} from './firebase/utils'
 import {toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import FallBackSpinner from './components/FallBackSpinner'
+import {Normalize} from 'styled-normalize'
 
 import Header from './components/Header'
 const Home = lazy(() => import('./pages/Home'))
@@ -35,19 +36,18 @@ class App extends React.Component {
           })
         })
       }
-
       setCurrentUser(userAuth)
     })
   }
-
   componentWillUnmount() {
     this.unsubscribeFromAuth()
   }
 
   render() {
     return (
-      <div>
+      <>
         <ErrorBoundary>
+          <Normalize />
           <Header />
           <Suspense fallback={FallBackSpinner()}>
             <Switch>
@@ -64,7 +64,7 @@ class App extends React.Component {
             </Switch>
           </Suspense>
         </ErrorBoundary>
-      </div>
+      </>
     )
   }
 }

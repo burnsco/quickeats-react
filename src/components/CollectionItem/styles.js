@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import CustomButton from '../CustomButton'
 
-const CollectionItemContainer = styled.div`
+export const CollectionItemContainer = styled.div`
   margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -20,7 +20,7 @@ const CollectionItemContainer = styled.div`
     padding: 0;
   }
 `
-const ImageContainer = styled.div`
+export const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   height: 300px;
@@ -28,7 +28,7 @@ const ImageContainer = styled.div`
   background-size: cover;
   background-position: center;
 `
-const Footer = styled.div`
+export const Footer = styled.div`
   font-family: 'Roboto Condensed', sans-serif;
   width: 100%;
   flex-direction: column;
@@ -36,18 +36,18 @@ const Footer = styled.div`
   font-size: 16px;
 `
 
-const Collection = styled.h5`
+export const Collection = styled.h5`
   display: flex;
   margin-bottom: 15px;
   justify-content: space-between;
 `
-const Name = styled.div`
+export const Name = styled.div`
   margin-left: 20px;
 `
-const Price = styled.div`
+export const Price = styled.div`
   margin-right: 10px;
 `
-const AddItemButton = styled(CustomButton)`
+export const AddItemButton = styled(CustomButton)`
   align-self: flex-end;
   margin-bottom: 5px;
   width: 30%;

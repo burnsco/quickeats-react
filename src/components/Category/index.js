@@ -5,8 +5,7 @@ import {selectCollection} from '../../redux/selectors/shop'
 import CollectionItem from '../CollectionItem'
 import {CategoryWrapper, Title, CollectionItems} from './styles'
 
-const Category = ({collection}) => {
-  let {items, title} = collection
+const Category = ({collection: {items, title}}) => {
   return (
     <CategoryWrapper style={{animation: animations.fadeIn}}>
       <Title>{title}</Title>

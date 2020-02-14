@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const CheckoutPageContainer = styled.div`
-  width: 85%;
+  width: 95%;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@ export const CheckoutPageContainer = styled.div`
 
   button {
     margin-left: auto;
-    margin-top: 50px;
+    margin-bottom: 50px;
   }
 `
 export const CheckoutHeaderContainer = styled.div`
@@ -40,5 +40,6 @@ export const WarningContainer = styled.div`
   text-align: center;
   margin-top: 40px;
   font-size: 24px;
+  margin-bottom: 50px;
   color: red;
 `

@@ -2,6 +2,7 @@ import React from 'react'
 import {auth, createUserProfileDocument} from '../../firebase/utils'
 import FormInput from '../../components/FormInput'
 import CustomButton from '../../components/CustomButton'
+import {SignUpContainer} from './styles'
 
 class SignUp extends React.Component {
   constructor() {
@@ -14,13 +15,10 @@ class SignUp extends React.Component {
       confirmPassword: ''
     }
   }
-
   handleChange = e => {
     const {name, value} = e.target
-
     this.setState({[name]: value})
   }
-
   handleSubmit = async event => {
     event.preventDefault()
 
@@ -49,9 +47,10 @@ class SignUp extends React.Component {
 
   render() {
     const {displayName, email, password, confirmPassword} = this.state
+
     return (
-      <div>
-        <h2>I do not have an account</h2>
+      <SignUpContainer>
+        <SignUpContainer>I do not have an account</SignUpContainer>
 
         <span>Sign up with your email and password</span>
 
@@ -90,7 +89,7 @@ class SignUp extends React.Component {
           />
           <CustomButton type="submit"> SIGN UP </CustomButton>
         </form>
-      </div>
+      </SignUpContainer>
     )
   }
 }

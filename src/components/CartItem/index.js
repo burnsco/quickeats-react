@@ -3,14 +3,15 @@ import React from 'react'
 import {
   CartItemContainer,
   ItemDetailsContainer,
-  CartItemImage
+  CartItemImage,
+  CartItemName
 } from './styles.js'
 
 const CartItem = ({item: {imageUrl, price, name, quantity}}) => (
   <CartItemContainer>
-    <CartItemImage src={imageUrl} alt="item" />
+    <CartItemImage src={imageUrl} alt={name} />
     <ItemDetailsContainer>
-      <span>{name}</span>
+      <CartItemName>{name}</CartItemName>
       <span>
         {quantity} x ${price}
       </span>
