@@ -1,8 +1,8 @@
-import styled, {css} from 'styled-components'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import styled, { css } from 'styled-components'
 
 const NavContainerStyles = css`
-  font-size: 14px;
+  font-size: 1em;
   cursor: pointer;
   padding: 10px 25px;
   letter-spacing: 1px;
@@ -12,7 +12,6 @@ const NavContainerStyles = css`
     border-width: thick;
   }
 `
-
 const Container = styled.header`
   height: 70px;
   width: 100%;
@@ -44,4 +43,11 @@ const SignOutLink = styled.div`
   ${NavContainerStyles}
 `
 
-export {NavLink, NavContainer, LogoContainer, Container, SignOutLink, LogoTitle}
+export {
+  NavLink,
+  NavContainer,
+  LogoContainer,
+  Container,
+  SignOutLink,
+  LogoTitle
+}

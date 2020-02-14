@@ -1,20 +1,20 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {createStructuredSelector} from 'reselect'
-import {animations} from 'react-animation'
+import { animations } from 'react-animation'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
+import { createStructuredSelector } from 'reselect'
+import { toggleCartHidden } from '../../redux/actions/cart'
+import { selectCartItems } from '../../redux/selectors/cart'
 import CartItem from '../CartItem'
-import {selectCartItems} from '../../redux/selectors/cart'
-import {withRouter} from 'react-router-dom'
-import {toggleCartHidden} from '../../redux/actions/cart'
 import {
+  CartDropdownButton,
   CartDropdownContainer,
   CartItemsContainer,
-  EmptyMessageContainer,
-  CartDropdownButton
+  EmptyMessageContainer
 } from './styles'
 
-export const CartDropDown = ({cartItems, dispatch, history}) => (
-  <CartDropdownContainer style={{animation: animations.popIn}}>
+export const CartDropDown = ({ cartItems, dispatch, history }) => (
+  <CartDropdownContainer style={{ animation: animations.popIn }}>
     <CartItemsContainer>
       {cartItems.length ? (
         cartItems.map(item => <CartItem key={item.id} item={item} />)
@@ -23,7 +23,7 @@ export const CartDropDown = ({cartItems, dispatch, history}) => (
       )}
     </CartItemsContainer>
     <CartDropdownButton
-      style={{marginTop: 10 + 'px', width: 210 + 'px'}}
+      style={{ marginTop: 10 + 'px', width: 210 + 'px' }}
       disabled={cartItems.length === 0}
       onClick={() => {
         history.push('/checkout')

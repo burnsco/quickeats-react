@@ -1,24 +1,21 @@
-* {
-  box-sizing: border-box;
-}
-
+html,
 body {
   background: #ece9e6; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     to right,
     #ffffff,
-    #ece9e6
+    #bdbab7
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     to right,
     #ffffff,
     #ece9e6
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
   margin: 0px;
-  min-height: 100vh;
+  min-height: 100%;
+  padding-bottom: 30px;
   font-family: 'Open Sans Condensed', sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
