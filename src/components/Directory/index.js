@@ -1,9 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {createStructuredSelector} from 'reselect'
+import styled from 'styled-components'
 import {selectDirectorySections} from '../../redux/selectors/directory'
 import Card from '../Card'
-import styled from 'styled-components'
 
 const DirectoryMenuContainer = styled.section`
   margin-top: 2em;

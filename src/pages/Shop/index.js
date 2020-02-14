@@ -1,11 +1,11 @@
-import React, {useEffect} from 'react'
-import {connect} from 'react-redux'
-import {Route} from 'react-router-dom'
-import {fetchCollectionsStartAsync} from '../../redux/actions/shop'
-import CollectionsOverviewContainer from '../../components/CollectionsOverview/Container'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { Route } from 'react-router-dom'
 import CategoryPageContainer from '../../components/Category/Container'
+import CollectionsOverviewContainer from '../../components/CollectionsOverview/Container'
+import { fetchCollectionsStartAsync } from '../../redux/actions/shop'
 
-const Shop = ({fetchCollectionsStartAsync, match}) => {
+const Shop = ({ fetchCollectionsStartAsync, match }) => {
   useEffect(() => {
     fetchCollectionsStartAsync()
   }, [fetchCollectionsStartAsync])

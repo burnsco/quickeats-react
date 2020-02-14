@@ -1,6 +1,6 @@
 import firebase from 'firebase/app'
-import 'firebase/firestore'
 import 'firebase/auth'
+import 'firebase/firestore'
 
 const config = {
   apiKey: 'AIzaSyANILBdWUc8OpeTPnATlpuFndCY8zi-U9E',
@@ -23,7 +23,7 @@ export const createUserProfileDocument = async (userAuth, data) => {
   const snapShot = await userRef.get()
 
   if (!snapShot.exists) {
-    const {displayName, email} = userAuth
+    const { displayName, email } = userAuth
     const createdAt = new Date()
 
     try {
@@ -38,6 +38,23 @@ export const createUserProfileDocument = async (userAuth, data) => {
     }
   }
   return userRef
+}
+
+export const unsubscribeFromAuth = ({ setCurrentUser }) => {
+  auth.onAuthStateChanged(async userAuth => {
+    if (userAuth) {
+      const userRef = await createUserProfileDocument(userAuth)
+
+      userRef.onSnapshot(snapShot => {
+        setCurrentUser({
+          id: snapShot.id,
+          ...snapShot.data()
+        })
+      })
+    }
+
+    setCurrentUser(userAuth)
+  })
 }
 
 export const addCollectionAndDocuments = async (
@@ -58,7 +75,7 @@ export const addCollectionAndDocuments = async (
 
 export const convertCollectionsSnapshotToMap = collections => {
   const transformedCollection = collections.docs.map(doc => {
-    const {title, items} = doc.data()
+    const { title, items } = doc.data()
 
     return {
       routeName: encodeURI(title.toLowerCase()),
@@ -78,7 +95,7 @@ export const auth = firebase.auth()
 export const firestore = firebase.firestore()
 
 const provider = new firebase.auth.GoogleAuthProvider()
-provider.setCustomParameters({prompt: 'select_account'})
+provider.setCustomParameters({ prompt: 'select_account' })
 export const signInWithGoogle = () => auth.signInWithPopup(provider)
 
 export default firebase
