@@ -1,8 +1,8 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {createStructuredSelector} from 'reselect'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 import styled from 'styled-components'
-import {selectDirectorySections} from '../../redux/selectors/directory'
+import { selectDirectorySections } from '../../redux/selectors/directory'
 import Card from '../Card'
 
 const DirectoryMenuContainer = styled.section`
@@ -12,10 +12,10 @@ const DirectoryMenuContainer = styled.section`
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 `
 
-const Directory = ({sections}) => {
+const Directory = ({ sections }) => {
   return (
     <DirectoryMenuContainer>
-      {sections.map(({id, ...sectionProps}) => (
+      {sections.map(({ id, ...sectionProps }) => (
         <Card key={id} {...sectionProps} />
       ))}
     </DirectoryMenuContainer>

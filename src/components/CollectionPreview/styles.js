@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CollectionPreviewContainer = styled.div`
+export const CollectionPreviewContainer = styled.section`
   display: flex;
   margin-bottom: 40px;
   margin-right: 10px;

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import CustomButton from '../CustomButton'
 
-export const CollectionItemContainer = styled.div`
+export const CardContainer = styled.div`
   margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
@@ -36,7 +36,7 @@ export const Footer = styled.div`
   font-size: 16px;
 `
 
-export const Collection = styled.h5`
+export const NamePriceContainer = styled.h5`
   display: flex;
   margin-bottom: 15px;
   justify-content: space-between;

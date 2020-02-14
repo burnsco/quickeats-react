@@ -1,20 +1,18 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {createStructuredSelector} from 'reselect'
-import {selectCartItems, selectCartTotal} from '../../redux/selectors/cart'
-
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 import CheckoutItem from '../../components/CheckoutItem'
 import StripeButton from '../../components/StripeButton'
-
+import { selectCartItems, selectCartTotal } from '../../redux/selectors/cart'
 import {
-  CheckoutPageContainer,
   CheckoutHeaderContainer,
+  CheckoutPageContainer,
   HeaderBlockContainer,
   TotalContainer,
   WarningContainer
 } from './styles.js'
 
-const Checkout = ({cartItems, total}) => (
+const Checkout = ({ cartItems, total }) => (
   <CheckoutPageContainer>
     <CheckoutHeaderContainer>
       <HeaderBlockContainer>

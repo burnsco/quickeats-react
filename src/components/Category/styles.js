@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const CategoryWrapper = styled.div`
+export const CategoryWrapper = styled.section`
   margin-right: 10px;
   margin-left: 10px;
   display: flex;
