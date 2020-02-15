@@ -1,20 +1,24 @@
 import React, { lazy, Suspense } from 'react'
 import { connect } from 'react-redux'
 import { Redirect, Route, Switch } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 import { createStructuredSelector } from 'reselect'
 import { Normalize } from 'styled-normalize'
-import { auth, createUserProfileDocument } from '../../firebase/utils'
-import { setCurrentUser } from '../../redux/actions/user'
-import { selectCurrentUser } from '../../redux/selectors/user'
-import ErrorBoundary from '../Error/ErrorBoundary'
-import FallBackSpinner from '../FallBackSpinner'
-import Header from '../Header'
+import ErrorBoundary from './components/Error/ErrorBoundary'
+import FallBackSpinner from './components/FallBackSpinner'
+import Header from './components/Header'
+import { auth, createUserProfileDocument } from './firebase/utils'
+import { setCurrentUser } from './redux/actions/user'
+import { selectCurrentUser } from './redux/selectors/user'
 
-const Home = lazy(() => import('../../pages/Home'))
-const Shop = lazy(() => import('../../pages/Shop'))
-const SignIn = lazy(() => import('../../pages/Forms/SignIn'))
-const SignUp = lazy(() => import('../../pages/Forms/SignUp'))
-const Checkout = lazy(() => import('../../pages/Checkout'))
+const Home = lazy(() => import('./pages/Home'))
+const Shop = lazy(() => import('./pages/Shop'))
+const SignIn = lazy(() => import('./pages/Forms/SignIn'))
+const SignUp = lazy(() => import('./pages/Forms/SignUp'))
+const Checkout = lazy(() => import('./pages/Checkout'))
+
+toast.configure({ autoClose: 2000, useLazyContainer: 'true' })
 
 class App extends React.Component {
   unsubscribeFromAuth = null
@@ -47,18 +51,12 @@ class App extends React.Component {
       <>
         <ErrorBoundary>
           <Normalize />
+          <Header />
           <Suspense fallback={FallBackSpinner()}>
-            <Header />
             <Switch>
-              <Route path="/shop">
-                <Shop />
-              </Route>
-              <Route path="/checkout">
-                <Checkout />
-              </Route>
-              <Route path="/">
-                <Home />
-              </Route>
+              <Route exact path="/" component={Home} />
+              <Route path="/shop" component={Shop} />
+              <Route exact path="/checkout" component={Checkout} />
               <Route
                 exact
                 path="/signin"

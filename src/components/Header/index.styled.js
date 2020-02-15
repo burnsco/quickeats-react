@@ -5,7 +5,12 @@ const NavContainerStyles = css`
   font-size: 1em;
   cursor: pointer;
   padding: 10px 25px;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
+
+  &:hover {
+    border-bottom: 1px solid black;
+    border-width: thick;
+  }
 `
 const Container = styled.header`
   height: 70px;

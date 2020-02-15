@@ -14,22 +14,27 @@ import {
   NavContainer,
   NavLink,
   SignOutLink
-} from './styles'
-import HeaderLogo from './Logo'
+} from './index.styled'
 
 const Header = ({ currentUser, hidden }) => (
   <Container>
-    {/* <NavLink to="/">HOME</NavLink> */}
-    <HeaderLogo />
+    <LogoContainer>
+      <Logo style={{ height: 80 + 'px', width: 80 + 'px' }} />
+      <LogoTitle>
+        QUIK <span style={{ color: 'red' }}>EATS</span>
+      </LogoTitle>
+    </LogoContainer>
 
-    <NavLink to="/shop">SHOP</NavLink>
-    {currentUser ? (
-      <SignOutLink onClick={() => auth.signOut()}>SIGN OUT</SignOutLink>
-    ) : (
-      <NavLink to="/signin">SIGN IN</NavLink>
-    )}
-    <CartIcon />
-
+    <NavContainer>
+      <NavLink to="/">HOME</NavLink>
+      <NavLink to="/shop">SHOP</NavLink>
+      {currentUser ? (
+        <SignOutLink onClick={() => auth.signOut()}>SIGN OUT</SignOutLink>
+      ) : (
+        <NavLink to="/signin">SIGN IN</NavLink>
+      )}
+      <CartIcon />
+    </NavContainer>
     {hidden ? null : <CartDropDown />}
   </Container>
 )

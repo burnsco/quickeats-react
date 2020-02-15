@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 
 export const CategoryWrapper = styled.section`
+  margin-right: 10px;
+  margin-left: 10px;
   display: flex;
-  align-self: auto;
   flex-direction: column;
 `
 export const Title = styled.h2`

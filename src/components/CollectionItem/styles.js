@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import CustomButton from '../CustomButton'
 
 export const CardContainer = styled.div`
+  margin: 10px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   margin-bottom: 10px;
@@ -19,14 +20,14 @@ export const CardContainer = styled.div`
     padding: 0;
   }
 `
-// export const ImageContainer = styled.div`
-//   display: flex;
-//   justify-content: center;
-//   height: 300px;
-//   min-width: 15rem;
-//   background-size: cover;
-//   background-position: center;
-// `
+export const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  min-width: 15rem;
+  background-size: cover;
+  background-position: center;
+`
 export const Footer = styled.div`
   font-family: 'Roboto Condensed', sans-serif;
   width: 100%;
@@ -46,17 +47,14 @@ export const Name = styled.div`
 export const Price = styled.div`
   margin-right: 10px;
 `
-export const ImageContainer = styled.div`
-  max-height: 80%;
-`
-export const CardImage = styled.picture`
-  width: 100%;
-  height: 100%;
-`
 export const AddItemButton = styled(CustomButton)`
-  width: 100%;
+  align-self: flex-end;
+  margin-bottom: 5px;
+  width: 30%;
+  opacity: 0;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   text-decoration: none;
-  border: 1px solid grey;
+  border: none;
+  display: none;
 `
