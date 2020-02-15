@@ -1,5 +1,5 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import {
   clearItemFromCart,
   addItemToCart,
@@ -14,8 +14,8 @@ import {
   RemoveButtonContainer
 } from './styles.js'
 
-const CheckoutItem = ({cartItem, clearItem, addItem, removeItem}) => {
-  const {name, imageUrl, price, quantity} = cartItem
+const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
+  const { name, imageUrl, price, quantity } = cartItem
   return (
     <CheckoutItemContainer>
       <ImageContainer>
@@ -27,8 +27,11 @@ const CheckoutItem = ({cartItem, clearItem, addItem, removeItem}) => {
         <span>{quantity}</span>
         <div onClick={() => addItem(cartItem)}>&#10095;</div>
       </QuantityContainer>
-      <TextContainer>{price}</TextContainer>
-      <RemoveButtonContainer onClick={() => clearItem(cartItem)}>
+      <TextContainer>${price}</TextContainer>
+      <RemoveButtonContainer
+        style={{ paddingRight: 5 }}
+        onClick={() => clearItem(cartItem)}
+      >
         &#10005;
       </RemoveButtonContainer>
     </CheckoutItemContainer>

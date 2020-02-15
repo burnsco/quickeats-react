@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import CategoryPageContainer from '../../components/Category/Container'
 import CollectionsOverviewContainer from '../../components/CollectionsOverview/Container'
 import { fetchCollectionsStartAsync } from '../../redux/actions/shop'
@@ -11,17 +11,14 @@ const Shop = ({ fetchCollectionsStartAsync, match }) => {
   }, [fetchCollectionsStartAsync])
 
   return (
-    <>
-      <Route
-        exact
-        path={`${match.path}`}
-        component={CollectionsOverviewContainer}
-      />
-      <Route
-        path={`${match.path}/:category`}
-        component={CategoryPageContainer}
-      />
-    </>
+    <Switch>
+      <Route path={`${match.path}/:category`}>
+        <CategoryPageContainer />
+      </Route>
+      <Route path={`${match.path}`}>
+        <CollectionsOverviewContainer />
+      </Route>
+    </Switch>
   )
 }
 

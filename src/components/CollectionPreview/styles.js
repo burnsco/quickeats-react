@@ -2,12 +2,11 @@ import styled from 'styled-components'
 
 export const CollectionPreviewContainer = styled.section`
   display: flex;
-  margin-bottom: 40px;
-  margin-right: 10px;
-  margin-left: 10px;
+  align-self: auto;
+  margin: 20px auto;
+  padding: 0px 16px;
   flex-direction: column;
 `
-
 export const TitleContainer = styled.h1`
   margin-top: 50px;
   font-size: 34px;
@@ -18,10 +17,9 @@ export const TitleContainer = styled.h1`
     border-width: thick;
   }
 `
-
 export const PreviewContainer = styled.div`
   margin-top: 2em;
   display: grid;
   grid-row-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 `

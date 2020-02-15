@@ -15,21 +15,27 @@ import {
   NavLink,
   SignOutLink
 } from './styles'
-import HeaderLogo from './Logo'
 
 const Header = ({ currentUser, hidden }) => (
   <Container>
-    {/* <NavLink to="/">HOME</NavLink> */}
-    <HeaderLogo />
+    <NavLink to="/">
+      <LogoContainer>
+        <Logo style={{ height: 80 + 'px', width: 80 + 'px' }} />
+        <LogoTitle>
+          QUIK<span style={{ color: 'red' }}>EATS</span>
+        </LogoTitle>
+      </LogoContainer>
+    </NavLink>
 
-    <NavLink to="/shop">SHOP</NavLink>
-    {currentUser ? (
-      <SignOutLink onClick={() => auth.signOut()}>SIGN OUT</SignOutLink>
-    ) : (
-      <NavLink to="/signin">SIGN IN</NavLink>
-    )}
-    <CartIcon />
-
+    <NavContainer>
+      <NavLink to="/shop">SHOP</NavLink>
+      {currentUser ? (
+        <SignOutLink onClick={() => auth.signOut()}>SIGN OUT</SignOutLink>
+      ) : (
+        <NavLink to="/signin">SIGN IN</NavLink>
+      )}
+      <CartIcon />
+    </NavContainer>
     {hidden ? null : <CartDropDown />}
   </Container>
 )

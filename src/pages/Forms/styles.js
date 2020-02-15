@@ -21,7 +21,7 @@ export const FormsPageContainer = styled.div`
   align-items: center;
 `
 export const SignInContainer = styled.div`
-  width: 380px;
+  width: 95%;
   display: flex;
   flex-direction: column;
 `
@@ -45,7 +45,7 @@ export const ButtonsBarContainer = styled.div`
 export const SignUpContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 380px;
+  width: 95%;
 `
 
 export const SignUpTitle = styled.h2`

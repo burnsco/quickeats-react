@@ -1,43 +1,33 @@
 import React from 'react'
-import { animations } from 'react-animation'
-import 'react-animation/dist/keyframes.css'
 import { connect } from 'react-redux'
-import { toast } from 'react-toastify'
 import { addItemToCart } from '../../redux/actions/cart'
 import {
   AddItemButton,
   CardContainer,
   Footer,
-  ImageContainer,
   Name,
   NamePriceContainer,
-  Price
+  Price,
+  CardImage
 } from './styles'
 
 const CollectionItem = ({ item, addItemToCart }) => {
   const { name, price, imageUrl } = item
   return (
     <CardContainer>
-      <ImageContainer
-        style={{
-          backgroundImage: `url(${imageUrl})`
-        }}
-      >
-        <AddItemButton
-          style={{ animation: animations.popIn }}
-          invertedOrange
-          onClick={() => {
-            addItemToCart(item)
-            toast(`Added ${item.name} to cart`)
-          }}
-        >
-          <strong>ADD TO CART</strong>
-        </AddItemButton>
-      </ImageContainer>
+      <CardImage src={imageUrl} alt={name} />
       <Footer>
         <NamePriceContainer>
           <Name>{name}</Name> <Price>${price}</Price>
         </NamePriceContainer>
+        <AddItemButton
+          invertedOrange
+          onClick={() => {
+            addItemToCart(item)
+          }}
+        >
+          <strong>ADD</strong>
+        </AddItemButton>
       </Footer>
     </CardContainer>
   )

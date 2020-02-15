@@ -6,10 +6,9 @@ import { selectDirectorySections } from '../../redux/selectors/directory'
 import Card from '../Card'
 
 const DirectoryMenuContainer = styled.section`
-  margin-top: 2em;
   display: grid;
   grid-row-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 `
 
 const Directory = ({ sections }) => {
