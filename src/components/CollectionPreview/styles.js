@@ -11,12 +11,10 @@ export const CollectionPreviewContainer = styled.section`
 export const TitleContainer = styled.h1`
   margin-top: 50px;
   font-size: 34px;
+  color: grey;
   font-family: 'Open Sans Condensed', sans-serif;
   margin: 0 auto 30px;
-  &:hover {
-    border-bottom: 1px solid black;
-    border-width: thick;
-  }
+  text-decoration: underline;
 `
 
 export const PreviewContainer = styled.div`

@@ -4,9 +4,16 @@ import styled from 'styled-components'
 
 const LogoContainer = styled(Link)`
   font-weight: 500;
+  @media (max-width: 425px) {
+    padding: 0 8px 0 16px;
+    font-size: 19px;
+  }
 `
 const LogoTitle = styled.span`
-  font-size: 2em;
+  font-size: 1em;
+  @media (min-width: 1024px) {
+    font-size: 2em;
+  }
   font-family: 'Staatliches', cursive;
 `
 const Logo = () => (
