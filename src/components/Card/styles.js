@@ -3,16 +3,7 @@ import styled from 'styled-components'
 const CardContainer = styled.figure`
   --primary-color: #e6dada;
   --secondary-color: #274046;
-  --image-opacity: 0.1;
   cursor: pointer;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 10px;
-  margin-bottom: 10px;
-  min-width: 15rem;
-  @media (max-width: 540px) {
-    margin: 0;
-    padding: 0;
-  }
 `
 const CardContentContainer = styled.figcaption`
   padding: 5px 15px;

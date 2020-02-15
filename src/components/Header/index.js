@@ -1,41 +1,25 @@
 import React from 'react'
+import styled from 'styled-components'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
-import { ReactComponent as Logo } from '../../assets/blackcat.svg'
-import { auth } from '../../firebase/utils'
 import { selectCartHidden } from '../../redux/selectors/cart'
 import { selectCurrentUser } from '../../redux/selectors/user'
-import CartDropDown from '../CartDropDown'
-import CartIcon from '../CartIcon'
-import {
-  Container,
-  LogoContainer,
-  LogoTitle,
-  NavContainer,
-  NavLink,
-  SignOutLink
-} from './index.styled'
+import Logo from './Logo/index'
+
+const Container = styled.header`
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  margin-bottom: 3em;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid #ebedf0;
+  height: 40px;
+  background-color: #ffffff;
+`
 
 const Header = ({ currentUser, hidden }) => (
   <Container>
-    <LogoContainer>
-      <Logo style={{ height: 80 + 'px', width: 80 + 'px' }} />
-      <LogoTitle>
-        QUIK <span style={{ color: 'red' }}>EATS</span>
-      </LogoTitle>
-    </LogoContainer>
-
-    <NavContainer>
-      <NavLink to="/">HOME</NavLink>
-      <NavLink to="/shop">SHOP</NavLink>
-      {currentUser ? (
-        <SignOutLink onClick={() => auth.signOut()}>SIGN OUT</SignOutLink>
-      ) : (
-        <NavLink to="/signin">SIGN IN</NavLink>
-      )}
-      <CartIcon />
-    </NavContainer>
-    {hidden ? null : <CartDropDown />}
+    <Logo />
   </Container>
 )
 

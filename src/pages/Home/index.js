@@ -1,16 +1,36 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { createStructuredSelector } from 'reselect'
 import styled from 'styled-components'
-import Directory from '../../components/Directory'
+import { selectDirectorySections } from '../../redux/selectors/directory'
+import Card from '../../components/Card'
 
-const Container = styled.section`
-  margin-right: 25px;
-  margin-left: 25px;
+const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`
+const DirectoryMenuContainer = styled.section`
+  width: 1200px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 `
 
-const Home = () => (
-  <Container>
-    <Directory />
-  </Container>
-)
+const Home = ({ sections }) => {
+  return (
+    <Wrapper>
+      <DirectoryMenuContainer>
+        {sections.map(({ id, ...sectionProps }) => (
+          <Card key={id} {...sectionProps} />
+        ))}
+      </DirectoryMenuContainer>
+    </Wrapper>
+  )
+}
 
-export default Home
+const mapStateToProps = createStructuredSelector({
+  sections: selectDirectorySections
+})
+
+export default connect(mapStateToProps)(Home)
