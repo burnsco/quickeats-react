@@ -861,7 +861,7 @@
     "@babel/helper-plugin-utils" "^7.8.3"
     "@babel/plugin-transform-typescript" "^7.8.3"
 
-"@babel/runtime@7.8.4", "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.0", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.2", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6":
+"@babel/runtime@7.8.4", "@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.0", "@babel/runtime@^7.4.2", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.1", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.2", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.3":
   version "7.8.4"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.4.tgz#d79f5a2040f7caa24d53e563aad49cbc05581308"
   integrity sha512-neAp3zt80trRVBI1x0azq6c57aNBqYZH8KhMm3TaB7wEI5Q4A2SHfBHE8w9gOhI/lrqxtEbXZgQIrHP+wvSGwQ==
@@ -1970,6 +1970,39 @@
     "@webassemblyjs/ast" "1.8.5"
     "@webassemblyjs/wast-parser" "1.8.5"
     "@xtuc/long" "4.2.2"
+
+"@xstyled/core@^1.16.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/core/-/core-1.16.0.tgz#ba261f35672a4a41920e820a9113c08d60b1fec3"
+  integrity sha512-3bRxIcrD6UhyCEbJo228MInStOmuhKs4WkbwIhSAsqjSqDbW3zkwKJqjYxcsn0r0HAGUE08+b5COqEVkjObpnA==
+  dependencies:
+    "@babel/runtime" "^7.8.3"
+    "@xstyled/system" "^1.16.0"
+
+"@xstyled/styled-components@^1.16.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/styled-components/-/styled-components-1.16.0.tgz#c2da6f1fc1850e1f38f7cecbedb4cbe845fcac88"
+  integrity sha512-AytKNoXchXYeIoLMcM/elycW2/bTDNIeVpqgNJ+EpRZsEYG7vyikEcvKKy4q1J6WG+2zHFiPPuTiOGaDLAW8VA==
+  dependencies:
+    "@babel/runtime" "^7.8.3"
+    "@xstyled/core" "^1.16.0"
+    "@xstyled/system" "^1.16.0"
+    "@xstyled/util" "^1.16.0"
+
+"@xstyled/system@^1.16.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/system/-/system-1.16.0.tgz#6db4dfd27d0972d9ca8fceab1fb7ec10b16ce210"
+  integrity sha512-9Ro/GkScv8B2yiFtpkz2Atz9ayfuG3SLCvBcM6C7DHK0Jm+9BP0WVBDDB6GO9+bRD99ThN5labsW4Kw2vJUHHA==
+  dependencies:
+    "@babel/runtime" "^7.8.3"
+    "@xstyled/util" "^1.16.0"
+
+"@xstyled/util@^1.16.0":
+  version "1.16.0"
+  resolved "https://registry.yarnpkg.com/@xstyled/util/-/util-1.16.0.tgz#c0a4ef253d519a9148faacb3e407087feafc57f4"
+  integrity sha512-tyU3VQhnGgqeftSwruk/5+ndOSB+nTbYE77LNQZ0/dsOk48urZrLIBBBfz7jDOwx2zOtw68LpS1D4rtae9SjOA==
+  dependencies:
+    "@babel/runtime" "^7.8.3"
 
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"

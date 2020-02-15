@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '@xstyled/styled-components'
 
 const CardContainer = styled.figure`
   --primary-color: #e6dada;

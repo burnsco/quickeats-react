@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import styled from '@xstyled/styled-components'
 import CustomButton from '../../components/CustomButton'
 
 export const WelcomePage = styled.div`

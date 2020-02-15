@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '@xstyled/styled-components'
 
 export const CollectionPreviewContainer = styled.section`
   display: flex;

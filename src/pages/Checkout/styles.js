@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '@xstyled/styled-components'
 
 export const CheckoutPageContainer = styled.div`
   width: 95%;

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '@xstyled/styled-components'
 
 export const CategoryWrapper = styled.section`
   margin-right: 10px;

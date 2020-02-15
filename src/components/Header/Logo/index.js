@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import styled from '@xstyled/styled-components'
 
 const LogoContainer = styled(Link)`
   font-weight: 500;

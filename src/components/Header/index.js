@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from '@xstyled/styled-components'
 import { connect } from 'react-redux'
 import { createStructuredSelector } from 'reselect'
 import { selectCartHidden } from '../../redux/selectors/cart'

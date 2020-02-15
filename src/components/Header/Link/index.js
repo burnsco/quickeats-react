@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from '@xstyled/styled-components'
 import { NavLink } from 'react-router-dom'
 
 const HeaderNavLink = styled(NavLink)`

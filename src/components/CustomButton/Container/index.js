@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components'
+import styled, { css } from '@xstyled/styled-components'
 
 const buttonStyles = css`
   background-color: black;
@@ -41,7 +41,7 @@ const googleSignInStyles = css`
     border: none;
   }
 `
-const getButtonStyles = ({isGoogleSignIn, inverted, invertedOrange}) => {
+const getButtonStyles = ({ isGoogleSignIn, inverted, invertedOrange }) => {
   if (isGoogleSignIn) {
     return googleSignInStyles
   }

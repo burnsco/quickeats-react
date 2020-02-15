@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled from '@xstyled/styled-components'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 
