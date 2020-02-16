@@ -2,7 +2,7 @@ import styled from '@xstyled/styled-components'
 import { NavLink } from 'react-router-dom'
 
 const HeaderNavLink = styled(NavLink)`
-  font-size: 16px;
+  font-size: 16rpx;
   letter-spacing: 0.5px;
   cursor: pointer;
 `

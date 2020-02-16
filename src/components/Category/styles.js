@@ -1,20 +1,19 @@
 import styled from '@xstyled/styled-components'
+import { GridMixin } from '../../theme/breakpoints'
 
 export const CategoryWrapper = styled.section`
-  margin-right: 10px;
-  margin-left: 10px;
   display: flex;
   align-self: auto;
+  margin-right: 1em;
+  margin-left: 1em;
   flex-direction: column;
 `
 export const Title = styled.h2`
+  margin: 0 auto;
+  padding-top: 20px;
   font-size: 38px;
   font-family: 'Open Sans Condensed', sans-serif;
-  margin: 0 auto 30px;
 `
 export const CollectionItems = styled.div`
-  margin-top: 2em;
-  display: grid;
-  grid-row-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  ${GridMixin}
 `

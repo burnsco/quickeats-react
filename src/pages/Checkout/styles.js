@@ -16,6 +16,8 @@ export const CheckoutPageContainer = styled.div`
 export const CheckoutHeaderContainer = styled.div`
   width: 100%;
   height: 40px;
+  font-size: 16px;
+  font-weight: 800;
   display: flex;
   justify-content: space-between;
   border-bottom: 1px solid darkgrey;

@@ -1,5 +1,5 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 import {
   clearItemFromCart,
   addItemToCart,
@@ -14,8 +14,8 @@ import {
   RemoveButtonContainer
 } from './styles.js'
 
-const CheckoutItem = ({cartItem, clearItem, addItem, removeItem}) => {
-  const {name, imageUrl, price, quantity} = cartItem
+const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
+  const { name, imageUrl, price, quantity } = cartItem
   return (
     <CheckoutItemContainer>
       <ImageContainer>

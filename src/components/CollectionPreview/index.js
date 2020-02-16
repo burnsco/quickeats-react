@@ -14,12 +14,13 @@ const CollectionPreview = ({ title, items, history, match, routeName }) => {
       <TitleContainer
         onClick={() => history.push(`${match.path}/${routeName}`)}
       >
+        <br />
         {title}
       </TitleContainer>
 
       <PreviewContainer>
         {items
-          .filter((item, idx) => idx < 3)
+          .filter((item, idx) => idx < 4)
           .map(item => (
             <CollectionItem key={item.id} item={item} />
           ))}

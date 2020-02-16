@@ -1,25 +1,28 @@
 import styled from '@xstyled/styled-components'
+import { GridMixin, GridWrapperMixin } from '../../theme/breakpoints'
 
 export const CollectionPreviewContainer = styled.section`
   display: flex;
-  margin-bottom: 40px;
-  margin-right: 10px;
-  margin-left: 10px;
+  align-self: auto;
+  margin-right: 1em;
+  margin-left: 1em;
   flex-direction: column;
 `
 
 export const TitleContainer = styled.h1`
-  margin-top: 50px;
+  margin-top: 10em;
   font-size: 34px;
   color: grey;
   font-family: 'Open Sans Condensed', sans-serif;
   margin: 0 auto 30px;
   text-decoration: underline;
+  &:hover {
+    font-style: italic;
+  }
 `
-
+export const PreviewWrapper = styled.div`
+  ${GridWrapperMixin}
+`
 export const PreviewContainer = styled.div`
-  margin-top: 2em;
-  display: grid;
-  grid-row-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  ${GridMixin}
 `

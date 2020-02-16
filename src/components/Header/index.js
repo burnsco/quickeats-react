@@ -11,13 +11,13 @@ const Container = styled.header`
   position: sticky;
   z-index: 10;
   top: 0;
-  margin-bottom: 3em;
+  margin-bottom: 2em;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid #ebedf0;
-  height: 48px;
+  height: 48rpx;
   background-color: #ffffff;
 
-  @media (max-width: 425px) {
+  @media (max-width: 425rpx) {
     margin-bottom: 2em;
     height: 40px;
   }
@@ -45,7 +45,7 @@ const Header = ({ currentUser, hidden }) => (
       </LogoContainer>
 
       <HeaderNavLink to="/shop">SHOP</HeaderNavLink>
-      <HeaderNavLink to="/signup">SIGN UP</HeaderNavLink>
+      <HeaderNavLink to="/signup">SIGN IN</HeaderNavLink>
       <HeaderNavLink to="/checkout">CART</HeaderNavLink>
     </Wrapper>
   </Container>

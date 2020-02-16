@@ -53,8 +53,8 @@ class App extends React.Component {
         <ErrorBoundary>
           <Normalize />
           <Header />
-          <Suspense fallback={FallBackSpinner()}>
-            <Switch>
+          <Switch>
+            <Suspense fallback={FallBackSpinner()}>
               <Route exact path="/" component={Home} />
               <Route path="/shop" component={Shop} />
               <Route exact path="/checkout" component={Checkout} />
@@ -72,8 +72,8 @@ class App extends React.Component {
                   this.props.currentUser ? <Redirect to="/" /> : <SignUp />
                 }
               />
-            </Switch>
-          </Suspense>
+            </Suspense>
+          </Switch>
         </ErrorBoundary>
       </>
     )

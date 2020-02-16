@@ -4,41 +4,28 @@ import { createStructuredSelector } from 'reselect'
 import styled from '@xstyled/styled-components'
 import { selectDirectorySections } from '../../redux/selectors/directory'
 import Card from '../../components/Card'
+import { GridMixin, GridWrapperMixin } from '../../theme/breakpoints'
 
-const Wrapper = styled.div`
-  width: 100%;
+const DirectioMenuWrapper = styled.section`
   display: flex;
-  justify-content: center;
+  align-self: auto;
+  margin-right: 1em;
+  margin-left: 1em;
+  flex-direction: column;
 `
-// const DirectoryMenuContainer = styled.section`
-//   width: 1200px;
-//   display: grid;
-//   grid-gap: 20px;
-//   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-// `
-
-const DirectoryMenuContainer = styled.section`
-  display: grid;
-  margin: 2em;
-  grid-gap: 20px;
-  grid-auto-flow: dense;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-
-  @media only screen and (min-width: 1200px) {
-    margin: 4em;
-    grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
-  }
+const DirectoryMenuContainer = styled.div`
+  ${GridMixin}
 `
 
 const Home = ({ sections }) => {
   return (
-    <Wrapper>
+    <DirectioMenuWrapper>
       <DirectoryMenuContainer>
         {sections.map(({ id, ...sectionProps }) => (
           <Card key={id} {...sectionProps} />
         ))}
       </DirectoryMenuContainer>
-    </Wrapper>
+    </DirectioMenuWrapper>
   )
 }
 

@@ -9,6 +9,7 @@ const Category = ({ collection: { items, title } }) => {
   return (
     <CategoryWrapper style={{ animation: animations.fadeIn }}>
       <Title>{title}</Title>
+      <br />
       <CollectionItems>
         {items.map(item => (
           <CollectionItem item={item} key={item.id} />

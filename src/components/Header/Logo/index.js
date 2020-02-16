@@ -10,7 +10,7 @@ const LogoContainer = styled(Link)`
   }
 `
 const LogoTitle = styled.span`
-  font-size: 1em;
+  font-size: 1.2em;
   @media (min-width: 1024px) {
     font-size: 2em;
   }
