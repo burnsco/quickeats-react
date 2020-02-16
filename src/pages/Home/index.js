@@ -4,7 +4,7 @@ import { createStructuredSelector } from 'reselect'
 import styled from '@xstyled/styled-components'
 import { selectDirectorySections } from '../../redux/selectors/directory'
 import Card from '../../components/Card'
-import { GridMixin, GridWrapperMixin } from '../../theme/breakpoints'
+import { GridMixin } from '../../theme/breakpoints'
 
 const DirectioMenuWrapper = styled.section`
   display: flex;
@@ -22,7 +22,9 @@ const Home = ({ sections }) => {
     <DirectioMenuWrapper>
       <DirectoryMenuContainer>
         {sections.map(({ id, ...sectionProps }) => (
-          <Card key={id} {...sectionProps} />
+          <>
+            <Card key={id} {...sectionProps} />
+          </>
         ))}
       </DirectoryMenuContainer>
     </DirectioMenuWrapper>

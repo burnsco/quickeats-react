@@ -20,7 +20,7 @@ const CollectionPreview = ({ title, items, history, match, routeName }) => {
 
       <PreviewContainer>
         {items
-          .filter((item, idx) => idx < 4)
+          .filter((item, idx) => idx < 3)
           .map(item => (
             <CollectionItem key={item.id} item={item} />
           ))}
