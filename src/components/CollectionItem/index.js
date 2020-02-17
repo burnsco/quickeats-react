@@ -23,6 +23,7 @@ const CollectionItem = ({ item, addItemToCart, routeName }) => {
         width="352"
         height="300"
         crop="fill"
+        sizes="100vw"
         responsiveUseBreakpoints="true"
         cloudName="dmztdsduf"
         publicId={`${routeName}/${id}.jpg`}

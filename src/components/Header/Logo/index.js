@@ -14,13 +14,13 @@ const LogoTitle = styled.span`
   @media (min-width: 1024px) {
     font-size: 2em;
   }
-  font-family: 'Staatliches', cursive;
+  font-family: 'Anton', sans-serif;
 `
 const Logo = () => (
   <LogoContainer to="/">
     <LogoTitle>
       {' '}
-      QUIK<span style={{ color: 'red' }}>EATS</span>
+      QUIK<span style={{ color: '#f12711' }}>EATS</span>
     </LogoTitle>
   </LogoContainer>
 )

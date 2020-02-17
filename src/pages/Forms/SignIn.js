@@ -58,11 +58,11 @@ const SignIn = () => {
           />
           <ButtonsBarContainer>
             <CustomButton type="submit"> Sign in </CustomButton>
-            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
-              Sign in with Google
-            </CustomButton>
           </ButtonsBarContainer>
         </form>
+        <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+          Sign in with Google
+        </CustomButton>
         <CreateAccountLink to="/signup">Create an Account</CreateAccountLink>
       </SignInContainer>
     </WelcomePage>
