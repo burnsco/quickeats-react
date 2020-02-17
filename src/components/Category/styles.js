@@ -12,7 +12,7 @@ export const Title = styled.h2`
   margin: 0 auto;
   padding-top: 20px;
   font-size: 38px;
-  font-family: 'Open Sans Condensed', sans-serif;
+  font-family: 'Raleway', sans-serif;
 `
 export const CollectionItems = styled.div`
   ${GridMixin}

@@ -1,7 +1,7 @@
 import React from 'react'
 import 'react-animation/dist/keyframes.css'
 import { connect } from 'react-redux'
-import { Image, Transformation } from 'cloudinary-react'
+import { Image } from 'cloudinary-react'
 import { toast } from 'react-toastify'
 import { addItemToCart } from '../../redux/actions/cart'
 import {

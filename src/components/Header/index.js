@@ -6,6 +6,8 @@ import { selectCartHidden } from '../../redux/selectors/cart'
 import { selectCurrentUser } from '../../redux/selectors/user'
 import Logo from './Logo/index'
 import HeaderNavLink from './Link'
+import { auth } from '../../firebase/utils'
+import CartIcon from '../CartIcon'
 
 const Container = styled.header`
   position: sticky;
@@ -45,8 +47,15 @@ const Header = ({ currentUser, hidden }) => (
       </LogoContainer>
 
       <HeaderNavLink to="/shop">SHOP</HeaderNavLink>
-      <HeaderNavLink to="/signup">SIGN IN</HeaderNavLink>
-      <HeaderNavLink to="/checkout">CART</HeaderNavLink>
+      {currentUser ? (
+        <HeaderNavLink onClick={() => auth.signOut()} as="div">
+          SIGN OUT
+        </HeaderNavLink>
+      ) : (
+        <HeaderNavLink to="/signup">SIGN IN</HeaderNavLink>
+      )}
+
+      <CartIcon />
     </Wrapper>
   </Container>
 )

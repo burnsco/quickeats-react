@@ -29,7 +29,7 @@ export const ImageContainer = styled.div`
   background-position: center;
 `
 export const Footer = styled.div`
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Raleway', sans-serif;
   width: 100%;
   flex-direction: column;
   display: flex;
@@ -48,6 +48,7 @@ export const Price = styled.div`
   margin-right: 10px;
 `
 export const AddItemButton = styled(CustomButton)`
+  font-family: 'Open Sans', sans-serif;
   align-self: flex-end;
   width: 100%;
   opacity: 0;

@@ -1,13 +1,13 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {AnimateOnChange} from 'react-animation'
-import {toggleCartHidden} from '../../redux/actions/cart'
-import {createStructuredSelector} from 'reselect'
+import { connect } from 'react-redux'
+import { AnimateOnChange } from 'react-animation'
+import { toggleCartHidden } from '../../redux/actions/cart'
+import { createStructuredSelector } from 'reselect'
 
-import {selectCartItemsCount} from '../../redux/selectors/cart'
-import {CartContainer, ItemCountContainer, ShoppingIcon} from './styles'
+import { selectCartItemsCount } from '../../redux/selectors/cart'
+import { CartContainer, ItemCountContainer, ShoppingIcon } from './styles'
 
-const CartIcon = ({toggleCartHidden, itemCount}) => (
+const CartIcon = ({ toggleCartHidden, itemCount }) => (
   <AnimateOnChange
     animationIn="bounceIn"
     animationOut="bounceOut"
