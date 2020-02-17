@@ -38,7 +38,6 @@ export const Footer = styled.div`
 
 export const NamePriceContainer = styled.h5`
   display: flex;
-  margin-bottom: 15px;
   justify-content: space-between;
 `
 export const Name = styled.div`

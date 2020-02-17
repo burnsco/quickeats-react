@@ -98,7 +98,12 @@ class SignUp extends React.Component {
             />
             <ButtonsBarContainer>
               <CustomButton type="submit"> SIGN UP </CustomButton>
-              <CustomSignInButton to="/signin">SIGN IN</CustomSignInButton>
+              <CustomSignInButton
+                to="/signin"
+                style={{ color: 'blue', fontWeight: 'bold' }}
+              >
+                SIGN IN
+              </CustomSignInButton>
             </ButtonsBarContainer>
           </form>
         </SignUpContainer>

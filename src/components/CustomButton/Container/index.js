@@ -1,6 +1,7 @@
 import styled, { css } from '@xstyled/styled-components'
 
 const buttonStyles = css`
+  font-family: 'Raleway', sans-serif;
   background-color: black;
   color: white;
   border: none;

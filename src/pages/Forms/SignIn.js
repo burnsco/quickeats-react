@@ -57,13 +57,23 @@ const SignIn = () => {
             required
           />
           <ButtonsBarContainer>
-            <CustomButton type="submit"> Sign in </CustomButton>
+            <CustomButton type="submit" style={{ width: 100 + '%' }}>
+              {' '}
+              Sign in with email{' '}
+            </CustomButton>
           </ButtonsBarContainer>
         </form>
-        <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+        <br />
+        <CustomButton
+          style={{ fontFamily: 'Raleway' }}
+          onClick={signInWithGoogle}
+          isGoogleSignIn
+        >
           Sign in with Google
         </CustomButton>
-        <CreateAccountLink to="/signup">Create an Account</CreateAccountLink>
+        <CreateAccountLink style={{ alignSelf: 'center' }} to="/signup">
+          Create an Account
+        </CreateAccountLink>
       </SignInContainer>
     </WelcomePage>
   )
