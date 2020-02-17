@@ -1,30 +1,38 @@
 import React from 'react'
-import { animations } from 'react-animation'
 import 'react-animation/dist/keyframes.css'
 import { connect } from 'react-redux'
+import { Image, Transformation } from 'cloudinary-react'
 import { toast } from 'react-toastify'
 import { addItemToCart } from '../../redux/actions/cart'
 import {
   AddItemButton,
   CardContainer,
   Footer,
-  ImageContainer,
   Name,
   NamePriceContainer,
   Price
 } from './styles'
 
-const CollectionItem = ({ item, addItemToCart }) => {
-  const { name, price, imageUrl } = item
+const CollectionItem = ({ item, addItemToCart, routeName }) => {
+  const { name, price, id } = item
   return (
     <CardContainer>
-      <ImageContainer
-        style={{
-          backgroundImage: `url(${imageUrl})`
-        }}
-      >
+      <Image
+        dpr="auto"
+        responsive
+        width="352"
+        height="300"
+        crop="fill"
+        responsiveUseBreakpoints="true"
+        cloudName="dmztdsduf"
+        publicId={`${routeName}/${id}.jpg`}
+      />
+
+      <Footer>
+        <NamePriceContainer>
+          <Name>{name}</Name> <Price>${price}</Price>
+        </NamePriceContainer>
         <AddItemButton
-          style={{ animation: animations.popIn }}
           invertedOrange
           onClick={() => {
             addItemToCart(item)
@@ -33,11 +41,6 @@ const CollectionItem = ({ item, addItemToCart }) => {
         >
           <strong>ADD TO CART</strong>
         </AddItemButton>
-      </ImageContainer>
-      <Footer>
-        <NamePriceContainer>
-          <Name>{name}</Name> <Price>${price}</Price>
-        </NamePriceContainer>
       </Footer>
     </CardContainer>
   )

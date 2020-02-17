@@ -49,12 +49,10 @@ export const Price = styled.div`
 `
 export const AddItemButton = styled(CustomButton)`
   align-self: flex-end;
-  margin-bottom: 5px;
-  width: 30%;
+  width: 100%;
   opacity: 0;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   text-decoration: none;
   border: none;
-  display: none;
 `

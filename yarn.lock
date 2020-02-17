@@ -3336,6 +3336,19 @@ clone-response@1.0.2:
   dependencies:
     mimic-response "^1.0.0"
 
+cloudinary-core@^2.7.4:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/cloudinary-core/-/cloudinary-core-2.8.0.tgz#c3d2b633b613e5b2652169a89f8af0cbf20c3f59"
+  integrity sha512-hCtLAkRmZsQcr+HejdFgsFU0WxTu216/NMtgLwQ5RqNeReagxZfcCr5h9GBod+QHevg7MUyy6zU5BXw40Aei3A==
+
+cloudinary-react@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/cloudinary-react/-/cloudinary-react-1.3.0.tgz#7921144cd9ab96ef1ac8a8d3b5db263328550ca7"
+  integrity sha512-FT/bNOPYHADRI2yi181r7c4GzbFQriBHuzBZzSnE8pcrV4vmcjNPADjP5jcZ5mYK8zkKd4A2fFtQNLr51fR19Q==
+  dependencies:
+    cloudinary-core "^2.7.4"
+    prop-types "^15.6.2"
+
 co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.yarnpkg.com/co/-/co-4.6.0.tgz#6ea6bdf3d853ae54ccb8e47bfa0bf3f9031fb184"
