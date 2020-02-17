@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom'
 
 const HeaderNavLink = styled(NavLink)`
   font-size: 16rpx;
-  letter-spacing: 0.5px;
+  font-weight: 600;
+  letter-spacing: 0.5rpx;
   cursor: pointer;
 `
 
