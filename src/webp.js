@@ -1,11 +1,11 @@
 const imagemin = require('imagemin')
-const imageminWebp = require('imagemin-webp')
+const imageminMozjpeg = require('imagemin-mozjpeg')
 
 ;(async () => {
   let dir = 'Burgers'
   const files = await imagemin([`images/${dir}/*.{jpg,png}`], {
-    destination: `images/${dir}/webp`,
-    plugins: [imageminWebp({ quality: 60 })]
+    destination: `images/${dir}/test`,
+    plugins: [imageminMozjpeg({ quality: 60 })]
   })
 
   console.log(files)
