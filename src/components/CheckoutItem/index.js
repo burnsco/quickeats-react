@@ -1,9 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Image } from 'cloudinary-react'
 import {
   clearItemFromCart,
   addItemToCart,
-  removeItem
+  removeItem,
 } from '../../redux/actions/cart'
 
 import {
@@ -11,15 +12,27 @@ import {
   ImageContainer,
   TextContainer,
   QuantityContainer,
-  RemoveButtonContainer
+  RemoveButtonContainer,
 } from './styles.js'
 
-const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
-  const { name, imageUrl, price, quantity } = cartItem
+const CheckoutItem = ({
+  cartItem,
+  clearItem,
+  addItem,
+  removeItem,
+  category,
+}) => {
+  const { name, price, quantity, id, routeName } = cartItem
   return (
     <CheckoutItemContainer>
       <ImageContainer>
-        <img src={imageUrl} alt={name} />
+        <Image
+          dpr="auto"
+          responsive
+          responsiveUseBreakpoints="true"
+          cloudName="dmztdsduf"
+          publicId={`${routeName}/${id}.jpg`}
+        />
       </ImageContainer>
       <TextContainer>{name}</TextContainer>
       <QuantityContainer>
@@ -38,7 +51,7 @@ const CheckoutItem = ({ cartItem, clearItem, addItem, removeItem }) => {
 const mapDispatchToProps = dispatch => ({
   clearItem: item => dispatch(clearItemFromCart(item)),
   addItem: item => dispatch(addItemToCart(item)),
-  removeItem: item => dispatch(removeItem(item))
+  removeItem: item => dispatch(removeItem(item)),
 })
 
 export default connect(null, mapDispatchToProps)(CheckoutItem)

@@ -10,7 +10,7 @@ import {
   Footer,
   Name,
   NamePriceContainer,
-  Price
+  Price,
 } from './styles'
 
 const CollectionItem = ({ item, addItemToCart, routeName }) => {
@@ -36,7 +36,7 @@ const CollectionItem = ({ item, addItemToCart, routeName }) => {
         <AddItemButton
           invertedOrange
           onClick={() => {
-            addItemToCart(item)
+            addItemToCart({ routeName, ...item })
             toast(`Added ${item.name} to cart`)
           }}
         >
@@ -48,7 +48,7 @@ const CollectionItem = ({ item, addItemToCart, routeName }) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  addItemToCart: item => dispatch(addItemToCart(item))
+  addItemToCart: item => dispatch(addItemToCart(item)),
 })
 
 export default connect(null, mapDispatchToProps)(CollectionItem)

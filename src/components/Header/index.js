@@ -18,7 +18,6 @@ const Container = styled.header`
   border-bottom: 1px solid #ebedf0;
   height: 48rpx;
   background-color: #ffffff;
-
   @media (max-width: 425rpx) {
     margin-bottom: 2em;
     height: 40px;
@@ -54,15 +53,17 @@ const Header = ({ currentUser, hidden }) => (
       ) : (
         <HeaderNavLink to="/signup">SIGN IN</HeaderNavLink>
       )}
-
-      <CartIcon />
+      <HeaderNavLink to="/checkout">
+        {' '}
+        <CartIcon />
+      </HeaderNavLink>
     </Wrapper>
   </Container>
 )
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  hidden: selectCartHidden
+  hidden: selectCartHidden,
 })
 
 export default connect(mapStateToProps)(Header)
