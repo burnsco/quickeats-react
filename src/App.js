@@ -12,8 +12,8 @@ import Header from './components/Header'
 import { auth, createUserProfileDocument } from './firebase/utils'
 import { setCurrentUser } from './redux/actions/user'
 import { selectCurrentUser } from './redux/selectors/user'
+import Home from './pages/Home'
 
-const Home = lazy(() => import('./pages/Home'))
 const Shop = lazy(() => import('./pages/Shop'))
 const SignIn = lazy(() => import('./pages/Forms/SignIn'))
 const SignUp = lazy(() => import('./pages/Forms/SignUp'))
@@ -34,7 +34,7 @@ class App extends React.Component {
         userRef.onSnapshot(snapShot => {
           setCurrentUser({
             id: snapShot.id,
-            ...snapShot.data()
+            ...snapShot.data(),
           })
         })
       }
@@ -81,11 +81,11 @@ class App extends React.Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
 })
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user))
+  setCurrentUser: user => dispatch(setCurrentUser(user)),
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)

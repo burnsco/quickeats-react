@@ -22,9 +22,7 @@ const Home = ({ sections }) => {
     <DirectioMenuWrapper>
       <DirectoryMenuContainer>
         {sections.map(({ id, ...sectionProps }) => (
-          <>
-            <Card key={id} {...sectionProps} />
-          </>
+          <Card key={id} {...sectionProps} />
         ))}
       </DirectoryMenuContainer>
     </DirectioMenuWrapper>
@@ -32,7 +30,7 @@ const Home = ({ sections }) => {
 }
 
 const mapStateToProps = createStructuredSelector({
-  sections: selectDirectorySections
+  sections: selectDirectorySections,
 })
 
 export default connect(mapStateToProps)(Home)
