@@ -1,5 +1,6 @@
-import { createSelector } from 'reselect'
+import {createSelector} from 'reselect'
 
+// take whole state and returns a slice of it
 const selectCart = state => state.cart
 
 export const selectCartItems = createSelector(

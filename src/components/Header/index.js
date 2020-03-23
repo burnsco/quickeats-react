@@ -54,10 +54,8 @@ const Header = ({ currentUser, hidden }) => (
       ) : (
         <HeaderNavLink to="/signup">SIGN IN</HeaderNavLink>
       )}
-      <HeaderNavLink to="/checkout">
-        {' '}
-        <CartIcon />
-      </HeaderNavLink>
+
+      <CartIcon />
     </Wrapper>
   </Container>
 )
