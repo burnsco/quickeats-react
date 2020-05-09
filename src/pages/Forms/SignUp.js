@@ -1,12 +1,12 @@
 import React from 'react'
 import CustomButton from '../../components/CustomButton'
 import FormInput from '../../components/FormInput'
-import { auth, createUserProfileDocument } from '../../firebase/utils'
+import {auth, createUserProfileDocument} from '../../firebase/utils'
 import {
   ButtonsBarContainer,
   CustomSignInButton,
   SignUpContainer,
-  WelcomePage
+  WelcomePage,
 } from './styles'
 
 class SignUp extends React.Component {
@@ -17,17 +17,17 @@ class SignUp extends React.Component {
       displayName: '',
       email: '',
       password: '',
-      confirmPassword: ''
+      confirmPassword: '',
     }
   }
-  handleChange = e => {
-    const { name, value } = e.target
-    this.setState({ [name]: value })
+  handleChange = (e) => {
+    const {name, value} = e.target
+    this.setState({[name]: value})
   }
-  handleSubmit = async event => {
+  handleSubmit = async (event) => {
     event.preventDefault()
 
-    const { displayName, email, password, confirmPassword } = this.state
+    const {displayName, email, password, confirmPassword} = this.state
 
     if (password !== confirmPassword) {
       alert('passwords dont match')
@@ -35,18 +35,15 @@ class SignUp extends React.Component {
     }
 
     try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      )
+      const {user} = await auth.createUserWithEmailAndPassword(email, password)
 
-      await createUserProfileDocument(user, { displayName })
+      await createUserProfileDocument(user, {displayName})
 
       this.setState({
         displayName: '',
         email: '',
         password: '',
-        confirmPassword: ''
+        confirmPassword: '',
       })
     } catch (error) {
       console.log(error)
@@ -54,7 +51,7 @@ class SignUp extends React.Component {
   }
 
   render() {
-    const { displayName, email, password, confirmPassword } = this.state
+    const {displayName, email, password, confirmPassword} = this.state
 
     return (
       <WelcomePage>
@@ -100,7 +97,7 @@ class SignUp extends React.Component {
               <CustomButton type="submit"> SIGN UP </CustomButton>
               <CustomSignInButton
                 to="/signin"
-                style={{ color: 'blue', fontWeight: 'bold' }}
+                style={{color: 'blue', fontWeight: 'bold'}}
               >
                 SIGN IN
               </CustomSignInButton>
