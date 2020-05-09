@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from '@xstyled/styled-components'
-import { connect } from 'react-redux'
-import { createStructuredSelector } from 'reselect'
-import { selectCartHidden } from '../../redux/selectors/cart'
-import { selectCurrentUser } from '../../redux/selectors/user'
+import {connect} from 'react-redux'
+import {createStructuredSelector} from 'reselect'
+import {selectCartHidden} from '../../redux/selectors/cart'
+import {selectCurrentUser} from '../../redux/selectors/user'
 import Logo from './Logo/index'
 import HeaderNavLink from './Link'
-import { auth } from '../../firebase/utils'
+import {auth} from '../../firebase/utils'
 import CartIcon from '../CartIcon'
 
 const Container = styled.header`
@@ -15,7 +15,7 @@ const Container = styled.header`
   top: 0;
   margin-bottom: 2em;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid #ebedf0;
+  border-bottom: 2px solid #ebedf0;
   height: 48rpx;
   background-color: #ffffff;
   @media (max-width: 425rpx) {
@@ -37,7 +37,7 @@ const LogoContainer = styled.div`
   }
 `
 
-const Header = ({ currentUser, hidden }) => (
+const Header = ({currentUser, hidden}) => (
   <Container>
     <Wrapper>
       <LogoContainer>

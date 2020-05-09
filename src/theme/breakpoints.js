@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import {css} from 'styled-components'
 
 export const GridWrapperMixin = css`
   width: 100%;
@@ -8,18 +8,18 @@ export const GridWrapperMixin = css`
 export const GridMixin = css`
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
   @media only screen and (min-width: 20em) {
-    grid-row-gap: 10px;
+    grid-row-gap: 5px;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   }
   @media only screen and (min-width: 30em) {
-    grid-row-gap: 10px;
+    grid-row-gap: 5px;
     grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
   }
   @media only screen and (min-width: 48em) {
-    grid-gap: 10px;
+    grid-gap: 5px;
     grid-row-gap: 10px;
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   }
@@ -39,10 +39,10 @@ export const GridMixin = css`
   }
   @media only screen and (min-width: 112em) {
     margin-top: 2em;
-    margin-left: 6em;
-    margin-right: 6em;
+    margin-left: 4em;
+    margin-right: 4em;
     grid-gap: 25px;
     grid-row-gap: 25px;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
   }
 `
