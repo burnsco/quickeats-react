@@ -9,6 +9,7 @@
     "@xstyled/styled-components": "^1.17.1",
     "cloudinary-react": "^1.5.0",
     "firebase": "^7.14.3",
+    "framer-motion": "^1.10.3",
     "proptypes": "^1.1.0",
     "react": "^16.13.1",
     "react-animation": "^1.2.2",
