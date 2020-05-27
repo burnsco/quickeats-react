@@ -4,10 +4,10 @@ import {
   CartItemContainer,
   ItemDetailsContainer,
   CartItemImage,
-  CartItemName
+  CartItemName,
 } from './styles.js'
 
-const CartItem = ({ item: { imageUrl, price, name, quantity } }) => (
+const CartItem = ({item: {imageUrl, price, name, quantity}}) => (
   <CartItemContainer>
     <CartItemImage src={imageUrl} alt={name} />
     <ItemDetailsContainer>

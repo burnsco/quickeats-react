@@ -8,7 +8,6 @@ import Logo from './Logo/index'
 import HeaderNavLink from './Link'
 import {auth} from '../../firebase/utils'
 import CartIcon from '../CartIcon'
-import {SideMenu} from '../SideMenu'
 
 const Container = styled.header`
   position: sticky;

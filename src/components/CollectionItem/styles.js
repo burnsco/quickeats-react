@@ -10,7 +10,6 @@ export const CardContainer = styled.div`
   :hover {
     button {
       opacity: 0.8;
-      display: flex;
     }
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
   }
@@ -50,7 +49,6 @@ export const AddItemButton = styled(CustomButton)`
   font-family: 'Open Sans', sans-serif;
   align-self: flex-end;
   width: 100%;
-  opacity: 0;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
   text-decoration: none;

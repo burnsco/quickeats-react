@@ -27,5 +27,5 @@ export {
   CardTitle,
   CardContentContainer,
   CardContainer,
-  CardTitleContainer
+  CardTitleContainer,
 }

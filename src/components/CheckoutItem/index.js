@@ -1,6 +1,6 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Image } from 'cloudinary-react'
+import {connect} from 'react-redux'
+import {Image} from 'cloudinary-react'
 import {
   clearItemFromCart,
   addItemToCart,
@@ -15,14 +15,8 @@ import {
   RemoveButtonContainer,
 } from './styles.js'
 
-const CheckoutItem = ({
-  cartItem,
-  clearItem,
-  addItem,
-  removeItem,
-  category,
-}) => {
-  const { name, price, quantity, id, routeName } = cartItem
+const CheckoutItem = ({cartItem, clearItem, addItem, removeItem, category}) => {
+  const {name, price, quantity, id, routeName} = cartItem
   return (
     <CheckoutItemContainer>
       <ImageContainer>
@@ -48,10 +42,10 @@ const CheckoutItem = ({
   )
 }
 
-const mapDispatchToProps = dispatch => ({
-  clearItem: item => dispatch(clearItemFromCart(item)),
-  addItem: item => dispatch(addItemToCart(item)),
-  removeItem: item => dispatch(removeItem(item)),
+const mapDispatchToProps = (dispatch) => ({
+  clearItem: (item) => dispatch(clearItemFromCart(item)),
+  addItem: (item) => dispatch(addItemToCart(item)),
+  removeItem: (item) => dispatch(removeItem(item)),
 })
 
 export default connect(null, mapDispatchToProps)(CheckoutItem)

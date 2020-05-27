@@ -1,9 +1,9 @@
 import React from 'react'
 import 'react-animation/dist/keyframes.css'
-import { connect } from 'react-redux'
-import { Image } from 'cloudinary-react'
-import { toast } from 'react-toastify'
-import { addItemToCart } from '../../redux/actions/cart'
+import {connect} from 'react-redux'
+import {Image} from 'cloudinary-react'
+import {toast} from 'react-toastify'
+import {addItemToCart} from '../../redux/actions/cart'
 import {
   AddItemButton,
   CardContainer,
@@ -13,8 +13,8 @@ import {
   Price,
 } from './styles'
 
-const CollectionItem = ({ item, addItemToCart, routeName }) => {
-  const { name, price, id } = item
+const CollectionItem = ({item, addItemToCart, routeName}) => {
+  const {name, price, id} = item
   return (
     <CardContainer>
       <Image
@@ -36,7 +36,7 @@ const CollectionItem = ({ item, addItemToCart, routeName }) => {
         <AddItemButton
           invertedOrange
           onClick={() => {
-            addItemToCart({ routeName, ...item })
+            addItemToCart({routeName, ...item})
             toast(`Added ${item.name} to cart`)
           }}
         >
@@ -47,8 +47,8 @@ const CollectionItem = ({ item, addItemToCart, routeName }) => {
   )
 }
 
-const mapDispatchToProps = dispatch => ({
-  addItemToCart: item => dispatch(addItemToCart(item)),
+const mapDispatchToProps = (dispatch) => ({
+  addItemToCart: (item) => dispatch(addItemToCart(item)),
 })
 
 export default connect(null, mapDispatchToProps)(CollectionItem)

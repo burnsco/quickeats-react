@@ -1,4 +1,4 @@
-import styled, { css } from '@xstyled/styled-components'
+import styled, {css} from '@xstyled/styled-components'
 
 const buttonStyles = css`
   font-family: 'Raleway', sans-serif;
@@ -28,7 +28,7 @@ const invertedOrangeButtonStyles = css`
   border: 1px solid black;
 
   &:hover {
-    background-color: #f12711;
+    background-color: #3d96db;
     color: white;
     border: none;
   }
@@ -42,7 +42,7 @@ const googleSignInStyles = css`
     border: none;
   }
 `
-const getButtonStyles = ({ isGoogleSignIn, inverted, invertedOrange }) => {
+const getButtonStyles = ({isGoogleSignIn, inverted, invertedOrange}) => {
   if (isGoogleSignIn) {
     return googleSignInStyles
   }

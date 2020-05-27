@@ -1,14 +1,14 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 import {
   CardContainer,
   CardImage,
   CardContentContainer,
   CardTitle,
-  CardTitleContainer
+  CardTitleContainer,
 } from './styles'
 
-const Card = ({ title, imageUrl, history, linkUrl, match }) => (
+const Card = ({title, imageUrl, history, linkUrl, match}) => (
   <CardContainer
     className="c4-izmir c4-border-bottom-left c4-image-rotate-right c4-gradient-bottom-right"
     tabIndex="0"

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import styled from '@xstyled/styled-components'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
@@ -24,7 +24,7 @@ const Forms = () => {
       {signIn ? <SignIn /> : <SignUp />}
 
       {signIn && (
-        <CreateAccountLink onClick={toggle} style={{ color: 'red' }}>
+        <CreateAccountLink onClick={toggle} style={{color: 'red'}}>
           Create an Account
         </CreateAccountLink>
       )}

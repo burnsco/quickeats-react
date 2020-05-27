@@ -1,5 +1,5 @@
 import styled from '@xstyled/styled-components'
-import { GridMixin } from '../../theme/breakpoints'
+import {GridMixin} from '../../theme/breakpoints'
 
 export const CategoryWrapper = styled.section`
   display: flex;

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 import styled from '@xstyled/styled-components'
 
 const LogoContainer = styled(Link)`
@@ -20,7 +20,7 @@ const Logo = () => (
   <LogoContainer to="/">
     <LogoTitle>
       {' '}
-      QUIK<span style={{ color: '#f12711' }}>EATS</span>
+      QUIK<span style={{color: '#3ddb52'}}>EATS</span>
     </LogoTitle>
   </LogoContainer>
 )

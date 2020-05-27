@@ -1,7 +1,7 @@
 import React from 'react'
 import {CustomButtonContainer} from './Container'
 
-const CustomButton = props => (
+const CustomButton = (props) => (
   <CustomButtonContainer {...props}>{props.children}</CustomButtonContainer>
 )
 

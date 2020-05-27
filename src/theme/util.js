@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import {css} from 'styled-components'
 
 export const sizesPX = {
   xs: 0,
@@ -6,7 +6,7 @@ export const sizesPX = {
   md: 768,
   lg: 992,
   xl: 1200,
-  xxl: 1800
+  xxl: 1800,
 }
 export const sizesEM = {
   xs: 20,
@@ -14,7 +14,7 @@ export const sizesEM = {
   md: 48,
   lg: 62,
   xl: 75,
-  xxl: 112
+  xxl: 112,
 }
 export const media = Object.keys(sizesPX).reduce((accumulator, label) => {
   const emSize = sizesPX[label] / 16

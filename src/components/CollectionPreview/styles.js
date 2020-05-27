@@ -1,5 +1,5 @@
 import styled from '@xstyled/styled-components'
-import { GridMixin, GridWrapperMixin } from '../../theme/breakpoints'
+import {GridMixin, GridWrapperMixin} from '../../theme/breakpoints'
 
 export const CollectionPreviewContainer = styled.section`
   display: flex;
