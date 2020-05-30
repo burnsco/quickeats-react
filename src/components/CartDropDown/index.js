@@ -17,7 +17,7 @@ export const CartDropDown = ({cartItems, dispatch, history}) => (
   <CartDropdownContainer style={{animation: animations.popIn}}>
     <CartItemsContainer>
       {cartItems.length ? (
-        cartItems.map((item) => <CartItem key={item.id} item={item} />)
+        cartItems.map(item => <CartItem key={item.id} item={item} />)
       ) : (
         <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
       )}
