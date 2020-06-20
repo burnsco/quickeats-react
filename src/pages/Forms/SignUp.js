@@ -20,11 +20,11 @@ class SignUp extends React.Component {
       confirmPassword: '',
     }
   }
-  handleChange = (e) => {
+  handleChange = e => {
     const {name, value} = e.target
     this.setState({[name]: value})
   }
-  handleSubmit = async (event) => {
+  handleSubmit = async event => {
     event.preventDefault()
 
     const {displayName, email, password, confirmPassword} = this.state
@@ -56,13 +56,9 @@ class SignUp extends React.Component {
     return (
       <WelcomePage>
         <SignUpContainer>
-          <SignUpContainer>I do not have an account</SignUpContainer>
-
-          <span>Sign up with your email and password</span>
-
           <form onSubmit={this.handleSubmit}>
             <FormInput
-              label="Display Name"
+              label="Real Name"
               type="text"
               name="displayName"
               onChange={this.handleChange}

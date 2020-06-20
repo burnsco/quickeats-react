@@ -6,7 +6,6 @@ const LogoContainer = styled(Link)`
   font-weight: 500;
   @media (max-width: 425px) {
     padding: 0 8px 0 16px;
-    font-size: 19px;
   }
 `
 const LogoTitle = styled.span`

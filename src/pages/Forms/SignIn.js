@@ -13,18 +13,19 @@ const SignIn = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async event => {
     event.preventDefault()
     try {
       await auth.signInWithEmailAndPassword(email, password)
       setEmail('')
       setPassword('')
+      alert('Sign in successful!')
     } catch (error) {
       console.log(error)
     }
   }
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     const {value, name} = event.target
     if (name === 'email') {
       setEmail(value)
@@ -36,9 +37,7 @@ const SignIn = () => {
   return (
     <WelcomePage>
       <SignInContainer>
-        <h1>Welcome back</h1>
-        <span>Sign in with your email and password</span>
-
+        <h2>Welcome Back!</h2>
         <form onSubmit={handleSubmit}>
           <FormInput
             name="email"
