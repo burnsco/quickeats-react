@@ -1,9 +1,10 @@
-import React from 'react'
-import 'react-animation/dist/keyframes.css'
-import {connect} from 'react-redux'
-import {Image} from 'cloudinary-react'
-import {toast} from 'react-toastify'
-import {addItemToCart} from '../../redux/actions/cart'
+import React from "react"
+import "react-animation/dist/keyframes.css"
+import { connect } from "react-redux"
+import { Image } from "cloudinary-react"
+import { toast } from "react-toastify"
+import { addItemToCart } from "../../redux/actions/cart"
+import { ShoppingCart } from "@styled-icons/feather"
 import {
   AddItemButton,
   CardContainer,
@@ -11,10 +12,10 @@ import {
   Name,
   NamePriceContainer,
   Price,
-} from './styles'
+} from "./styles"
 
-const CollectionItem = ({item, addItemToCart, routeName}) => {
-  const {name, price, id} = item
+const CollectionItem = ({ item, addItemToCart, routeName }) => {
+  const { name, price, id } = item
   return (
     <CardContainer>
       <Image
@@ -36,11 +37,15 @@ const CollectionItem = ({item, addItemToCart, routeName}) => {
         <AddItemButton
           invertedOrange
           onClick={() => {
-            addItemToCart({routeName, ...item})
+            addItemToCart({ routeName, ...item })
             toast(`Added ${item.name} to cart`)
           }}
         >
-          <strong>ADD TO CART</strong>
+          <strong></strong>
+          ADD TO CART{" "}
+          <span style={{ marginLeft: "5px" }}>
+            <ShoppingCart size="1.2em" />
+          </span>
         </AddItemButton>
       </Footer>
     </CardContainer>
