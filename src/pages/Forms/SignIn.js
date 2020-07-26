@@ -1,33 +1,33 @@
-import React, {useState} from 'react'
-import CustomButton from '../../components/CustomButton'
-import FormInput from '../../components/FormInput'
-import {auth} from '../../firebase/utils.js'
+import React, { useState } from "react"
+import CustomButton from "../../components/CustomButton"
+import FormInput from "../../components/FormInput"
+import { auth, signInWithGoogle } from "../../firebase/utils.js"
 import {
   ButtonsBarContainer,
   CreateAccountLink,
   SignInContainer,
   WelcomePage,
-} from './styles'
+} from "./styles"
 
 const SignIn = () => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
 
-  const handleSubmit = async event => {
+  const handleSubmit = async (event) => {
     event.preventDefault()
     try {
       await auth.signInWithEmailAndPassword(email, password)
-      setEmail('')
-      setPassword('')
-      alert('Sign in successful!')
+      setEmail("")
+      setPassword("")
+      alert("Sign in successful!")
     } catch (error) {
       console.log(error)
     }
   }
 
-  const handleChange = event => {
-    const {value, name} = event.target
-    if (name === 'email') {
+  const handleChange = (event) => {
+    const { value, name } = event.target
+    if (name === "email") {
       setEmail(value)
     } else {
       setPassword(value)
@@ -56,14 +56,21 @@ const SignIn = () => {
             required
           />
           <ButtonsBarContainer>
-            <CustomButton type="submit" style={{width: 100 + '%'}}>
-              {' '}
-              Sign in with email{' '}
+            <CustomButton type="submit" style={{ width: 100 + "%" }}>
+              {" "}
+              Sign in with email{" "}
             </CustomButton>
           </ButtonsBarContainer>
         </form>
         <br />
-        <CreateAccountLink style={{alignSelf: 'center'}} to="/signup">
+        <CustomButton
+          style={{ fontFamily: "Raleway" }}
+          onClick={signInWithGoogle}
+          isGoogleSignIn
+        >
+          Sign in with Google
+        </CustomButton>
+        <CreateAccountLink style={{ alignSelf: "center" }} to="/signup">
           Create an Account
         </CreateAccountLink>
       </SignInContainer>

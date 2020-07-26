@@ -1,4 +1,4 @@
-import styled from '@xstyled/styled-components'
+import styled from "@xstyled/styled-components"
 
 export const CheckoutPageContainer = styled.div`
   width: 95%;
@@ -41,7 +41,7 @@ export const TotalContainer = styled.div`
 export const WarningContainer = styled.div`
   text-align: center;
   margin-top: 40px;
-  font-size: 24px;
+  font-size: 18px;
   margin-bottom: 50px;
   color: red;
 `

@@ -1,16 +1,16 @@
-import firebase from 'firebase/app'
-import 'firebase/auth'
-import 'firebase/firestore'
+import firebase from "firebase/app"
+import "firebase/auth"
+import "firebase/firestore"
 
 const config = {
-  apiKey: 'AIzaSyANILBdWUc8OpeTPnATlpuFndCY8zi-U9E',
-  authDomain: 'quikeats-d24d2.firebaseapp.com',
-  databaseURL: 'https://quikeats-d24d2.firebaseio.com',
-  projectId: 'quikeats-d24d2',
-  storageBucket: 'quikeats-d24d2.appspot.com',
-  messagingSenderId: '708033252363',
-  appId: '1:708033252363:web:385f17204525cd8959cb0e',
-  measurementId: 'G-TGZMLSDKHP',
+  apiKey: "AIzaSyANILBdWUc8OpeTPnATlpuFndCY8zi-U9E",
+  authDomain: "quikeats-d24d2.firebaseapp.com",
+  databaseURL: "https://quikeats-d24d2.firebaseio.com",
+  projectId: "quikeats-d24d2",
+  storageBucket: "quikeats-d24d2.appspot.com",
+  messagingSenderId: "708033252363",
+  appId: "1:708033252363:web:385f17204525cd8959cb0e",
+  measurementId: "G-TGZMLSDKHP",
 }
 
 firebase.initializeApp(config)
@@ -23,7 +23,7 @@ export const createUserProfileDocument = async (userAuth, data) => {
   const snapShot = await userRef.get()
 
   if (!snapShot.exists) {
-    const {displayName, email} = userAuth
+    const { displayName, email } = userAuth
     const createdAt = new Date()
 
     try {
@@ -40,7 +40,7 @@ export const createUserProfileDocument = async (userAuth, data) => {
   return userRef
 }
 
-export const unsubscribeFromAuth = ({setCurrentUser}) => {
+export const unsubscribeFromAuth = ({ setCurrentUser }) => {
   auth.onAuthStateChanged(async (userAuth) => {
     if (userAuth) {
       const userRef = await createUserProfileDocument(userAuth)
@@ -59,7 +59,7 @@ export const unsubscribeFromAuth = ({setCurrentUser}) => {
 
 export const addCollectionAndDocuments = async (
   collectionKey,
-  objectsToAdd,
+  objectsToAdd
 ) => {
   const collectionRef = firestore.collection(collectionKey)
 
@@ -75,7 +75,7 @@ export const addCollectionAndDocuments = async (
 
 export const convertCollectionsSnapshotToMap = (collections) => {
   const transformedCollection = collections.docs.map((doc) => {
-    const {title, items} = doc.data()
+    const { title, items } = doc.data()
 
     return {
       routeName: encodeURI(title.toLowerCase()),
@@ -95,7 +95,7 @@ export const auth = firebase.auth()
 export const firestore = firebase.firestore()
 
 const provider = new firebase.auth.GoogleAuthProvider()
-provider.setCustomParameters({prompt: 'select_account'})
+provider.setCustomParameters({ prompt: "select_account" })
 export const signInWithGoogle = () => auth.signInWithPopup(provider)
 
 export default firebase
