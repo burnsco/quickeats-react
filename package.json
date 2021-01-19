@@ -1,53 +1,110 @@
 {
   "name": "quickeats-react",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@styled-icons/feather": "^10.6.0",
-    "@testing-library/jest-dom": "^5.7.0",
-    "@testing-library/react": "^10.0.4",
-    "@testing-library/user-event": "^10.2.3",
-    "@xstyled/styled-components": "^1.17.1",
-    "cloudinary-react": "^1.5.0",
-    "firebase": "^7.14.3",
-    "framer-motion": "^1.10.3",
-    "proptypes": "^1.1.0",
-    "react": "^16.13.1",
-    "react-animation": "^1.2.2",
-    "react-dom": "^16.13.1",
-    "react-redux": "^7.2.0",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1",
-    "react-stripe-checkout": "^2.6.3",
-    "react-toastify": "^6.0.4",
-    "react-with-firebase-auth": "^1.3.2",
-    "redux": "^4.0.5",
-    "redux-logger": "^3.0.6",
-    "redux-persist": "^6.0.0",
-    "redux-thunk": "^2.3.0",
-    "reselect": "^4.0.0",
-    "styled-components": "^5.1.0",
-    "styled-normalize": "^8.0.7"
+  "description": "Food Delivery Site",
+  "author": {
+    "email": "coreyburns@outlook.com",
+    "name": "Corey Burns",
+    "url": "https://coreyburns.dev"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://https://github.com/burnsco/quickeats-react.git"
+  },
+  "version": "0.9.0",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "dev": "next",
+    "build": "next build",
+    "build-export": "next build && next export",
+    "start": "next start",
+    "gen-env": "gen-env-types .env.local -o env.d.ts -e .",
+    "analyze": "BUNDLE_ANALYZE=both yarn build",
+    "find:unused": "next-unused",
+    "type-check": "tsc --pretty --noEmit",
+    "format": "prettier --write \"**/*.{js,ts,tsx}\"",
+    "lint": "eslint . --ext ts --ext tsx --ext js"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn run type-check"
+    }
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+  "lint-staged": {
+    "*.@(ts|tsx)": [
+      "yarn lint",
+      "yarn format"
     ]
+  },
+  "next-unused": {
+    "alias": {
+      "@components/*": [
+        "components/*"
+      ],
+      "@hooks/*": [
+        "components/hooks/*"
+      ],
+      "@layout/*": [
+        "components/layout/*"
+      ],
+      "@config/*": [
+        "config/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ]
+    },
+    "debug": true,
+    "include": [
+      "hooks",
+      "layout",
+      "components",
+      "configs",
+      "pages"
+    ],
+    "exclude": [],
+    "entrypoints": [
+      "pages"
+    ]
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^1.0.3",
+    "@chakra-ui/react": "^1.1.5",
+    "@chakra-ui/theme-tools": "1.0.3",
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
+    "@types/react": "^17.0.0",
+    "firebase": "^8.2.3",
+    "firebase-admin": "^9.4.2",
+    "formik": "^2.2.6",
+    "framer-motion": "^3.2.1",
+    "gen-env-types": "^1.0.4",
+    "next": "latest",
+    "nookies": "^2.5.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-icons": "^4.1.0",
+    "typescript": "^4.1.3",
+    "yup": "^0.32.8"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.21",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/yup": "^0.29.11",
+    "@typescript-eslint/eslint-plugin": "^4.12.0",
+    "@typescript-eslint/parser": "^4.12.0",
+    "eslint": "^7.16.0",
+    "eslint-config-airbnb-typescript": "^12.0.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.6",
+    "lint-staged": "^10.5.3",
+    "next-unused": "^0.0.3",
+    "prettier": "^2.2.1"
   }
 }
