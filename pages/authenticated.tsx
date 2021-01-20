@@ -24,12 +24,6 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
       }
     }
   } catch (err) {
-    // either the `token` cookie didn't exist
-    // or token verification failed
-    // either way: redirect to the login page
-    // either the `token` cookie didn't exist
-    // or token verification failed
-    // either way: redirect to the login page
     return {
       redirect: {
         permanent: false,

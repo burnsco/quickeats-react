@@ -1,3 +1,4 @@
+import { ColorModeScript } from "@chakra-ui/react"
 import Document, { Head, Html, Main, NextScript } from "next/document"
 
 class MyDocument extends Document {
@@ -6,6 +7,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head />
         <body className="loading">
+          <ColorModeScript />
           <Main />
           <NextScript />
         </body>

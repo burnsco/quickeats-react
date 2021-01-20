@@ -2,7 +2,7 @@ import Link from "next/link"
 import React, { useState } from "react"
 import firebaseClient from "../config/firebaseClient"
 
-export default function Login(_props: any) {
+export default function Login() {
   const [email, setEmail] = useState("")
   const [pass, setPass] = useState("")
   return (
