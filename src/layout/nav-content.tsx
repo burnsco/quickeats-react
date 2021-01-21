@@ -8,10 +8,12 @@ import Link from "next/link"
 import { FaMoon, FaSun } from "react-icons/fa"
 
 const sections = [
-  { id: 1, title: "test", href: "/test" },
-  { id: 2, title: "haa", href: "/haa" },
-  { id: 3, title: "art", href: "/art" },
-  { id: 4, title: "car", href: "/car" }
+  { id: "home-link", title: "home", href: "/" },
+  { id: "burgers-link", title: "burgers", href: "/shop/burgers" },
+  { id: "chicken-link", title: "chicken", href: "/shop/chicken" },
+  { id: "pizza-link", title: "pizza", href: "/shop/pizza" },
+  { id: "sushi-link", title: "sushi", href: "/shop/sushi" },
+  { id: "sandwiches-link", title: "sandwiches", href: "/shop/sandwiches" }
 ]
 
 export default function NavbarContent() {

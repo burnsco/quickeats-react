@@ -1,17 +1,14 @@
 import { ChakraProvider, theme } from "@chakra-ui/react"
+import { AuthProvider } from "@hooks/auth"
+import Navbar from "@layout/nav-container"
 import type { AppProps } from "next/app"
 import Head from "next/head"
-import { FC, useEffect } from "react"
-import { AuthProvider } from "../hooks/auth"
+import type { FC } from "react"
 
 const Noop: FC = ({ children }) => <>{children}</>
 
 function MyApp({ Component, pageProps }: AppProps) {
   const Layout = (Component as any).Layout || Noop
-
-  useEffect(() => {
-    document.body.classList?.remove("loading")
-  }, [])
 
   return (
     <>
@@ -22,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <AuthProvider>
         <ChakraProvider theme={theme}>
+          <Navbar />
           <Layout pageProps={pageProps}>
             <Component {...pageProps} />
           </Layout>

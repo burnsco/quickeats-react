@@ -1,6 +1,6 @@
+import firebaseClient from "@config/firebaseClient"
 import nookies from "nookies"
 import { createContext, useContext, useEffect, useState } from "react"
-import firebaseClient from "../config/firebaseClient"
 
 const AuthContext = createContext<{ user: firebaseClient.User | null }>({
   user: null

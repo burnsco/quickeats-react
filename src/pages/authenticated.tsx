@@ -1,3 +1,4 @@
+import Container from "@components/container"
 import firebaseAdmin from "@config/firebaseAdmin"
 import firebaseClient from "@config/firebaseClient"
 import "firebase/firestore"
@@ -39,7 +40,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
 const AuthenticatedPage = (
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) => (
-  <div>
+  <Container>
     <p>{props.message!}</p>
     <h1>{props?.data?.title}</h1>
     <h2>items : </h2>
@@ -57,7 +58,7 @@ const AuthenticatedPage = (
     >
       Sign out
     </button>
-  </div>
+  </Container>
 )
 
 export default AuthenticatedPage

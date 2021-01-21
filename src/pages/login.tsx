@@ -1,26 +1,27 @@
-import Link from "next/link"
-import React, { useState } from "react"
-import firebaseClient from "../config/firebaseClient"
+import { Button, Input } from "@chakra-ui/react"
+import { NextChakraLink } from "@components/next-chakra-link"
+import firebaseClient from "@config/firebaseClient"
+import { useState } from "react"
 
 export default function Login() {
   const [email, setEmail] = useState("")
   const [pass, setPass] = useState("")
   return (
     <div>
-      <Link href="/">Go back to home page</Link>
+      <NextChakraLink href="/">Go back to home page</NextChakraLink>
       <br />
-      <input
+      <Input
         value={email}
         onChange={e => setEmail(e.target.value)}
         placeholder="Email"
       />
-      <input
+      <Input
         type="password"
         value={pass}
         onChange={e => setPass(e.target.value)}
         placeholder="Password"
       />
-      <button
+      <Button
         type="submit"
         onClick={async () => {
           await firebaseClient
@@ -30,8 +31,8 @@ export default function Login() {
         }}
       >
         Create account
-      </button>
-      <button
+      </Button>
+      <Button
         type="submit"
         onClick={async () => {
           await firebaseClient.auth().signInWithEmailAndPassword(email, pass)
@@ -39,7 +40,7 @@ export default function Login() {
         }}
       >
         Log in
-      </button>
+      </Button>
     </div>
   )
 }
