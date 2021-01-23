@@ -6,18 +6,16 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next"
 import nookies from "nookies"
 
 export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
-  const db = firebaseAdmin.firestore()
   try {
-    // SETUP COOKIES
+    const db = firebaseAdmin.firestore()
+
     const cookies = nookies.get(ctx)
     const token = await firebaseAdmin.auth().verifyIdToken(cookies.token)
     const { uid, email } = token
 
-    // FETCH DATA
     const collections = db.collection("collections")
     const burgerDoc = await collections.doc("Burgers").get()
 
-    // RETURN DATA
     return {
       props: {
         data: burgerDoc.data(),

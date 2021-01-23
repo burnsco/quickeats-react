@@ -12,6 +12,7 @@ const sections = [
   { id: "burgers-link", title: "burgers", href: "/shop/burgers" },
   { id: "chicken-link", title: "chicken", href: "/shop/chicken" },
   { id: "pizza-link", title: "pizza", href: "/shop/pizza" },
+  { id: "shop-link", title: "shop", href: "/shop/" },
   { id: "sushi-link", title: "sushi", href: "/shop/sushi" },
   { id: "sandwiches-link", title: "sandwiches", href: "/shop/sandwiches" }
 ]

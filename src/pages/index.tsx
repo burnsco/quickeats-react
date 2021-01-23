@@ -7,7 +7,7 @@ export default function IndexPage() {
   const { user } = useAuth()
 
   return (
-    <Container style={{ padding: "40px" }}>
+    <Container p={4}>
       <Text>{`User ID: ${user ? user.uid : "no user signed in"}`}</Text>
 
       <p>

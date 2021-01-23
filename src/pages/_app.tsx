@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
       </Head>
+
       <AuthProvider>
         <ChakraProvider theme={theme}>
           <Navbar />
