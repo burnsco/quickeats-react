@@ -7,6 +7,7 @@ import { useState } from "react"
 export default function Login() {
   const [email, setEmail] = useState("")
   const [pass, setPass] = useState("")
+
   return (
     <Container mt={5}>
       <NextChakraLink href="/">Go back to home page</NextChakraLink>
