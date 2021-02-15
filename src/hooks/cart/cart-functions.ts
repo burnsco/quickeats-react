@@ -30,7 +30,7 @@ export const removeItemFromCart = (
   const cartItemExists = state.cartItems.find(
     item => item.id === cartItemToRemove.id
   )
-  if (cartItemExists && cartItemExists.qty === 0) {
+  if (cartItemExists && cartItemExists.qty === 1) {
     return [...state.cartItems.filter(item => item.id !== cartItemToRemove.id)]
   }
 

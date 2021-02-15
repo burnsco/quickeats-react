@@ -1,4 +1,4 @@
-import { Badge, Box, Button } from "@chakra-ui/react"
+import { Badge, Box, Button, SimpleGrid } from "@chakra-ui/react"
 import Container from "@components/container"
 import firebaseAdmin from "@config/firebaseAdmin"
 import { useCart } from "@hooks/cart/cart"
@@ -57,54 +57,60 @@ const AuthenticatedPage = (
     <Container>
       <h1>{props?.data?.title}</h1>
       <h2>items : </h2>
-      {props?.data?.items.map((item: any) => (
-        <Box
-          key={item.id}
-          maxW="sm"
-          borderWidth="1px"
-          borderRadius="lg"
-          overflow="hidden"
-        >
-          <Box p="6">
-            <Box d="flex" alignItems="baseline">
-              <Image
-                loading="lazy"
-                layout="intrinsic"
-                src={`/${props?.data?.routeName}/${item.id}`}
-                width={700}
-                height={475}
-                alt={`image-${item.title}`}
-              />
+      <Container>
+        <SimpleGrid columns={[2, 3, 4]} spacing={4}>
+          {props?.data?.items.map((item: any) => (
+            <Box
+              key={item.id}
+              maxW="sm"
+              borderWidth="1px"
+              borderRadius="lg"
+              overflow="hidden"
+            >
+              <Box p="6">
+                <Box d="flex" alignItems="baseline">
+                  <Image
+                    loading="lazy"
+                    layout="intrinsic"
+                    src={`/${props?.data?.routeName}/${item.id}`}
+                    width={700}
+                    height={475}
+                    alt={`image-${item.title}`}
+                  />
 
-              <Badge borderRadius="full" px="2" colorScheme="teal">
-                New
-              </Badge>
-              <Box
-                color="gray.500"
-                fontWeight="semibold"
-                letterSpacing="wide"
-                fontSize="xs"
-                textTransform="uppercase"
-                ml="2"
-              >
-                {item.name}
+                  <Badge borderRadius="full" px="2" colorScheme="teal">
+                    New
+                  </Badge>
+                  <Box
+                    color="gray.500"
+                    fontWeight="semibold"
+                    letterSpacing="wide"
+                    fontSize="xs"
+                    textTransform="uppercase"
+                    ml="2"
+                  >
+                    {item.name}
+                  </Box>
+                </Box>
+
+                <Box
+                  mt="1"
+                  fontWeight="semibold"
+                  as="h4"
+                  lineHeight="tight"
+                  isTruncated
+                >
+                  {item.price}
+                </Box>
+                <Button onClick={() => handleAddItem(item)}>Add Item</Button>
+                <Button onClick={() => handleRemoveItem(item)}>
+                  Remove Item
+                </Button>
               </Box>
             </Box>
-
-            <Box
-              mt="1"
-              fontWeight="semibold"
-              as="h4"
-              lineHeight="tight"
-              isTruncated
-            >
-              {item.price}
-            </Box>
-            <Button onClick={() => handleAddItem(item)}>Add Item</Button>
-            <Button onClick={() => handleRemoveItem(item)}>Remove Item</Button>
-          </Box>
-        </Box>
-      ))}
+          ))}
+        </SimpleGrid>
+      </Container>
     </Container>
   )
 }
