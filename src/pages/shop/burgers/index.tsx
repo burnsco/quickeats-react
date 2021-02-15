@@ -4,6 +4,7 @@ import firebaseAdmin from "@config/firebaseAdmin"
 import { useCart } from "@hooks/cart/cart"
 import "firebase/firestore"
 import { InferGetServerSidePropsType } from "next"
+import Image from "next/image"
 
 export const getServerSideProps = async () => {
   const db = firebaseAdmin.firestore()
@@ -66,6 +67,15 @@ const AuthenticatedPage = (
         >
           <Box p="6">
             <Box d="flex" alignItems="baseline">
+              <Image
+                loading="lazy"
+                layout="intrinsic"
+                src={`/${props?.data?.routeName}/${item.id}`}
+                width={700}
+                height={475}
+                alt={`image-${item.title}`}
+              />
+
               <Badge borderRadius="full" px="2" colorScheme="teal">
                 New
               </Badge>

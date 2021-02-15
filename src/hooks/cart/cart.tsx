@@ -6,6 +6,7 @@ import {
   useContext,
   useReducer
 } from "react"
+import { addItemToCart, removeItemFromCart } from "./cart-functions"
 
 const initialState: State = {
   cartItems: []
@@ -20,70 +21,19 @@ const CartContext = createContext<{
 })
 
 function reducer(state: State, action: ActionType): State {
-  if (action.type === "ADD_ITEM") {
-    // check for existing product
-    const copyOfCartItems = [...state.cartItems]
-    const existingCartItem = copyOfCartItems.find(
-      item => item.id === action.payload.id
-    )
-
-    // if not existing product was found
-    if (!existingCartItem) {
+  console.log(state)
+  switch (action.type) {
+    case "ADD_ITEM":
       return {
-        cartItems: [
-          ...state.cartItems,
-          {
-            id: action.payload.id,
-            qty: action.payload.qty,
-            price: action.payload.price,
-            name: action.payload.name
-          }
-        ]
+        cartItems: addItemToCart(state, action.payload)
       }
-    }
-    // if an existing product was found
-    if (existingCartItem) {
-      console.log(state)
-      console.log(existingCartItem)
-      existingCartItem.qty++
+    case "REMOVE_ITEM":
       return {
-        cartItems: [...copyOfCartItems]
+        cartItems: removeItemFromCart(state, action.payload)
       }
-    }
-  }
 
-  if (action.type === "REMOVE_ITEM") {
-    const copyOfCartItems = [...state.cartItems]
-    const existingCartItem = copyOfCartItems.find(
-      item => item.id === action.payload.id
-    )
-
-    // if not existing product was found
-    if (!existingCartItem) {
-      return {
-        cartItems: [...state.cartItems]
-      }
-    }
-
-    if (existingCartItem) {
-      console.log(state)
-      console.log(existingCartItem)
-      existingCartItem.qty--
-      if (existingCartItem.qty === 0) {
-        return {
-          cartItems: [
-            ...copyOfCartItems.filter(item => item.id !== existingCartItem.id)
-          ]
-        }
-      }
-      return {
-        cartItems: [...copyOfCartItems]
-      }
-    }
-  }
-
-  return {
-    cartItems: state.cartItems
+    default:
+      return state
   }
 }
 
