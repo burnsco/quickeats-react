@@ -17,7 +17,7 @@ export default function IndexPage() {
           </NextChakraLink>
         </p>
         <p>
-          <NextChakraLink href="/login">Login</NextChakraLink>
+          <NextChakraLink href="/user/login">Login</NextChakraLink>
         </p>
       </Container>
     </Container>

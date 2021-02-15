@@ -1,62 +1,102 @@
+import { Badge, Box, Button } from "@chakra-ui/react"
 import Container from "@components/container"
 import firebaseAdmin from "@config/firebaseAdmin"
-import firebaseClient from "@config/firebaseClient"
+import { useCart } from "@hooks/cart/cart"
 import "firebase/firestore"
-import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next"
-import nookies from "nookies"
+import { InferGetServerSidePropsType } from "next"
 
-export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
-  try {
-    const db = firebaseAdmin.firestore()
+export const getServerSideProps = async () => {
+  const db = firebaseAdmin.firestore()
+  const collections = db.collection("collections")
+  const burgerDoc = await collections.doc("Burgers").get()
 
-    const cookies = nookies.get(ctx)
-    const token = await firebaseAdmin.auth().verifyIdToken(cookies.token)
-    const { uid, email } = token
-
-    const collections = db.collection("collections")
-    const burgerDoc = await collections.doc("Burgers").get()
-
-    return {
-      props: {
-        data: burgerDoc.data(),
-        message: `Your email is ${email} and your UID is ${uid}.`
-      }
-    }
-  } catch (err) {
+  if (!burgerDoc.exists) {
     return {
       redirect: {
         permanent: false,
-        destination: "/login"
+        destination: "/404"
       },
-      // `as never` is required for correct type inference
-      // by InferGetServerSidePropsType below
       props: {} as never
+    }
+  }
+  return {
+    props: {
+      data: burgerDoc.data()
     }
   }
 }
 
 const AuthenticatedPage = (
   props: InferGetServerSidePropsType<typeof getServerSideProps>
-) => (
-  <Container>
-    <p>{props.message!}</p>
-    <h1>{props?.data?.title}</h1>
-    <h2>items : </h2>
-    <ul>
+) => {
+  const { dispatch } = useCart()
+
+  const handleAddItem = (item: CartItem) =>
+    dispatch({
+      type: "ADD_ITEM",
+      payload: {
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        qty: 1
+      }
+    })
+  const handleRemoveItem = (item: CartItem) =>
+    dispatch({
+      type: "REMOVE_ITEM",
+      payload: {
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        qty: -1
+      }
+    })
+
+  return (
+    <Container>
+      <h1>{props?.data?.title}</h1>
+      <h2>items : </h2>
       {props?.data?.items.map((item: any) => (
-        <li key={item.name}>{item.name}</li>
+        <Box
+          key={item.id}
+          maxW="sm"
+          borderWidth="1px"
+          borderRadius="lg"
+          overflow="hidden"
+        >
+          <Box p="6">
+            <Box d="flex" alignItems="baseline">
+              <Badge borderRadius="full" px="2" colorScheme="teal">
+                New
+              </Badge>
+              <Box
+                color="gray.500"
+                fontWeight="semibold"
+                letterSpacing="wide"
+                fontSize="xs"
+                textTransform="uppercase"
+                ml="2"
+              >
+                {item.name}
+              </Box>
+            </Box>
+
+            <Box
+              mt="1"
+              fontWeight="semibold"
+              as="h4"
+              lineHeight="tight"
+              isTruncated
+            >
+              {item.price}
+            </Box>
+            <Button onClick={() => handleAddItem(item)}>Add Item</Button>
+            <Button onClick={() => handleRemoveItem(item)}>Remove Item</Button>
+          </Box>
+        </Box>
       ))}
-    </ul>
-    <button
-      type="submit"
-      onClick={async () => {
-        await firebaseClient.auth().signOut()
-        window.location.href = "/"
-      }}
-    >
-      Sign out
-    </button>
-  </Container>
-)
+    </Container>
+  )
+}
 
 export default AuthenticatedPage
