@@ -1,13 +1,12 @@
 import {
-  Button,
   Flex,
   IconButton,
   useColorMode,
   useColorModeValue
 } from "@chakra-ui/react"
+import CartDrawer from "@components/CartDrawer"
 import Link from "next/link"
-import { FaMoon, FaShoppingBasket, FaSun } from "react-icons/fa"
-import { useCart } from "../hooks/cart/cart"
+import { FaMoon, FaSun } from "react-icons/fa"
 
 const sections = [
   { id: "home-link", title: "home", href: "/" },
@@ -23,14 +22,6 @@ export default function NavbarContent() {
   const { toggleColorMode: toggleMode } = useColorMode()
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
   const text = useColorModeValue("dark", "light")
-  const { state } = useCart()
-
-  const getTotalQty = () => {
-    if (state?.cartItems && state.cartItems.length > 0) {
-      return state?.cartItems?.map(item => item.qty).reduce((a, b) => a + b)
-    }
-    return "empty"
-  }
 
   return (
     <Flex
@@ -56,13 +47,7 @@ export default function NavbarContent() {
         onClick={toggleMode}
         icon={<SwitchIcon />}
       />
-      <Button
-        rightIcon={<FaShoppingBasket />}
-        colorScheme="teal"
-        variant="outline"
-      >
-        {getTotalQty()}
-      </Button>
+      <CartDrawer />
     </Flex>
   )
 }

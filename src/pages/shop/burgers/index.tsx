@@ -1,4 +1,4 @@
-import { Badge, Box, Button, SimpleGrid } from "@chakra-ui/react"
+import { Badge, Box, Button, SimpleGrid, useToast } from "@chakra-ui/react"
 import Container from "@components/container"
 import firebaseAdmin from "@config/firebaseAdmin"
 import { useCart } from "@hooks/cart/cart"
@@ -31,7 +31,7 @@ const AuthenticatedPage = (
   props: InferGetServerSidePropsType<typeof getServerSideProps>
 ) => {
   const { dispatch } = useCart()
-
+  const toast = useToast()
   const handleAddItem = (item: CartItem) =>
     dispatch({
       type: "ADD_ITEM",
@@ -102,7 +102,20 @@ const AuthenticatedPage = (
                 >
                   {item.price}
                 </Box>
-                <Button onClick={() => handleAddItem(item)}>Add Item</Button>
+                <Button
+                  onClick={() => {
+                    handleAddItem(item)
+                    toast({
+                      title: `${item.name}`,
+                      description: "Was added to your cart.",
+                      status: "success",
+                      duration: 2000,
+                      isClosable: true
+                    })
+                  }}
+                >
+                  Add Item
+                </Button>
                 <Button onClick={() => handleRemoveItem(item)}>
                   Remove Item
                 </Button>
