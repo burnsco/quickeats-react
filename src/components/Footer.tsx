@@ -36,18 +36,16 @@ const links = [
 export const Footer = () => (
   <Box as="footer" mt={12} textAlign="center">
     <Text fontSize="sm">
-      <span>
-        Proudly made in
-        <Icon
-          as={FaCanadianMapleLeaf}
-          display="inline-block"
-          mx="3"
-          h="16px"
-          w="auto"
-          verticalAlign="middle"
-        />
-      </span>
-      <span>by Corey Burns</span>
+      Proudly made in
+      <Icon
+        as={FaCanadianMapleLeaf}
+        display="inline-block"
+        mx="3"
+        h="16px"
+        w="auto"
+        verticalAlign="middle"
+      />
+      by Corey Burns
     </Text>
     <Stack mt={4} direction="row" spacing="12px" justify="center">
       {links.map(link => (

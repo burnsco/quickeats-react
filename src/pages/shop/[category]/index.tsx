@@ -67,6 +67,7 @@ const AuthenticatedPage = (props: any) => {
         id: item.id,
         name: item.name,
         price: item.price,
+        routeName: item.routeName,
         qty: 1
       }
     })
@@ -76,6 +77,7 @@ const AuthenticatedPage = (props: any) => {
       payload: {
         id: item.id,
         name: item.name,
+        routeName: item.routeName,
         price: item.price,
         qty: -1
       }
@@ -84,7 +86,7 @@ const AuthenticatedPage = (props: any) => {
   return (
     <PageContainer>
       <Container>
-        <SimpleGrid columns={[2, 3]} spacing={4}>
+        <SimpleGrid columns={[1, 2, 3]} spacing={4}>
           {props?.data?.items.map((item: any) => (
             <Box
               key={item.id}
@@ -95,7 +97,7 @@ const AuthenticatedPage = (props: any) => {
             >
               <Box pos="relative" maxW="sm" h="260px">
                 <Image
-                  loading="lazy"
+                  priority
                   layout="fill"
                   objectFit="cover"
                   src={`/${props?.data?.routeName}/${item.id}`}

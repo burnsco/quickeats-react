@@ -1,5 +1,6 @@
 import { LockIcon } from "@chakra-ui/icons"
 import {
+  Badge,
   Box,
   Button,
   ButtonGroup,
@@ -10,14 +11,11 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  NumberDecrementStepper,
-  NumberIncrementStepper,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
+  HStack,
   Table,
   Tbody,
   Td,
+  Text,
   Tfoot,
   Th,
   Thead,
@@ -30,6 +28,30 @@ import React, { useRef } from "react"
 import { FaShoppingBasket } from "react-icons/fa"
 
 function CartDrawer() {
+  const { dispatch } = useCart()
+
+  const handleAddItem = (item: CartItem) =>
+    dispatch({
+      type: "ADD_ITEM",
+      payload: {
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        routeName: item.routeName,
+        qty: 1
+      }
+    })
+  const handleRemoveItem = (item: CartItem) =>
+    dispatch({
+      type: "REMOVE_ITEM",
+      payload: {
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        routeName: item.routeName,
+        qty: -1
+      }
+    })
   const { isOpen, onOpen, onClose } = useDisclosure()
   const { state } = useCart()
 
@@ -41,7 +63,9 @@ function CartDrawer() {
   }
   const getTotalPrice = () => {
     if (state?.cartItems && state.cartItems.length > 0) {
-      return state?.cartItems?.map(item => item.price).reduce((a, b) => a + b)
+      return state?.cartItems
+        ?.map(item => item.price * item.qty)
+        .reduce((a, b) => a + b)
     }
     return "0"
   }
@@ -84,33 +108,49 @@ function CartDrawer() {
               overflow="hidden"
               p={1}
             >
-              <Table size="sm">
+              <Table variant="simple" size="sm">
                 <Thead>
                   <Tr>
-                    <Th>QTY</Th>
+                    <Th>
+                      <Text ml={5}>QTY</Text>
+                    </Th>
                     <Th>ITEM(S)</Th>
-                    <Th isNumeric>PRICE</Th>
+
+                    <Th isNumeric>PRICE (each)</Th>
                   </Tr>
                 </Thead>
                 <Tbody>
                   {cartItems?.map(item => (
-                    <Tr>
+                    <Tr key={`Cart-Item-${item.name}`}>
                       <Td>
-                        <NumberInput
-                          size="xs"
-                          maxW={14}
-                          defaultValue={item.qty || 0}
-                          min={0}
-                          max={20}
-                        >
-                          <NumberInputField />
-                          <NumberInputStepper>
-                            <NumberIncrementStepper />
-                            <NumberDecrementStepper />
-                          </NumberInputStepper>
-                        </NumberInput>
+                        <HStack maxW="80px">
+                          <Button size="xs" onClick={() => handleAddItem(item)}>
+                            +
+                          </Button>
+                          <Text>{item.qty}</Text>
+
+                          <Button
+                            size="xs"
+                            onClick={() => handleRemoveItem(item)}
+                          >
+                            -
+                          </Button>
+                        </HStack>
                       </Td>
-                      <Td>{item.name}</Td>
+                      <Td>
+                        <HStack spacing={2}>
+                          <Text>{item.name}</Text>
+                          <Badge
+                            borderRadius="full"
+                            fontSize="10px"
+                            px="2"
+                            colorScheme="red"
+                          >
+                            REMOVE
+                          </Badge>
+                        </HStack>
+                      </Td>
+
                       <Td isNumeric>${item.price}</Td>
                     </Tr>
                   ))}
