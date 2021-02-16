@@ -1,17 +1,11 @@
 import Container from "@components/container"
 import firebaseAdmin from "@config/firebaseAdmin"
-import firebaseClient from "@config/firebaseClient"
 import "firebase/firestore"
-import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next"
-import nookies from "nookies"
+import { GetStaticProps } from "next"
 
-export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
+export const getStaticProps: GetStaticProps = async () => {
   try {
     const db = firebaseAdmin.firestore()
-
-    const cookies = nookies.get(ctx)
-    const token = await firebaseAdmin.auth().verifyIdToken(cookies.token)
-    const { uid, email } = token
 
     const collections = db.collection("collections")
     const burgerDoc = await collections.doc("Burgers").get()
@@ -26,8 +20,7 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
         chickenData: chickenDoc.data(),
         pizzaData: pizzaDoc.data(),
         sandwichData: sandwichDoc.data(),
-        sushiData: sushiDoc.data(),
-        message: `Your email is ${email} and your UID is ${uid}.`
+        sushiData: sushiDoc.data()
       }
     }
   } catch (err) {
@@ -43,27 +36,34 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
   }
 }
 
-const AuthenticatedPage = (
-  props: InferGetServerSidePropsType<typeof getServerSideProps>
-) => (
+const AuthenticatedPage = (props: any) => (
   <Container>
-    <p>{props.message!}</p>
-    <h1>{props?.data?.title}</h1>
     <h2>items : </h2>
     <ul>
-      {props?.data?.items.map((item: any) => (
+      {props?.burgerData.items.map((item: any) => (
         <li key={item.name}>{item.name}</li>
       ))}
     </ul>
-    <button
-      type="submit"
-      onClick={async () => {
-        await firebaseClient.auth().signOut()
-        window.location.href = "/"
-      }}
-    >
-      Sign out
-    </button>
+    <ul>
+      {props?.chickenData.items.map((item: any) => (
+        <li key={item.name}>{item.name}</li>
+      ))}
+    </ul>
+    <ul>
+      {props?.pizzaData.items.map((item: any) => (
+        <li key={item.name}>{item.name}</li>
+      ))}
+    </ul>
+    <ul>
+      {props?.sandwichData.items.map((item: any) => (
+        <li key={item.name}>{item.name}</li>
+      ))}
+    </ul>
+    <ul>
+      {props?.sushiData.items.map((item: any) => (
+        <li key={item.name}>{item.name}</li>
+      ))}
+    </ul>
   </Container>
 )
 

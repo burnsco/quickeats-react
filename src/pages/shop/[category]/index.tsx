@@ -1,3 +1,4 @@
+import { AddIcon, MinusIcon } from "@chakra-ui/icons"
 import {
   Badge,
   Box,
@@ -7,18 +8,31 @@ import {
   useToast
 } from "@chakra-ui/react"
 import Container from "@components/container"
+import PageContainer from "@components/page-container"
 import firebaseAdmin from "@config/firebaseAdmin"
 import { useCart } from "@hooks/cart/cart"
 import "firebase/firestore"
-import { InferGetServerSidePropsType } from "next"
+import { GetStaticPaths, GetStaticProps } from "next"
 import Image from "next/image"
 
-export const getServerSideProps = async () => {
+const sections = [
+  { id: "home-section", name: "home", href: "/" },
+  { id: "burgers-section", name: "burgers", href: "/shop/burgers" },
+  { id: "chicken-section", name: "chicken", href: "/shop/chicken" },
+  { id: "pizza-section", name: "pizza", href: "/shop/pizza" },
+  { id: "shop-section", name: "shop", href: "/shop/" },
+  { id: "sushi-section", name: "sushi", href: "/shop/sushi" },
+  { id: "sandwiches-section", name: "sandwiches", href: "/shop/sandwiches" }
+]
+
+export const getStaticProps: GetStaticProps = async ({ params }: any) => {
+  const collectionTitle =
+    params.category.charAt(0).toUpperCase() + params.category.slice(1)
   const db = firebaseAdmin.firestore()
   const collections = db.collection("collections")
-  const burgerDoc = await collections.doc("Burgers").get()
+  const collectionDoc = await collections.doc(collectionTitle).get()
 
-  if (!burgerDoc.exists) {
+  if (!collectionDoc.exists) {
     return {
       redirect: {
         permanent: false,
@@ -29,14 +43,21 @@ export const getServerSideProps = async () => {
   }
   return {
     props: {
-      data: burgerDoc.data()
+      data: collectionDoc.data()
     }
   }
 }
 
-const AuthenticatedPage = (
-  props: InferGetServerSidePropsType<typeof getServerSideProps>
-) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const paths = sections.map(section => `/shop/${section.name}`)
+
+  return {
+    paths,
+    fallback: "blocking"
+  }
+}
+
+const AuthenticatedPage = (props: any) => {
   const { dispatch } = useCart()
   const toast = useToast()
   const handleAddItem = (item: CartItem) =>
@@ -61,9 +82,7 @@ const AuthenticatedPage = (
     })
 
   return (
-    <Container>
-      <h1>{props?.data?.title}</h1>
-      <h2>items : </h2>
+    <PageContainer>
       <Container>
         <SimpleGrid columns={[2, 3]} spacing={4}>
           {props?.data?.items.map((item: any) => (
@@ -86,7 +105,7 @@ const AuthenticatedPage = (
               <Box p="2">
                 <Box d="flex" alignItems="baseline">
                   <Badge borderRadius="full" px="2" colorScheme="teal">
-                    New
+                    ${item.price}
                   </Badge>
 
                   <Box
@@ -100,9 +119,9 @@ const AuthenticatedPage = (
                   </Box>
                 </Box>
 
-                <Box py={2}>${item.price}</Box>
-                <ButtonGroup size="lg" spacing={6}>
+                <ButtonGroup size="lg" spacing={6} mt={4}>
                   <Button
+                    leftIcon={<AddIcon />}
                     size="sm"
                     mr="-px"
                     onClick={() => {
@@ -119,7 +138,11 @@ const AuthenticatedPage = (
                     Add Item
                   </Button>
 
-                  <Button size="sm" onClick={() => handleRemoveItem(item)}>
+                  <Button
+                    rightIcon={<MinusIcon />}
+                    size="sm"
+                    onClick={() => handleRemoveItem(item)}
+                  >
                     Remove Item
                   </Button>
                 </ButtonGroup>
@@ -128,7 +151,7 @@ const AuthenticatedPage = (
           ))}
         </SimpleGrid>
       </Container>
-    </Container>
+    </PageContainer>
   )
 }
 

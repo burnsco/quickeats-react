@@ -1,6 +1,6 @@
 import { Text } from "@chakra-ui/react"
 import Container from "@components/container"
-import { NextChakraLink } from "@components/next-chakra-link"
+import NextChakraLink from "@components/NextChakraLink"
 import { useAuth } from "@hooks/auth"
 
 export default function IndexPage() {

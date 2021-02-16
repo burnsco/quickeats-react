@@ -1,4 +1,6 @@
+import { LockIcon } from "@chakra-ui/icons"
 import {
+  Box,
   Button,
   ButtonGroup,
   Drawer,
@@ -8,16 +10,24 @@ import {
   DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
-  List,
-  ListItem,
-  useDisclosure
+  NumberDecrementStepper,
+  NumberIncrementStepper,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  Table,
+  Tbody,
+  Td,
+  Tfoot,
+  Th,
+  Thead,
+  Tr,
+  useDisclosure,
+  VisuallyHidden
 } from "@chakra-ui/react"
 import { useCart } from "@hooks/cart/cart"
-import { motion } from "framer-motion"
-import { useRef } from "react"
+import React, { useRef } from "react"
 import { FaShoppingBasket } from "react-icons/fa"
-
-const MotionButton = motion.custom(Button)
 
 function CartDrawer() {
   const { isOpen, onOpen, onClose } = useDisclosure()
@@ -27,30 +37,34 @@ function CartDrawer() {
     if (state?.cartItems && state.cartItems.length > 0) {
       return state?.cartItems?.map(item => item.qty).reduce((a, b) => a + b)
     }
-    return "No Items"
+    return "0"
   }
   const getTotalPrice = () => {
     if (state?.cartItems && state.cartItems.length > 0) {
       return state?.cartItems?.map(item => item.price).reduce((a, b) => a + b)
     }
-    return "No Items"
+    return "0"
   }
   const btnRef = useRef<HTMLButtonElement | null>(null)
 
-  const total = getTotalQty()
+  const totalQty = getTotalQty()
   const totalPrice = getTotalPrice()
+
+  const cartItems = state?.cartItems
+
+  // #TODO  ADD routName to the cart so that can retreive image url for items section
+
   return (
     <>
-      <MotionButton
+      <Button
         rightIcon={<FaShoppingBasket />}
         variant="outline"
         size="md"
-        whileHover={{ scale: 1.2 }}
         ref={btnRef}
         onClick={onOpen}
       >
-        {total}
-      </MotionButton>
+        {totalQty}
+      </Button>
       <Drawer
         size="lg"
         isOpen={isOpen}
@@ -61,26 +75,70 @@ function CartDrawer() {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Your Cart!</DrawerHeader>
+          <DrawerHeader>SHOPPING CART</DrawerHeader>
           <DrawerBody>
-            <List>
-              {state?.cartItems.map(item => (
-                <ListItem>
-                  QTY: {item.qty} NAME: {item.name} PRICE: ${item.price}
-                </ListItem>
-              ))}
-              <ListItem>
-                TOTAL QTY {total} TOTAL PRICE ${totalPrice}
-              </ListItem>
-            </List>
+            <Box
+              borderWidth="2px"
+              borderStyle="dashed"
+              borderRadius="lg"
+              overflow="hidden"
+              p={1}
+            >
+              <Table size="sm">
+                <Thead>
+                  <Tr>
+                    <Th>QTY</Th>
+                    <Th>ITEM(S)</Th>
+                    <Th isNumeric>PRICE</Th>
+                  </Tr>
+                </Thead>
+                <Tbody>
+                  {cartItems?.map(item => (
+                    <Tr>
+                      <Td>
+                        <NumberInput
+                          size="xs"
+                          maxW={14}
+                          defaultValue={item.qty || 0}
+                          min={0}
+                          max={20}
+                        >
+                          <NumberInputField />
+                          <NumberInputStepper>
+                            <NumberIncrementStepper />
+                            <NumberDecrementStepper />
+                          </NumberInputStepper>
+                        </NumberInput>
+                      </Td>
+                      <Td>{item.name}</Td>
+                      <Td isNumeric>${item.price}</Td>
+                    </Tr>
+                  ))}
+                </Tbody>
+                {totalPrice > 0 ? (
+                  <Tfoot>
+                    <Tr>
+                      <Th>Total: {totalQty}</Th>
+                      <VisuallyHidden>
+                        <Th>ITEMS</Th>
+                      </VisuallyHidden>
+                      <Th isNumeric>Total: ${totalPrice}</Th>
+                    </Tr>
+                  </Tfoot>
+                ) : null}
+              </Table>
+            </Box>
           </DrawerBody>
           <DrawerFooter>
-            <ButtonGroup>
-              <Button variant="outline" mr={3} onClick={onClose}>
+            <ButtonGroup spacing={10}>
+              <Button onClick={onClose}>Exit</Button>
+              <Button
+                leftIcon={<LockIcon />}
+                variant="outline"
+                mr={3}
+                onClick={onClose}
+              >
                 Checkout
-              </Button>
-              <Button variant="outline" mr={3} onClick={onClose}>
-                Clear Cart
               </Button>
             </ButtonGroup>
           </DrawerFooter>

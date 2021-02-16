@@ -1,7 +1,7 @@
 import { Button, Input } from "@chakra-ui/react"
 import Container from "@components/container"
-import { NextChakraLink } from "@components/next-chakra-link"
 import firebaseClient from "@config/firebaseClient"
+import Link from "next/link"
 import { useState } from "react"
 
 export default function Login() {
@@ -10,7 +10,7 @@ export default function Login() {
 
   return (
     <Container mt={5}>
-      <NextChakraLink href="/">Go back to home page</NextChakraLink>
+      <Link href="/">Go back to home page</Link>
       <br />
       <Input
         value={email}
