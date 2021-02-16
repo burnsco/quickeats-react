@@ -1,4 +1,11 @@
-import { Badge, Box, Button, SimpleGrid, useToast } from "@chakra-ui/react"
+import {
+  Badge,
+  Box,
+  Button,
+  ButtonGroup,
+  SimpleGrid,
+  useToast
+} from "@chakra-ui/react"
 import Container from "@components/container"
 import firebaseAdmin from "@config/firebaseAdmin"
 import { useCart } from "@hooks/cart/cart"
@@ -58,7 +65,7 @@ const AuthenticatedPage = (
       <h1>{props?.data?.title}</h1>
       <h2>items : </h2>
       <Container>
-        <SimpleGrid columns={[2, 3, 4]} spacing={4}>
+        <SimpleGrid columns={[2, 3]} spacing={4}>
           {props?.data?.items.map((item: any) => (
             <Box
               key={item.id}
@@ -67,58 +74,55 @@ const AuthenticatedPage = (
               borderRadius="lg"
               overflow="hidden"
             >
-              <Box p="6">
+              <Box pos="relative" maxW="sm" h="260px">
+                <Image
+                  loading="lazy"
+                  layout="fill"
+                  objectFit="cover"
+                  src={`/${props?.data?.routeName}/${item.id}`}
+                  alt={`image-${item.title}`}
+                />
+              </Box>
+              <Box p="2">
                 <Box d="flex" alignItems="baseline">
-                  <Image
-                    loading="lazy"
-                    layout="intrinsic"
-                    src={`/${props?.data?.routeName}/${item.id}`}
-                    width={700}
-                    height={475}
-                    alt={`image-${item.title}`}
-                  />
-
                   <Badge borderRadius="full" px="2" colorScheme="teal">
                     New
                   </Badge>
+
                   <Box
-                    color="gray.500"
+                    ml={2}
                     fontWeight="semibold"
-                    letterSpacing="wide"
-                    fontSize="xs"
-                    textTransform="uppercase"
-                    ml="2"
+                    as="h4"
+                    lineHeight="tight"
+                    isTruncated
                   >
                     {item.name}
                   </Box>
                 </Box>
 
-                <Box
-                  mt="1"
-                  fontWeight="semibold"
-                  as="h4"
-                  lineHeight="tight"
-                  isTruncated
-                >
-                  {item.price}
-                </Box>
-                <Button
-                  onClick={() => {
-                    handleAddItem(item)
-                    toast({
-                      title: `${item.name}`,
-                      description: "Was added to your cart.",
-                      status: "success",
-                      duration: 2000,
-                      isClosable: true
-                    })
-                  }}
-                >
-                  Add Item
-                </Button>
-                <Button onClick={() => handleRemoveItem(item)}>
-                  Remove Item
-                </Button>
+                <Box py={2}>${item.price}</Box>
+                <ButtonGroup size="lg" spacing={6}>
+                  <Button
+                    size="sm"
+                    mr="-px"
+                    onClick={() => {
+                      handleAddItem(item)
+                      toast({
+                        title: `${item.name}`,
+                        description: "Was added to your cart.",
+                        status: "success",
+                        duration: 2000,
+                        isClosable: true
+                      })
+                    }}
+                  >
+                    Add Item
+                  </Button>
+
+                  <Button size="sm" onClick={() => handleRemoveItem(item)}>
+                    Remove Item
+                  </Button>
+                </ButtonGroup>
               </Box>
             </Box>
           ))}
