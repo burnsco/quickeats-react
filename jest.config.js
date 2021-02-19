@@ -12,15 +12,11 @@ module.exports = {
     "jest-watch-typeahead/testname"
   ],
   moduleNameMapper: {
-    "^@/generated(.*)$": "<rootDir>/src/generated$1",
     "^@/pages(.*)$": "<rootDir>/src/pages$1",
+    "^@/config(.*)$": "<rootDir>/src/config$1",
     "^@/components(.*)$": "<rootDir>/src/components$1",
-    "^@/hooks(.*)$": "<rootDir>/src/hooks$1",
-    "^@/lib(.*)$": "<rootDir>/src/lib$1",
-    "^@/utils(.*)$": "<rootDir>/src/utils$1",
-    "^@/types(.*)$": "<rootDir>/src/types$1",
-    "^@/styles(.*)$": "<rootDir>/src/styles$1",
-    "^@/assets(.*)$": "<rootDir>/src/assets$1"
+    "^@/layout(.*)$": "<rootDir>/src/layout$1",
+    "^@/hooks(.*)$": "<rootDir>/src/hooks$1"
   },
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$"],
   transform: {

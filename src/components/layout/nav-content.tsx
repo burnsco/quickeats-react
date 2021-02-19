@@ -4,8 +4,8 @@ import {
   useColorMode,
   useColorModeValue
 } from "@chakra-ui/react"
-import CartDrawer from "@components/CartDrawer"
-import NextChakraLink from "@components/NextChakraLink"
+import NextChakraLink from "@components/common/NextChakraLink"
+import CartDrawer from "@components/drawer/CartDrawer"
 import { useAuth } from "@hooks/auth"
 import { FaMoon, FaSun } from "react-icons/fa"
 

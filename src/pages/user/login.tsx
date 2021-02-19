@@ -1,48 +1,47 @@
-import { Button, Input } from "@chakra-ui/react"
-import Container from "@components/container"
+import { Button, Heading, Stack } from "@chakra-ui/react"
+import ChakraField from "@components/common/ChakraField"
+import Container from "@components/layout/container"
 import firebaseClient from "@config/firebaseClient"
+import { Form, Formik } from "formik"
 import Link from "next/link"
-import { useState } from "react"
 
 export default function Login() {
-  const [email, setEmail] = useState("")
-  const [pass, setPass] = useState("")
-
   return (
     <Container mt={5}>
+      <Heading>Login Page</Heading>
       <Link href="/">Go back to home page</Link>
       <br />
-      <Input
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        placeholder="Email"
-      />
-      <Input
-        type="password"
-        value={pass}
-        onChange={e => setPass(e.target.value)}
-        placeholder="Password"
-      />
-      <Button
-        type="submit"
-        onClick={async () => {
+      <Formik
+        initialValues={{ email: "", password: "" }}
+        onSubmit={async values => {
           await firebaseClient
             .auth()
-            .createUserWithEmailAndPassword(email, pass)
+            .createUserWithEmailAndPassword(values.email, values.password)
           window.location.href = "/"
         }}
       >
-        Create account
-      </Button>
-      <Button
-        type="submit"
-        onClick={async () => {
-          await firebaseClient.auth().signInWithEmailAndPassword(email, pass)
-          window.location.href = "/"
-        }}
-      >
-        Log in
-      </Button>
+        {({ isSubmitting }) => (
+          <Form>
+            <Stack spacing={4}>
+              <ChakraField id="email" name="email" type="email" label="Email" />
+              <ChakraField
+                id="password"
+                name="password"
+                label="Password"
+                type="password"
+              />
+            </Stack>
+            <Button
+              type="submit"
+              isDisabled={isSubmitting}
+              isLoading={isSubmitting}
+              color="blue"
+            >
+              Submit
+            </Button>
+          </Form>
+        )}
+      </Formik>
     </Container>
   )
 }

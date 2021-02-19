@@ -1,4 +1,4 @@
-import Container from "@components/container"
+import Container from "@components/layout/container"
 import firebaseAdmin from "@config/firebaseAdmin"
 import "firebase/firestore"
 import { GetStaticProps } from "next"

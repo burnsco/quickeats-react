@@ -1,4 +1,4 @@
-import Container from "@components/container"
+import Container from "@components/layout/container"
 import firebaseAdmin from "@config/firebaseAdmin"
 import firebaseClient from "@config/firebaseClient"
 import "firebase/firestore"
@@ -28,8 +28,6 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
         permanent: false,
         destination: "/login"
       },
-      // `as never` is required for correct type inference
-      // by InferGetServerSidePropsType below
       props: {} as never
     }
   }

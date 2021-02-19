@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react"
-import Container from "@components/container"
-import Footer from "@components/Footer"
+import Container from "@components/common/container"
+import Footer from "@components/layout/Footer"
 import * as React from "react"
 import PageTransition from "./page-transition"
 

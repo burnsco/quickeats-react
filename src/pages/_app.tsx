@@ -1,7 +1,8 @@
 import { ChakraProvider, theme } from "@chakra-ui/react"
+import Navbar from "@components/layout/nav-container"
+import PageContainer from "@components/layout/page-container"
 import { AuthProvider } from "@hooks/auth"
 import { CartProvider } from "@hooks/cart/cart"
-import Navbar from "@layout/nav-container"
 import type { AppProps } from "next/app"
 import Head from "next/head"
 import type { FC } from "react"
@@ -17,6 +18,11 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta charSet="utf-8" />
         <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
         <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Anton&display=swap;text=QuickEats"
+          rel="stylesheet"
+        />
       </Head>
 
       <AuthProvider>
@@ -24,7 +30,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           <CartProvider>
             <Navbar />
             <Layout pageProps={pageProps}>
-              <Component {...pageProps} />
+              <PageContainer>
+                <Component {...pageProps} />
+              </PageContainer>
             </Layout>
           </CartProvider>
         </ChakraProvider>

@@ -20,10 +20,10 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
+      "@config/*": ["src/components/layout/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@layout/*": ["src/layout/*"],
-      "@config/*": ["src/config/*"],
-      "@pages/*": ["src/pages/*"],
-      "@hooks/*": ["src/hooks/*"]
+      "@pages/*": ["src/pages/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js"],
