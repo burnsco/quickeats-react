@@ -1,4 +1,5 @@
 import {
+  chakra,
   Flex,
   IconButton,
   useColorMode,
@@ -6,8 +7,8 @@ import {
 } from "@chakra-ui/react"
 import NextChakraLink from "@components/common/NextChakraLink"
 import CartDrawer from "@components/drawer/CartDrawer"
-import { useAuth } from "@hooks/auth"
 import { FaMoon, FaSun } from "react-icons/fa"
+import NavMenu from "./nav-menu"
 
 export const sections = [
   { id: "home-link", title: "home", href: "/" },
@@ -20,7 +21,6 @@ export const sections = [
 ]
 
 export default function NavbarContent() {
-  const { user } = useAuth()
   const { toggleColorMode: toggleMode } = useColorMode()
   const SwitchIcon = useColorModeValue(FaMoon, FaSun)
   const text = useColorModeValue("dark", "light")
@@ -33,16 +33,22 @@ export default function NavbarContent() {
       alignItems="center"
       p={[1, 2, 3]}
     >
-      {sections.map(sec => (
-        <NextChakraLink
-          href={sec.href}
-          aria-label={`Page ${sec.id}`}
-          key={sec.id}
-        >
-          {sec.title}
-        </NextChakraLink>
-      ))}
-      {user?.displayName}
+      <NextChakraLink
+        textDecoration="mediumslateblue"
+        fontSize="x-large"
+        letterSpacing="wide"
+        fontWeight="bold"
+        fontFamily="Anton"
+        href="/"
+        aria-label="Home Page Link"
+      >
+        <chakra.span fontStyle="italic" color="mediumorchid">
+          QUICK
+        </chakra.span>{" "}
+        EATS
+      </NextChakraLink>
+      <NavMenu />
+
       <IconButton
         size="md"
         fontSize="lg"

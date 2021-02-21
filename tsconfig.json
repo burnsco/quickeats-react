@@ -20,9 +20,8 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
-      "@config/*": ["src/components/layout/*"],
+      "@config/*": ["src/config/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@layout/*": ["src/layout/*"],
       "@pages/*": ["src/pages/*"]
     }
   },

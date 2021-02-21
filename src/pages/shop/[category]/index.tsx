@@ -113,7 +113,7 @@ const AuthenticatedPage = (props: any) => {
                 size="sm"
                 spacing={6}
                 w="full"
-                colorScheme="telegram"
+                colorScheme="purple"
                 mt={4}
                 leftIcon={<AddIcon />}
                 mr="-px"

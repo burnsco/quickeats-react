@@ -5,9 +5,7 @@
     "plugin:import/typescript",
     "plugin:react-hooks/recommended",
     "airbnb-typescript",
-    "prettier",
-    "prettier/react",
-    "prettier/@typescript-eslint"
+    "prettier"
   ],
   "plugins": [
     "react-hooks",
@@ -33,11 +31,10 @@
     },
     "import/resolver": {
       "alias": [
-        ["@components/*", "components/*"],
-        ["@hooks/*", "hooks/*"],
-        ["@layout/*", "layout/*"],
-        ["@config/*", "config/*"],
-        ["@pages/*", "pages/*"]
+        ["@components/*", "src/components/*"],
+        ["@hooks/*", "src/hooks/*"],
+        ["@config/*", "src/config/*"],
+        ["@pages/*", "src/pages/*"]
       ]
     }
   },

@@ -4,12 +4,36 @@ import { useRouter } from "next/router"
 import { FaShoppingBag } from "react-icons/fa"
 
 export const sections = [
-  { id: "burgers-link", title: "burgers", href: "/shop/burgers" },
-  { id: "chicken-link", title: "chicken", href: "/shop/chicken" },
-  { id: "pizza-link", title: "pizza", href: "/shop/pizza" },
-  { id: "shop-link", title: "shop", href: "/shop/" },
-  { id: "sushi-link", title: "sushi", href: "/shop/sushi" },
-  { id: "sandwiches-link", title: "sandwiches", href: "/shop/sandwiches" }
+  {
+    id: "burgers-link",
+    title: "burgers",
+    href: "/shop/burgers",
+    pathname: "/shop/[category]"
+  },
+  {
+    id: "chicken-link",
+    title: "chicken",
+    href: "/shop/chicken",
+    pathname: "/shop/[category]"
+  },
+  {
+    id: "pizza-link",
+    title: "pizza",
+    href: "/shop/pizza",
+    pathname: "/shop/[category]"
+  },
+  {
+    id: "sushi-link",
+    title: "sushi",
+    href: "/shop/sushi",
+    pathname: "/shop/[category]"
+  },
+  {
+    id: "sandwiches-link",
+    title: "sandwiches",
+    href: "/shop/sandwiches",
+    pathname: "/shop/[category]"
+  }
 ]
 
 export default function NavMenu() {
@@ -24,7 +48,7 @@ export default function NavMenu() {
   }
 
   return (
-    <Menu aria-label="Mobile Navigation">
+    <Menu matchWidth aria-label="Mobile Navigation">
       <MenuButton
         as={Button}
         rightIcon={<FaShoppingBag />}
@@ -35,7 +59,14 @@ export default function NavMenu() {
       </MenuButton>
       <MenuList>
         {sections.map(sec => (
-          <NextLink key={`nav-dropdown-${sec.title}`} href={sec.href} passHref>
+          <NextLink
+            key={`nav-dropdown-${sec.title}`}
+            href={{
+              pathname: `${sec.pathname}`,
+              query: { category: `${sec.title}` }
+            }}
+            passHref
+          >
             <MenuItem as="a" href={sec.href} key={`nav-menu-${sec.id}`}>
               {sec.title}
             </MenuItem>
