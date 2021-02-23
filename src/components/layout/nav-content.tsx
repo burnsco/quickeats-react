@@ -60,7 +60,6 @@ export default function NavbarContent() {
         aria-label={`Switch to ${text} mode`}
         variant="ghost"
         color="current"
-        ml={{ base: "0", md: "3" }}
         onClick={toggleMode}
         icon={<SwitchIcon />}
       />

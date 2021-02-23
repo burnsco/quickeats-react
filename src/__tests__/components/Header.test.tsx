@@ -15,18 +15,20 @@ describe("Header (navbar)", () => {
     expect(getByTestId("nav-logo")).toBeInTheDocument()
   })
 
-  it("Renders NavMenu", async () => {
-    const { getByText } = render(<h1>testing header</h1>)
+  it("Renders NavMenu + Current Page Displayed", async () => {
+    const { getByText, getByRole } = render(<h1>testing header</h1>)
     expect(getByText(/shop/i)).toBeInTheDocument()
+    expect(getByRole("button", { name: "Sushi" })).toBeInTheDocument()
   })
 
   it("Renders Cart", async () => {
-    const { getByText } = render(<h1>testing header</h1>)
-    expect(getByText(/0/i)).toBeInTheDocument()
+    const { getByRole } = render(<h1>testing header</h1>)
+    expect(getByRole("button", { name: "0" })).toBeInTheDocument()
   })
 
   it("toggle dark mode", async () => {
-    const { getByTestId } = render(<h1>testing header</h1>)
-    expect(getByTestId("nav-logo")).toBeInTheDocument()
+    const { getByLabelText, debug } = render(<h1>testing header</h1>)
+    expect(getByLabelText("Switch to dark mode")).toBeInTheDocument()
+    debug()
   })
 })
