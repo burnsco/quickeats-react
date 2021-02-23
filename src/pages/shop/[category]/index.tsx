@@ -6,6 +6,7 @@ import {
   Container,
   HStack,
   SimpleGrid,
+  useColorModeValue,
   useToast
 } from "@chakra-ui/react"
 import firebaseAdmin from "@config/firebaseAdmin"
@@ -48,6 +49,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
 }
 
 const AuthenticatedPage = (props: any) => {
+  const borderColor = useColorModeValue("gray.100", "#313131")
+  const hoverColor = useColorModeValue("gray.200", "gray.600")
+  const bg = useColorModeValue("whitesmoke", "#202020")
   const { dispatch } = useCart()
 
   const toast = useToast()
@@ -74,13 +78,17 @@ const AuthenticatedPage = (props: any) => {
       >
         {props?.data?.items.map((item: any) => (
           <Box
+            bg={bg}
+            borderColor={borderColor}
             key={item.id}
             maxW="md"
             borderWidth="1px"
             borderRadius="md"
             shadow="md"
             _hover={{
-              shadow: "lg"
+              boxShadow: "md",
+              borderWidth: "1px",
+              borderColor: hoverColor
             }}
             overflow="hidden"
           >
@@ -95,7 +103,7 @@ const AuthenticatedPage = (props: any) => {
             </Box>
             <Box p={4}>
               <HStack>
-                <Badge borderRadius="full" px="2" colorScheme="purple">
+                <Badge borderRadius="full" px="2" colorScheme="orange">
                   ${item.price}
                 </Badge>
                 <Box

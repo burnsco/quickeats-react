@@ -1,4 +1,12 @@
-import { Button, Menu, MenuButton, MenuItem, MenuList } from "@chakra-ui/react"
+import { ChevronDownIcon, ChevronRightIcon } from "@chakra-ui/icons"
+import {
+  Button,
+  Menu,
+  MenuButton,
+  MenuItem,
+  MenuList,
+  useColorModeValue
+} from "@chakra-ui/react"
 import NextLink from "next/link"
 import { useRouter } from "next/router"
 import { FaShoppingBag } from "react-icons/fa"
@@ -38,7 +46,7 @@ export const sections = [
 
 export default function NavMenu() {
   const router = useRouter()
-
+  const bg = useColorModeValue("whitesmoke", "#202020")
   const navCat = () => {
     const route = router.query.category as string
     if (route) {
@@ -47,32 +55,57 @@ export default function NavMenu() {
     return "MENU"
   }
 
+  // ;"blue" |
+  //   "cyan" |
+  //   "gray" |
+  //   "green" |
+  //   "orange" |
+  //   "pink" |
+  //   "purple" |
+  //   "red" |
+  //   "teal" |
+  //   "yellow" |
+  //   "whiteAlpha" |
+  //   "blackAlpha" |
+  //   "linkedin" |
+  //   "facebook" |
+  //   "messenger" |
+  //   "whatsapp" |
+  //   "twitter" |
+  //   "telegram"
+
   return (
     <Menu matchWidth aria-label="Mobile Navigation">
-      <MenuButton
-        as={Button}
-        rightIcon={<FaShoppingBag />}
-        flexGrow={2}
-        maxW="md"
-      >
-        {navCat()}
-      </MenuButton>
-      <MenuList>
-        {sections.map(sec => (
-          <NextLink
-            key={`nav-dropdown-${sec.title}`}
-            href={{
-              pathname: `${sec.pathname}`,
-              query: { category: `${sec.title}` }
-            }}
-            passHref
+      {({ isOpen }) => (
+        <>
+          <MenuButton
+            colorScheme="telegram"
+            as={Button}
+            leftIcon={isOpen ? <ChevronDownIcon /> : <ChevronRightIcon />}
+            rightIcon={<FaShoppingBag />}
+            flexGrow={2}
+            maxW={{ base: "sm", md: "md" }}
           >
-            <MenuItem as="a" href={sec.href} key={`nav-menu-${sec.id}`}>
-              {sec.title}
-            </MenuItem>
-          </NextLink>
-        ))}
-      </MenuList>
+            {isOpen ? "Browse Food" : navCat()}
+          </MenuButton>
+          <MenuList bg={bg} opacity={0.5}>
+            {sections.map(sec => (
+              <NextLink
+                key={`nav-dropdown-${sec.title}`}
+                href={{
+                  pathname: `${sec.pathname}`,
+                  query: { category: `${sec.title}` }
+                }}
+                passHref
+              >
+                <MenuItem as="a" href={sec.href} key={`nav-menu-${sec.id}`}>
+                  {sec.title}
+                </MenuItem>
+              </NextLink>
+            ))}
+          </MenuList>
+        </>
+      )}
     </Menu>
   )
 }

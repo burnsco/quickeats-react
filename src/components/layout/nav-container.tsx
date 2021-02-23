@@ -4,7 +4,7 @@ import dynamic from "next/dynamic"
 const HeaderContent = dynamic(() => import("./nav-content"))
 
 function Navbar() {
-  const bg = useColorModeValue("gainsboro", "#202020")
+  const bg = useColorModeValue("whitesmoke", "#202020")
   return (
     <chakra.header
       id="navbar"

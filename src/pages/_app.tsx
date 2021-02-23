@@ -1,4 +1,4 @@
-import { ChakraProvider, theme } from "@chakra-ui/react"
+import { ChakraProvider } from "@chakra-ui/react"
 import Navbar from "@components/layout/nav-container"
 import PageContainer from "@components/layout/page-container"
 import { AuthProvider } from "@hooks/auth"
@@ -6,6 +6,7 @@ import { CartProvider } from "@hooks/cart/cart"
 import type { AppProps } from "next/app"
 import Head from "next/head"
 import type { FC } from "react"
+import theme from "../theme"
 
 const Noop: FC = ({ children }) => <>{children}</>
 

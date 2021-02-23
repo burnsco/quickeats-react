@@ -1,6 +1,6 @@
 import {
   chakra,
-  Flex,
+  HStack,
   IconButton,
   useColorMode,
   useColorModeValue
@@ -26,7 +26,8 @@ export default function NavbarContent() {
   const text = useColorModeValue("dark", "light")
 
   return (
-    <Flex
+    <HStack
+      spacing={[2, 4]}
       aria-label="Primary Navigation"
       as="nav"
       justifyContent="space-evenly"
@@ -39,6 +40,7 @@ export default function NavbarContent() {
         letterSpacing="wide"
         fontWeight="bold"
         fontFamily="Anton"
+        color="yellow.400"
         href="/"
         aria-label="Home Page Link"
       >
@@ -61,6 +63,6 @@ export default function NavbarContent() {
       />
 
       <CartDrawer />
-    </Flex>
+    </HStack>
   )
 }
