@@ -3,14 +3,17 @@
   "extends": [
     "plugin:import/recommended",
     "plugin:import/typescript",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/recommended",
     "plugin:react-hooks/recommended",
     "airbnb-typescript",
     "prettier"
   ],
   "plugins": [
     "react-hooks",
-    "jsx-a11y",
     "@typescript-eslint/eslint-plugin",
+    "jsx-a11y",
+    "jest-dom",
     "testing-library"
   ],
   "env": {

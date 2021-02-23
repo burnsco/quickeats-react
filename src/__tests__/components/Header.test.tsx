@@ -5,20 +5,18 @@ const useRouter = jest.spyOn(require("next/router"), "useRouter")
 
 describe("Header (navbar)", () => {
   useRouter.mockImplementation(() => ({
-    route: "/shop/[category]",
-    pathname: "/shop/[category]",
-    query: { category: "sushi" },
-    asPath: "/shop/sushi"
+    route: "/",
+    pathname: "/",
+    asPath: "/"
   }))
   it("Renders logo", async () => {
     const { getByTestId } = render(<h1>testing header</h1>)
     expect(getByTestId("nav-logo")).toBeInTheDocument()
   })
 
-  it("Renders NavMenu + Current Page Displayed", async () => {
-    const { getByText, getByRole } = render(<h1>testing header</h1>)
-    expect(getByText(/shop/i)).toBeInTheDocument()
-    expect(getByRole("button", { name: "Sushi" })).toBeInTheDocument()
+  it("Renders NavMenu ", async () => {
+    const { getByRole } = render(<h1>testing header</h1>)
+    expect(getByRole("button", { name: "MENU" })).toBeInTheDocument()
   })
 
   it("Renders Cart", async () => {
@@ -27,8 +25,7 @@ describe("Header (navbar)", () => {
   })
 
   it("toggle dark mode", async () => {
-    const { getByLabelText, debug } = render(<h1>testing header</h1>)
+    const { getByLabelText } = render(<h1>testing header</h1>)
     expect(getByLabelText("Switch to dark mode")).toBeInTheDocument()
-    debug()
   })
 })

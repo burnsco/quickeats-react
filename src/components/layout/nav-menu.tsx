@@ -46,13 +46,15 @@ export const sections = [
 
 export default function NavMenu() {
   const router = useRouter()
+  console.log(router)
   const bg = useColorModeValue("whitesmoke", "#202020")
+
   const navCat = () => {
-    const route = router.query.category as string
-    if (route) {
-      return route[0].toUpperCase() + route.substring(1)
+    if (router.asPath === "/") {
+      return "MENU"
     }
-    return "MENU"
+    const route = router.query.category as string
+    return route[0].toUpperCase() + route.substring(1)
   }
 
   return (
