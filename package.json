@@ -23,7 +23,8 @@
     "find:unused": "next-unused",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write \"**/*.{js,ts,tsx}\"",
-    "lint": "eslint . --ext ts --ext tsx --ext js"
+    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "test": "jest"
   },
   "husky": {
     "hooks": {
@@ -71,7 +72,6 @@
     "@chakra-ui/theme-tools": "1.0.4",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
-    "@stripe/stripe-js": "^1.13.0",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.7.3",
@@ -104,6 +104,7 @@
     "@typescript-eslint/eslint-plugin": "^4.15.2",
     "@typescript-eslint/parser": "^4.15.2",
     "babel-jest": "^26.6.3",
+    "babel-plugin-chakra-ui": "^1.0.0-next.3",
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "babel-plugin-module-resolver": "^4.1.0",
     "babel-plugin-transform-dynamic-import": "^2.1.0",
@@ -121,6 +122,7 @@
     "eslint-plugin-testing-library": "^3.10.1",
     "husky": "^5.1.1",
     "jest": "^26.6.3",
+    "jest-next-dynamic": "^1.0.1",
     "jest-watch-typeahead": "^0.6.1",
     "lint-staged": "^10.5.4",
     "next-unused": "^0.0.3",

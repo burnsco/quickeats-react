@@ -1,3 +1,23 @@
 {
-  "presets": ["next/babel"]
+  "presets": ["next/babel"],
+  "env": {
+    "test": {
+      "plugins": ["babel-plugin-dynamic-import-node"]
+    }
+  },
+  "plugins": [
+    "babel-plugin-chakra-ui",
+    [
+      "module-resolver",
+      {
+        "root": ["."],
+        "alias": {
+          "@/components/*": ["src/components/*"],
+          "@/pages/*": ["src/pages/*"],
+          "@/config/*": ["src/config/*"],
+          "@/hooks/*": ["src/hooks/*"]
+        }
+      }
+    ]
+  ]
 }

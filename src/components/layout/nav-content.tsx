@@ -35,6 +35,7 @@ export default function NavbarContent() {
       p={[1, 2, 3]}
     >
       <NextChakraLink
+        data-testid="nav-logo"
         textDecoration="mediumslateblue"
         fontSize="x-large"
         letterSpacing="wide"
@@ -46,7 +47,7 @@ export default function NavbarContent() {
       >
         <chakra.span fontStyle="italic" color="mediumorchid">
           QUICK
-        </chakra.span>{" "}
+        </chakra.span>
         EATS
       </NextChakraLink>
       <NavMenu />

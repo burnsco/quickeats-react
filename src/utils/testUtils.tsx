@@ -1,13 +1,19 @@
-import { ChakraProvider, theme } from "@chakra-ui/react"
+import { ChakraProvider } from "@chakra-ui/react"
+import Navbar from "@components/layout/nav-container"
+import { CartProvider } from "@hooks/cart/cart"
 import { render, RenderOptions } from "@testing-library/react"
+import theme from "../theme"
 
 export * from "@testing-library/react"
 // override render method
 export { customRender as render }
 
 const AllProviders = ({ children }: { children?: React.ReactNode }) => (
-  <ChakraProvider resetCSS theme={theme}>
-    {children}
+  <ChakraProvider theme={theme}>
+    <CartProvider>
+      <Navbar />
+      {children}
+    </CartProvider>
   </ChakraProvider>
 )
 

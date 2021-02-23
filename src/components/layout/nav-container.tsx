@@ -1,7 +1,5 @@
 import { chakra, useColorModeValue } from "@chakra-ui/react"
-import dynamic from "next/dynamic"
-
-const HeaderContent = dynamic(() => import("./nav-content"))
+import HeaderContent from "./nav-content"
 
 function Navbar() {
   const bg = useColorModeValue("whitesmoke", "#202020")
