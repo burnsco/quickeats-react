@@ -3,6 +3,7 @@ import {
   Button,
   Menu,
   MenuButton,
+  MenuGroup,
   MenuItem,
   MenuList,
   useColorModeValue
@@ -55,25 +56,6 @@ export default function NavMenu() {
     return "MENU"
   }
 
-  // ;"blue" |
-  //   "cyan" |
-  //   "gray" |
-  //   "green" |
-  //   "orange" |
-  //   "pink" |
-  //   "purple" |
-  //   "red" |
-  //   "teal" |
-  //   "yellow" |
-  //   "whiteAlpha" |
-  //   "blackAlpha" |
-  //   "linkedin" |
-  //   "facebook" |
-  //   "messenger" |
-  //   "whatsapp" |
-  //   "twitter" |
-  //   "telegram"
-
   return (
     <Menu matchWidth aria-label="Mobile Navigation">
       {({ isOpen }) => (
@@ -89,20 +71,22 @@ export default function NavMenu() {
             {isOpen ? "Browse Food" : navCat()}
           </MenuButton>
           <MenuList bg={bg} opacity={0.5}>
-            {sections.map(sec => (
-              <NextLink
-                key={`nav-dropdown-${sec.title}`}
-                href={{
-                  pathname: `${sec.pathname}`,
-                  query: { category: `${sec.title}` }
-                }}
-                passHref
-              >
-                <MenuItem as="a" href={sec.href} key={`nav-menu-${sec.id}`}>
-                  {sec.title}
-                </MenuItem>
-              </NextLink>
-            ))}
+            <MenuGroup title="SHOP">
+              {sections.map(sec => (
+                <NextLink
+                  key={`nav-dropdown-${sec.title}`}
+                  href={{
+                    pathname: `${sec.pathname}`,
+                    query: { category: `${sec.title}` }
+                  }}
+                  passHref
+                >
+                  <MenuItem as="a" href={sec.href} key={`nav-menu-${sec.id}`}>
+                    {sec.title}
+                  </MenuItem>
+                </NextLink>
+              ))}
+            </MenuGroup>
           </MenuList>
         </>
       )}

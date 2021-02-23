@@ -82,8 +82,10 @@ function CartDrawer() {
     <>
       <Button
         rightIcon={<FaShoppingBasket />}
+        colorScheme="orange"
+        border="2px"
         variant="outline"
-        size="md"
+        size="lg"
         ref={btnRef}
         onClick={onOpen}
       >

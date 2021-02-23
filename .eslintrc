@@ -9,6 +9,7 @@
   ],
   "plugins": [
     "react-hooks",
+    "jsx-a11y",
     "@typescript-eslint/eslint-plugin",
     "testing-library"
   ],

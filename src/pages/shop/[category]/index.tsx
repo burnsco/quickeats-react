@@ -69,7 +69,7 @@ const AuthenticatedPage = (props: any) => {
     })
 
   return (
-    <Container maxW="xxl" p={[0, null, 4, 6]}>
+    <Container maxW="xxl">
       <SimpleGrid
         className="simple-grid-shop"
         columns={[1, 2, 3]}
@@ -92,7 +92,7 @@ const AuthenticatedPage = (props: any) => {
             }}
             overflow="hidden"
           >
-            <Box pos="relative" maxW="sm" h="260px">
+            <Box pos="relative" maxW="md" h="260px">
               <Image
                 priority
                 layout="fill"

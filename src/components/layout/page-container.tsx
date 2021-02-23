@@ -8,23 +8,21 @@ const PageContainer: React.FC<{ children: React.ReactNode }> = ({
   children
 }) => (
   <Container as="main" className="main-content">
-    <Box display={{ base: "block", md: "flex" }}>
-      <div style={{ flex: 1 }}>
-        <Box
-          id="content"
-          pt={3}
-          px={5}
-          mt="6rem"
-          mx="auto"
-          maxW="72rem"
-          minH="76vh"
-        >
-          <PageTransition>{children}</PageTransition>
+    <div style={{ flex: 1 }}>
+      <Box
+        id="content"
+        pt={3}
+        px={5}
+        mt="6rem"
+        mx="auto"
+        maxW="72rem"
+        minH="76vh"
+      >
+        <PageTransition>{children}</PageTransition>
 
-          <Footer />
-        </Box>
-      </div>
-    </Box>
+        <Footer />
+      </Box>
+    </div>
   </Container>
 )
 

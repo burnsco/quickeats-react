@@ -51,6 +51,8 @@ export default function NavbarContent() {
       </NextChakraLink>
       <NavMenu />
 
+      <CartDrawer />
+
       <IconButton
         size="md"
         fontSize="lg"
@@ -61,8 +63,6 @@ export default function NavbarContent() {
         onClick={toggleMode}
         icon={<SwitchIcon />}
       />
-
-      <CartDrawer />
     </HStack>
   )
 }
