@@ -33,6 +33,8 @@ export default function IndexPage(props: any) {
   function renderFoodTypesGrid() {
     return data[foodType].items.map((item: any) => (
       <Box
+        as="a"
+        href={`/shop/${data[foodType].routeName}`}
         key={`fp-gallery-image-${item.id}`}
         pos="relative"
         maxW="md"
@@ -44,15 +46,21 @@ export default function IndexPage(props: any) {
           layout="fill"
           objectFit="cover"
           src={`/${data[foodType].routeName}/${item.id}`}
-          alt={`image-${item.title}-fp`}
+          alt={`${item.name}`}
         />
       </Box>
     ))
   }
 
   return (
-    <Container display="flex" maxW="xxl" border="2px solid red" p={0}>
-      <Box border="2px solid orange" p="2">
+    <Container
+      display="flex"
+      flexDirection={["column", "row"]}
+      maxW="xxl"
+      border="2px solid red"
+      p={0}
+    >
+      <Box border="2px solid orange" p="3">
         {renderFoodTypesMenu()}
       </Box>
       <Box border="2px solid white" w="full" flex="1" p={1}>

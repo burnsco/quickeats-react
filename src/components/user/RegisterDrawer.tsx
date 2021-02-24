@@ -44,7 +44,7 @@ function RegisterDrawer() {
 
   return (
     <>
-      <Button variant="outline" size="md" ref={btnRef} onClick={onOpen}>
+      <Button variant="outline" size="sm" ref={btnRef} onClick={onOpen}>
         Register
       </Button>
       <Drawer
@@ -56,7 +56,7 @@ function RegisterDrawer() {
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
-          <DrawerHeader>Login</DrawerHeader>
+          <DrawerHeader>Register</DrawerHeader>
           <Formik
             initialValues={{ email: "", password: "" }}
             onSubmit={values => handleRegister(values)}

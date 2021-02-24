@@ -21,7 +21,7 @@ function LoginDrawer() {
 
   return (
     <>
-      <Button variant="outline" size="md" ref={btnRef} onClick={onOpen}>
+      <Button variant="outline" size="sm" ref={btnRef} onClick={onOpen}>
         Login
       </Button>
       <Drawer

@@ -1,5 +1,5 @@
 import { chakra, useColorModeValue } from "@chakra-ui/react"
-import HeaderContent from "./nav-content"
+import HeaderContent from "./Content"
 
 function Navbar() {
   const bg = useColorModeValue("whitesmoke", "#202020")
@@ -16,7 +16,14 @@ function Navbar() {
       transition="top 0.3s"
       width="full"
     >
-      <HeaderContent />
+      <chakra.div
+        border="1px solid red"
+        height={["3.1rem", "4.1rem"]}
+        mx="auto"
+        maxW="1200px"
+      >
+        <HeaderContent />
+      </chakra.div>
     </chakra.header>
   )
 }

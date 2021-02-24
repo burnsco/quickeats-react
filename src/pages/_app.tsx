@@ -1,5 +1,5 @@
 import { ChakraProvider } from "@chakra-ui/react"
-import Navbar from "@components/layout/nav-container"
+import Navbar from "@components/Header"
 import PageContainer from "@components/layout/page-container"
 import { AuthProvider } from "@hooks/auth"
 import { CartProvider } from "@hooks/cart/cart"
