@@ -1,4 +1,4 @@
-import Container from "@components/layout/container"
+import { Container } from "@chakra-ui/react"
 import firebaseAdmin from "@config/firebaseAdmin"
 import firebaseClient from "@config/firebaseClient"
 import "firebase/firestore"

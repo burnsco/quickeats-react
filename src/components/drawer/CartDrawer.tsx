@@ -85,7 +85,7 @@ function CartDrawer() {
         colorScheme="orange"
         border="2px"
         variant="outline"
-        size="lg"
+        size="md"
         ref={btnRef}
         onClick={onOpen}
       >

@@ -1,6 +1,7 @@
 import {
   chakra,
   HStack,
+  Icon,
   IconButton,
   useColorMode,
   useColorModeValue
@@ -8,6 +9,7 @@ import {
 import NextChakraLink from "@components/common/NextChakraLink"
 import CartDrawer from "@components/drawer/CartDrawer"
 import { FaMoon, FaSun } from "react-icons/fa"
+import { GiFireDash } from "react-icons/gi"
 import NavMenu from "./nav-menu"
 
 export const sections = [
@@ -31,13 +33,12 @@ export default function NavbarContent() {
       aria-label="Primary Navigation"
       as="nav"
       justifyContent="space-evenly"
-      alignItems="center"
       p={[1, 2, 3]}
     >
       <NextChakraLink
         data-testid="nav-logo"
         textDecoration="mediumslateblue"
-        fontSize="x-large"
+        fontSize={{ base: "lg", md: "2xl" }}
         letterSpacing="wide"
         fontWeight="bold"
         fontFamily="Anton"
@@ -45,11 +46,13 @@ export default function NavbarContent() {
         href="/"
         aria-label="Home Page Link"
       >
+        <Icon as={GiFireDash} boxSize="1.8em" mr={2} />
         <chakra.span fontStyle="italic" color="mediumorchid">
           QUICK
         </chakra.span>
         EATS
       </NextChakraLink>
+
       <NavMenu />
 
       <CartDrawer />

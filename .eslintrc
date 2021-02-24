@@ -3,6 +3,7 @@
   "extends": [
     "plugin:import/recommended",
     "plugin:import/typescript",
+    "plugin:react/recommended",
     "plugin:jest-dom/recommended",
     "plugin:testing-library/recommended",
     "plugin:react-hooks/recommended",
@@ -38,7 +39,8 @@
         ["@components/*", "src/components/*"],
         ["@hooks/*", "src/hooks/*"],
         ["@config/*", "src/config/*"],
-        ["@pages/*", "src/pages/*"]
+        ["@pages/*", "src/pages/*"],
+        ["@utils/*", "src/utils/*"]
       ]
     }
   },

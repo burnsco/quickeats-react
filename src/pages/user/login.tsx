@@ -1,6 +1,5 @@
-import { Button, Heading, Stack } from "@chakra-ui/react"
+import { Button, Container, Heading, Stack } from "@chakra-ui/react"
 import ChakraField from "@components/common/ChakraField"
-import Container from "@components/layout/container"
 import firebaseClient from "@config/firebaseClient"
 import { Form, Formik } from "formik"
 import Link from "next/link"

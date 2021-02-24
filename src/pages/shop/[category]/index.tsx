@@ -1,12 +1,13 @@
 import ProductsList from "@components/common/ProductsList"
 import firebaseAdmin from "@config/firebaseAdmin"
 import { sections } from "@config/site-sections"
+import { capitalizeFirst } from "@utils/capitalizeFirst"
 import "firebase/firestore"
 import { GetStaticPaths, GetStaticProps } from "next"
 
 export const getStaticProps: GetStaticProps = async ({ params }: any) => {
-  const collectionTitle =
-    params.category.charAt(0).toUpperCase() + params.category.slice(1)
+  const collectionTitle = capitalizeFirst(params.category)
+
   const db = firebaseAdmin.firestore()
   const collections = db.collection("collections")
   const collectionDoc = await collections.doc(collectionTitle).get()
@@ -36,6 +37,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 }
 
-const ShopByCategoryPage = (props: any) => <ProductsList {...props} />
+const ShopByCategoryPage = (props: ProductDataType) => (
+  <ProductsList {...props} />
+)
 
 export default ShopByCategoryPage

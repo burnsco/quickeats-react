@@ -1,23 +1,65 @@
-import { Text } from "@chakra-ui/react"
-import Container from "@components/common/container"
-import NextChakraLink from "@components/common/NextChakraLink"
-import { useAuth } from "@hooks/auth"
+import { Box, Container, Heading, SimpleGrid } from "@chakra-ui/react"
+import { fetcher } from "@utils/fetcher"
+import "firebase/firestore"
+import Image from "next/image"
+import { useState } from "react"
+import useSWR from "swr"
 
-export default function IndexPage() {
-  const { user } = useAuth()
+export async function getStaticProps() {
+  const products = await fetcher("/api/products")
+  return { props: { products } }
+}
+
+export default function IndexPage(props: any) {
+  const [foodType, setFoodType] = useState("Burgers")
+
+  const { data } = useSWR("/api/products", fetcher, {
+    initialData: props.products
+  })
+
+  function renderFoodTypesMenu() {
+    return Object.keys(data).map((item: string) => (
+      <Heading
+        onClick={() => setFoodType(item)}
+        color={foodType === item ? `#F06449` : `#FFFFFF`}
+        _hover={{ color: "#F06449", cursor: "pointer" }}
+        key={`fp-menu-${item}`}
+      >
+        {item}
+      </Heading>
+    ))
+  }
+
+  function renderFoodTypesGrid() {
+    return data[foodType].items.map((item: any) => (
+      <Box
+        key={`fp-gallery-image-${item.id}`}
+        pos="relative"
+        maxW="md"
+        h="120px"
+        border="2px solid purple"
+      >
+        <Image
+          priority
+          layout="fill"
+          objectFit="cover"
+          src={`/${data[foodType].routeName}/${item.id}`}
+          alt={`image-${item.title}-fp`}
+        />
+      </Box>
+    ))
+  }
 
   return (
-    <Container p={4} mt={5}>
-      <Text>{`User ID: ${user ? user.uid : "no user signed in"}`}</Text>
-
-      <p>
-        <NextChakraLink href="/authenticated">
-          Go to authenticated route
-        </NextChakraLink>
-      </p>
-      <p>
-        <NextChakraLink href="/user/login">Login</NextChakraLink>
-      </p>
+    <Container display="flex" maxW="xxl" border="2px solid red" p={0}>
+      <Box border="2px solid orange" p="2">
+        {renderFoodTypesMenu()}
+      </Box>
+      <Box border="2px solid white" w="full" flex="1" p={1}>
+        <SimpleGrid spacing="20px" minChildWidth="140px">
+          {renderFoodTypesGrid()}
+        </SimpleGrid>
+      </Box>
     </Container>
   )
 }

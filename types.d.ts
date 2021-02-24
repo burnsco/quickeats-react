@@ -10,6 +10,19 @@ type CartItem = {
   routeName: string
 }
 
+type ProductDataType = {
+  data: {
+    id: number
+    items: {
+      id: number
+      name: string
+      price: number
+    }[]
+    routName: string
+    title: string
+  }
+}
+
 type ActionType =
   | { type: "ADD_ITEM"; payload: CartItem }
   | { type: "REMOVE_ITEM"; payload: CartItem }

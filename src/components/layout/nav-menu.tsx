@@ -51,7 +51,7 @@ export default function NavMenu() {
 
   const navCat = () => {
     if (router.asPath === "/") {
-      return "MENU"
+      return "Browse Food"
     }
     const route = router.query.category as string
     return route[0].toUpperCase() + route.substring(1)
@@ -64,6 +64,7 @@ export default function NavMenu() {
           <MenuButton
             colorScheme="telegram"
             as={Button}
+            size="sm"
             leftIcon={isOpen ? <ChevronDownIcon /> : <ChevronRightIcon />}
             rightIcon={<FaShoppingBag />}
             flexGrow={2}
