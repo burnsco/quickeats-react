@@ -8,7 +8,8 @@ import {
   DrawerHeader,
   DrawerOverlay,
   Stack,
-  useDisclosure
+  useDisclosure,
+  useToast
 } from "@chakra-ui/react"
 import ChakraField from "@components/common/ChakraField"
 import firebaseClient from "@config/firebaseClient"
@@ -16,6 +17,7 @@ import { Form, Formik } from "formik"
 import { useRef } from "react"
 
 function LoginDrawer() {
+  const toast = useToast()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef<HTMLButtonElement | null>(null)
 
@@ -36,11 +38,26 @@ function LoginDrawer() {
           <DrawerHeader>Login</DrawerHeader>
           <Formik
             initialValues={{ email: "", password: "" }}
-            onSubmit={async values => {
-              await firebaseClient
-                .auth()
-                .createUserWithEmailAndPassword(values.email, values.password)
-              window.location.href = "/"
+            onSubmit={async (values, { setErrors }) => {
+              try {
+                await firebaseClient
+                  .auth()
+                  .signInWithEmailAndPassword(values.email, values.password)
+                toast({
+                  id: "success",
+                  title: `Congrats`,
+                  description: "You you were signed in successfully.",
+                  status: "success",
+                  duration: 3000,
+                  isClosable: true
+                })
+              } catch (ex) {
+                console.log(ex)
+                setErrors({
+                  email: "email and/or password not correct",
+                  password: "or not available. try again"
+                })
+              }
             }}
           >
             {({ isSubmitting }) => (

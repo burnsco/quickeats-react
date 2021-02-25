@@ -27,6 +27,10 @@ function RegisterDrawer() {
 
   const btnRef = useRef<HTMLButtonElement | null>(null)
 
+  // TODO make a google sign in option
+  // const handleRegularRegister = () => {},
+  // const handleGoogleRegister = async () => {}
+
   return (
     <>
       <Button ref={btnRef} size="md" colorScheme="blue" onClick={onOpen}>

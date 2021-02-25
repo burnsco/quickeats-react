@@ -1,9 +1,30 @@
-import { Box, chakra, Flex, Icon, Spacer, Stack } from "@chakra-ui/react"
+import {
+  Box,
+  Button,
+  chakra,
+  Flex,
+  Icon,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuGroup,
+  MenuItem,
+  MenuList,
+  Spacer,
+  Stack,
+  useToast
+} from "@chakra-ui/react"
 import NextChakraLink from "@components/common/NextChakraLink"
 import CartDrawer from "@components/drawer/CartDrawer"
 import LoginDrawer from "@components/user/LoginDrawer"
 import RegisterDrawer from "@components/user/RegisterDrawer"
+import firebaseClient from "@config/firebaseClient"
+import router from "next/router"
+import React from "react"
+import { FaUserCircle } from "react-icons/fa"
 import { GiFireDash } from "react-icons/gi"
+import { MdSettings } from "react-icons/md"
+import { useAuth } from "../../hooks/auth"
 import NavbarMenu from "./NavMenu"
 
 export const sections = [
@@ -41,15 +62,83 @@ const NavbarLogoSection = () => (
   </Box>
 )
 
-const NavbarUserSection = () => (
-  <Stack spacing={2} direction="row" align="center" border="1px solid green">
-    <RegisterDrawer />
-    <LoginDrawer />
-    <CartDrawer />
-  </Stack>
-)
-
 export default function NavbarContent() {
+  const { user } = useAuth()
+  const toast = useToast()
+
+  function UserMenu() {
+    return (
+      <Menu>
+        <MenuButton as={Button}>{user?.email}</MenuButton>
+
+        <MenuList opacity="0.7" bg="#202020">
+          <MenuGroup title="user">
+            <MenuDivider />
+            <MenuItem onClick={() => router.push("/user/profile")}>
+              <FaUserCircle />
+              <Box ml={3}>Profile</Box>
+            </MenuItem>
+            <MenuItem onClick={() => router.push("/user/account")}>
+              <MdSettings />
+              <Box ml={3}>Account</Box>
+            </MenuItem>
+          </MenuGroup>
+          <MenuDivider />
+          <MenuGroup>
+            <MenuItem
+              mr={2}
+              onClick={async () => {
+                try {
+                  await firebaseClient.auth().signOut()
+                  toast({
+                    id: "success-signing-out",
+                    title: `Congrats`,
+                    description: "You you were signed out successfully.",
+                    status: "success",
+                    duration: 2000,
+                    isClosable: true
+                  })
+                } catch (error) {
+                  toast({
+                    id: "warning-cannot-sign-out",
+                    title: `hmmmmm`,
+                    description: "Seems there was an error signing out.",
+                    status: "warning",
+                    duration: 3000,
+                    isClosable: true
+                  })
+                }
+              }}
+            >
+              <Box ml={3}>Logout</Box>
+            </MenuItem>
+          </MenuGroup>
+        </MenuList>
+      </Menu>
+    )
+  }
+
+  function NavBarUserSection() {
+    return (
+      <Stack
+        spacing={2}
+        direction="row"
+        align="center"
+        border="1px solid green"
+      >
+        {user && user.email ? (
+          <UserMenu />
+        ) : (
+          <>
+            <RegisterDrawer />
+            <LoginDrawer />
+          </>
+        )}
+        <CartDrawer />
+      </Stack>
+    )
+  }
+
   return (
     <Flex
       aria-label="Primary Navigation"
@@ -61,11 +150,11 @@ export default function NavbarContent() {
     >
       <NavbarLogoSection />
       <Spacer />
-      <Box border="1px solid orange">
-        <NavbarMenu />
-      </Box>
+
+      <NavbarMenu />
+
       <Spacer />
-      <NavbarUserSection />
+      <NavBarUserSection />
     </Flex>
   )
 }

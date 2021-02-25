@@ -1,4 +1,10 @@
-import { Box, Container, Heading, SimpleGrid } from "@chakra-ui/react"
+import {
+  Box,
+  Container,
+  Heading,
+  ScaleFade,
+  SimpleGrid
+} from "@chakra-ui/react"
 import { fetcher } from "@utils/fetcher"
 import "firebase/firestore"
 import Image from "next/image"
@@ -20,7 +26,9 @@ export default function IndexPage(props: any) {
   function renderFoodTypesMenu() {
     return Object.keys(data).map((item: string) => (
       <Heading
-        onClick={() => setFoodType(item)}
+        onClick={() => {
+          setFoodType(item)
+        }}
         color={foodType === item ? `#F06449` : `#FFFFFF`}
         _hover={{ color: "#F06449", cursor: "pointer" }}
         key={`fp-menu-${item}`}
@@ -41,13 +49,15 @@ export default function IndexPage(props: any) {
         h="120px"
         border="2px solid purple"
       >
-        <Image
-          priority
-          layout="fill"
-          objectFit="cover"
-          src={`/${data[foodType].routeName}/${item.id}`}
-          alt={`${item.name}`}
-        />
+        <ScaleFade in initialScale={0.6}>
+          <Image
+            priority
+            layout="fill"
+            objectFit="cover"
+            src={`/${data[foodType].routeName}/${item.id}`}
+            alt={`${item.name}`}
+          />
+        </ScaleFade>
       </Box>
     ))
   }
@@ -55,6 +65,7 @@ export default function IndexPage(props: any) {
   return (
     <Container
       display="flex"
+      mt={8}
       flexDirection={["column", "row"]}
       maxW="xxl"
       border="2px solid red"
@@ -63,6 +74,7 @@ export default function IndexPage(props: any) {
       <Box border="2px solid orange" p="3">
         {renderFoodTypesMenu()}
       </Box>
+
       <Box border="2px solid white" w="full" flex="1" p={1}>
         <SimpleGrid spacing="20px" minChildWidth="140px">
           {renderFoodTypesGrid()}
