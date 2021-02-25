@@ -93,7 +93,7 @@ export default function NavbarContent() {
                   toast({
                     id: "success-signing-out",
                     title: `Congrats`,
-                    description: "You you were signed out successfully.",
+                    description: "You were signed out successfully.",
                     status: "success",
                     duration: 2000,
                     isClosable: true
@@ -102,7 +102,7 @@ export default function NavbarContent() {
                   toast({
                     id: "warning-cannot-sign-out",
                     title: `hmmmmm`,
-                    description: "Seems there was an error signing out.",
+                    description: `${error.message}`,
                     status: "warning",
                     duration: 3000,
                     isClosable: true

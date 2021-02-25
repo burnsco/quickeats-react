@@ -27,6 +27,7 @@ function LoginDrawer() {
         Login
       </Button>
       <Drawer
+        size="sm"
         isOpen={isOpen}
         placement="right"
         onClose={onClose}
@@ -44,7 +45,7 @@ function LoginDrawer() {
                   .auth()
                   .signInWithEmailAndPassword(values.email, values.password)
                 toast({
-                  id: "success",
+                  id: "success-singing-in",
                   title: `Congrats`,
                   description: "You you were signed in successfully.",
                   status: "success",
@@ -52,7 +53,6 @@ function LoginDrawer() {
                   isClosable: true
                 })
               } catch (ex) {
-                console.log(ex)
                 setErrors({
                   email: "email and/or password not correct",
                   password: "or not available. try again"
@@ -80,14 +80,15 @@ function LoginDrawer() {
                   </Stack>
                 </DrawerBody>
                 <DrawerFooter>
-                  <Button variant="outline" mr={3} onClick={onClose}>
+                  <Button variant="solid" mr={3} onClick={onClose}>
                     Cancel
                   </Button>
+
                   <Button
                     type="submit"
                     isDisabled={isSubmitting}
                     isLoading={isSubmitting}
-                    color="blue"
+                    colorScheme="linkedin"
                   >
                     Submit
                   </Button>

@@ -14,22 +14,15 @@ import {
 import ChakraField from "@components/common/ChakraField"
 import firebaseClient from "@config/firebaseClient"
 import { Form, Formik } from "formik"
-import { useRouter } from "next/router"
 import { useRef } from "react"
 import PasswordField from "../common/PasswordField"
 
 function RegisterDrawer() {
-  const router = useRouter()
-
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const toast = useToast()
 
   const btnRef = useRef<HTMLButtonElement | null>(null)
-
-  // TODO make a google sign in option
-  // const handleRegularRegister = () => {},
-  // const handleGoogleRegister = async () => {}
 
   return (
     <>
@@ -49,23 +42,25 @@ function RegisterDrawer() {
           <DrawerHeader>Join the Community!</DrawerHeader>
           <Formik
             initialValues={{ email: "", password: "" }}
-            onSubmit={async values => {
+            onSubmit={async (values, { setErrors }) => {
               try {
                 await firebaseClient
                   .auth()
                   .createUserWithEmailAndPassword(values.email, values.password)
 
                 toast({
-                  id: "success",
-                  title: `Welcome!`,
-                  description: "Your account was created successfully.",
+                  id: "success-singing-in",
+                  title: `Congrats`,
+                  description: "You you were signed in successfully.",
                   status: "success",
-                  duration: 9000,
+                  duration: 3000,
                   isClosable: true
                 })
-                router.push("/")
-              } catch (error) {
-                console.log(error)
+              } catch (ex) {
+                setErrors({
+                  email: "email and/or password not correct",
+                  password: "or not available. try again"
+                })
               }
             }}
           >

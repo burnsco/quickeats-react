@@ -46,7 +46,7 @@ export const sections = [
 
 export default function NavMenu() {
   const router = useRouter()
-  console.log(router)
+
   const bg = useColorModeValue("whitesmoke", "#202020")
 
   const navCat = () => {

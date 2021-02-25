@@ -12,15 +12,12 @@ import {
   useToast
 } from "@chakra-ui/react"
 import ChakraField from "@components/common/ChakraField"
+import PasswordField from "@components/common/PasswordField"
 import firebaseClient from "@config/firebaseClient"
 import { Form, Formik } from "formik"
-import { useRouter } from "next/router"
 import { useRef } from "react"
-import PasswordField from "../common/PasswordField"
 
 function RegisterDrawer() {
-  const router = useRouter()
-
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const toast = useToast()
@@ -59,9 +56,16 @@ function RegisterDrawer() {
                   duration: 9000,
                   isClosable: true
                 })
-                router.push("/")
+                onClose()
               } catch (error) {
-                console.log(error)
+                toast({
+                  id: "login-warning",
+                  title: `Error!`,
+                  description: `${error.message}`,
+                  status: "success",
+                  duration: 9000,
+                  isClosable: true
+                })
               }
             }}
           >

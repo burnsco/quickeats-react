@@ -4,6 +4,7 @@ import {
   FC,
   ReactNode,
   useContext,
+  useEffect,
   useReducer
 } from "react"
 import { addItemToCart, removeItemFromCart } from "./cart-functions"
@@ -21,7 +22,6 @@ const CartContext = createContext<{
 })
 
 function reducer(state: State, action: ActionType): State {
-  console.log(state)
   switch (action.type) {
     case "ADD_ITEM":
       return {
@@ -39,6 +39,10 @@ function reducer(state: State, action: ActionType): State {
 
 export const CartProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
+
+  useEffect(() => {
+    localStorage.setItem("quickeats-cart", JSON.stringify(state))
+  }, [state])
 
   return (
     <CartContext.Provider value={{ state, dispatch }}>
