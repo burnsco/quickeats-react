@@ -95,7 +95,6 @@ function RegisterDrawer() {
                     type="submit"
                     isDisabled={isSubmitting}
                     isLoading={isSubmitting}
-                    color="blue"
                   >
                     Submit
                   </Button>

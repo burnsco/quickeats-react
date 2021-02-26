@@ -1,13 +1,22 @@
 import { ColorModeScript } from "@chakra-ui/react"
-import Document, { Head, Html, Main, NextScript } from "next/document"
+import NextDocument, { Head, Html, Main, NextScript } from "next/document"
+import theme from "../theme/index"
 
-class MyDocument extends Document {
+export default class Document extends NextDocument {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <link
+            rel="preload"
+            href="/fonts/Inter.woff2"
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+          />
+        </Head>
         <body>
-          <ColorModeScript initialColorMode="dark" />
+          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
           <Main />
           <NextScript />
         </body>
@@ -15,5 +24,3 @@ class MyDocument extends Document {
     )
   }
 }
-
-export default MyDocument

@@ -85,7 +85,8 @@ function CartDrawer() {
         colorScheme="orange"
         border="2px"
         variant="outline"
-        size="md"
+        size="sm"
+        mr={2}
         ref={btnRef}
         onClick={onOpen}
       >
@@ -113,11 +114,8 @@ function CartDrawer() {
               <Table variant="simple" size="sm">
                 <Thead>
                   <Tr>
-                    <Th>
-                      <Text ml={5}>QTY</Text>
-                    </Th>
+                    <Th ml="5">QTY</Th>
                     <Th>ITEM(S)</Th>
-
                     <Th isNumeric>PRICE (each)</Th>
                   </Tr>
                 </Thead>

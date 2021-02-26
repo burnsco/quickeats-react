@@ -3,7 +3,9 @@ import {
   Button,
   chakra,
   Flex,
+  HStack,
   Icon,
+  IconButton,
   Menu,
   MenuButton,
   MenuDivider,
@@ -12,6 +14,8 @@ import {
   MenuList,
   Spacer,
   Stack,
+  useColorMode,
+  useColorModeValue,
   useToast
 } from "@chakra-ui/react"
 import NextChakraLink from "@components/common/NextChakraLink"
@@ -21,7 +25,7 @@ import RegisterDrawer from "@components/user/RegisterDrawer"
 import firebaseClient from "@config/firebaseClient"
 import router from "next/router"
 import React from "react"
-import { FaUserCircle } from "react-icons/fa"
+import { FaMoon, FaSun, FaUserCircle } from "react-icons/fa"
 import { GiFireDash } from "react-icons/gi"
 import { MdSettings } from "react-icons/md"
 import { useAuth } from "../../hooks/auth"
@@ -37,11 +41,8 @@ export const sections = [
   { id: "sandwiches-link", title: "sandwiches", href: "/shop/sandwiches" }
 ]
 
-// TODO separate each section of header into smaller containers
-// TODO load the containers based on user login
-
 const NavbarLogoSection = () => (
-  <Box border="1px solid white">
+  <Box>
     <NextChakraLink
       data-testid="nav-logo"
       textDecoration="mediumslateblue"
@@ -53,11 +54,15 @@ const NavbarLogoSection = () => (
       href="/"
       aria-label="Home Page Link"
     >
-      <Icon as={GiFireDash} boxSize="1.8em" mr={2} />
-      <chakra.span fontStyle="italic" color="mediumorchid">
-        QUICK
-      </chakra.span>
-      EATS
+      <HStack>
+        <Icon as={GiFireDash} boxSize="1.8em" />
+        <Box display={["none", "none", "block"]}>
+          <chakra.span fontStyle="italic" color="mediumorchid">
+            QUICK
+          </chakra.span>
+          EATS
+        </Box>
+      </HStack>
     </NextChakraLink>
   </Box>
 )
@@ -65,6 +70,9 @@ const NavbarLogoSection = () => (
 export default function NavbarContent() {
   const { user } = useAuth()
   const toast = useToast()
+  const { toggleColorMode: toggleMode } = useColorMode()
+  const SwitchIcon = useColorModeValue(FaMoon, FaSun)
+  const text = useColorModeValue("dark", "light")
 
   function UserMenu() {
     return (
@@ -120,12 +128,7 @@ export default function NavbarContent() {
 
   function NavBarUserSection() {
     return (
-      <Stack
-        spacing={2}
-        direction="row"
-        align="center"
-        border="1px solid green"
-      >
+      <Stack mr={6} spacing={2} direction="row" align="center">
         {user && user.email ? (
           <UserMenu />
         ) : (
@@ -134,7 +137,6 @@ export default function NavbarContent() {
             <LoginDrawer />
           </>
         )}
-        <CartDrawer />
       </Stack>
     )
   }
@@ -144,17 +146,26 @@ export default function NavbarContent() {
       aria-label="Primary Navigation"
       as="nav"
       align="center"
-      px={[1, 3, 6]}
+      px={[0, 3, 6]}
       w="full"
       h="full"
     >
       <NavbarLogoSection />
       <Spacer />
-
       <NavbarMenu />
-
       <Spacer />
       <NavBarUserSection />
+      <CartDrawer />
+      <IconButton
+        size="md"
+        fontSize="lg"
+        aria-label={`Switch to ${text} mode`}
+        variant="ghost"
+        color="current"
+        ml={{ base: "0", md: "3" }}
+        onClick={toggleMode}
+        icon={<SwitchIcon />}
+      />
     </Flex>
   )
 }

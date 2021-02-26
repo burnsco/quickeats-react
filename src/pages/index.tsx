@@ -47,7 +47,6 @@ export default function IndexPage(props: any) {
         pos="relative"
         maxW="md"
         h="120px"
-        border="2px solid purple"
       >
         <ScaleFade in initialScale={0.6}>
           <Image
@@ -65,17 +64,16 @@ export default function IndexPage(props: any) {
   return (
     <Container
       display="flex"
-      mt={8}
+      mt={[1, 4, 8]}
       flexDirection={["column", "row"]}
       maxW="xxl"
-      border="2px solid red"
       p={0}
     >
-      <Box border="2px solid orange" p="3">
+      <Box p={1} mr={2}>
         {renderFoodTypesMenu()}
       </Box>
 
-      <Box border="2px solid white" w="full" flex="1" p={1}>
+      <Box w="full" flex="1" p={1}>
         <SimpleGrid spacing="20px" minChildWidth="140px">
           {renderFoodTypesGrid()}
         </SimpleGrid>

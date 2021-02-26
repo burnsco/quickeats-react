@@ -80,9 +80,13 @@ const layerStyles = {
   }
 }
 
+const config = {
+  initialColorMode: "dark",
+  useSystemColorMode: false
+}
+
 const theme = extendTheme({
-  useSystemColorMode: true,
-  initialColorModE: "dark",
+  ...config,
   styles,
   layerStyles,
   textStyles,

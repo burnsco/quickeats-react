@@ -34,7 +34,7 @@ const ProductsList = (props: any) => {
     })
 
   return (
-    <Container maxW="xxl">
+    <Container maxW="xxl" mt="3rem">
       <SimpleGrid
         className="simple-grid-shop"
         columns={[1, 2, 3]}
