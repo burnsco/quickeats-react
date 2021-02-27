@@ -50,11 +50,11 @@ export default function NavMenu() {
   const bg = useColorModeValue("whitesmoke", "#202020")
 
   const navCat = () => {
-    if (router.asPath === "/") {
-      return "Browse Food"
+    if (router && router.query.category) {
+      const route = router.query.category as string
+      return route[0].toUpperCase() + route.substring(1)
     }
-    const route = router.query.category as string
-    return route[0].toUpperCase() + route.substring(1)
+    return "Browse Food"
   }
 
   return (

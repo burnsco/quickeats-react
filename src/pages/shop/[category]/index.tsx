@@ -14,11 +14,7 @@ export const getStaticProps: GetStaticProps = async ({ params }: any) => {
 
   if (!collectionDoc.exists) {
     return {
-      redirect: {
-        permanent: false,
-        destination: "/404"
-      },
-      props: {} as never
+      notFound: true
     }
   }
   return {
@@ -33,7 +29,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: "blocking"
+    fallback: false
   }
 }
 

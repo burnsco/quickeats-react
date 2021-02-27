@@ -1,14 +1,18 @@
+import "firebase/analytics" // If you need it
 import firebaseClient from "firebase/app"
-import "firebase/auth"
+import "firebase/auth" // If you need it
+import "firebase/firestore" // If you need it
+import "firebase/performance" // If you need it
+import "firebase/storage" // If you need it
 
 const CLIENT_CONFIG = {
-  apiKey: "AIzaSyANILBdWUc8OpeTPnATlpuFndCY8zi-U9E",
-  authDomain: "quikeats-d24d2.firebaseapp.com",
-  databaseURL: "https://quikeats-d24d2.firebaseio.com",
-  projectId: "quikeats-d24d2",
-  storageBucket: "quikeats-d24d2.appspot.com",
-  messagingSenderId: "708033252363",
-  appId: "1:708033252363:web:385f17204525cd8959cb0e"
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 }
 
 if (typeof window !== "undefined" && !firebaseClient.apps.length) {

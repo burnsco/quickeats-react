@@ -1,5 +1,4 @@
 import { ChakraProvider } from "@chakra-ui/react"
-import FontFace from "@components/common/fontFace"
 import Navbar from "@components/Header"
 import PageContainer from "@components/layout/page-container"
 import { AuthProvider } from "@hooks/auth"
@@ -39,7 +38,6 @@ function MyApp({ Component, pageProps }: AppProps) {
           </CartProvider>
         </ChakraProvider>
       </AuthProvider>
-      <FontFace />
     </>
   )
 }

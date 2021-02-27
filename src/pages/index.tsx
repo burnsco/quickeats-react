@@ -3,33 +3,40 @@ import {
   Container,
   Heading,
   ScaleFade,
-  SimpleGrid
+  SimpleGrid,
+  useColorModeValue
 } from "@chakra-ui/react"
-import { fetcher } from "@utils/fetcher"
+import fetchAllProducts from "@utils/getAllProducts"
 import "firebase/firestore"
 import Image from "next/image"
 import { useState } from "react"
-import useSWR from "swr"
 
-export async function getStaticProps() {
-  const products = await fetcher("/api/products")
-  return { props: { products } }
+export function getStaticProps() {
+  const { products } = fetchAllProducts()
+
+  if (!products) {
+    return {
+      notFound: true
+    }
+  }
+
+  return {
+    props: { products }
+  }
 }
 
 export default function IndexPage(props: any) {
   const [foodType, setFoodType] = useState("Burgers")
 
-  const { data } = useSWR("/api/products", fetcher, {
-    initialData: props.products
-  })
+  const colorMode = useColorModeValue("blackAlpha.700", "#FFFFFF")
 
   function renderFoodTypesMenu() {
-    return Object.keys(data).map((item: string) => (
+    return Object.keys(props.products).map((item: string) => (
       <Heading
         onClick={() => {
           setFoodType(item)
         }}
-        color={foodType === item ? `#F06449` : `#FFFFFF`}
+        color={foodType === item ? `#F06449` : colorMode}
         _hover={{ color: "#F06449", cursor: "pointer" }}
         key={`fp-menu-${item}`}
       >
@@ -39,10 +46,11 @@ export default function IndexPage(props: any) {
   }
 
   function renderFoodTypesGrid() {
-    return data[foodType].items.map((item: any) => (
+    return props.products[foodType].items.map((item: any) => (
       <Box
+        color=""
         as="a"
-        href={`/shop/${data[foodType].routeName}`}
+        href={`/shop/${props.products[foodType].routeName}`}
         key={`fp-gallery-image-${item.id}`}
         pos="relative"
         maxW="md"
@@ -53,7 +61,7 @@ export default function IndexPage(props: any) {
             priority
             layout="fill"
             objectFit="cover"
-            src={`/${data[foodType].routeName}/${item.id}`}
+            src={`/${props.products[foodType].routeName}/${item.id}`}
             alt={`${item.name}`}
           />
         </ScaleFade>
@@ -69,7 +77,7 @@ export default function IndexPage(props: any) {
       maxW="xxl"
       p={0}
     >
-      <Box p={1} mr={2}>
+      <Box p={1} mr={6}>
         {renderFoodTypesMenu()}
       </Box>
 

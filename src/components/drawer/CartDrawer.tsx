@@ -26,9 +26,11 @@ import {
 import { useCart } from "@hooks/cart/cart"
 import React, { useRef } from "react"
 import { FaShoppingBasket } from "react-icons/fa"
+import { useAuth } from "../../hooks/auth"
 
 function CartDrawer() {
   const { dispatch } = useCart()
+  const { user } = useAuth()
 
   const handleAddItem = (item: CartItem) =>
     dispatch({
@@ -170,9 +172,11 @@ function CartDrawer() {
             </Box>
           </DrawerBody>
           <DrawerFooter>
+            {!user ? "please login/register" : null}
             <ButtonGroup spacing={10}>
               <Button onClick={onClose}>Exit</Button>
               <Button
+                disabled={!user}
                 leftIcon={<LockIcon />}
                 variant="outline"
                 mr={3}
