@@ -68,7 +68,7 @@ export default function NavMenu() {
             leftIcon={isOpen ? <ChevronDownIcon /> : <ChevronRightIcon />}
             rightIcon={<FaShoppingBag />}
             flexGrow={2}
-            maxW={{ base: "sm", md: "md" }}
+            maxW={{ base: "sm" }}
           >
             {isOpen ? "Browse Food" : navCat()}
           </MenuButton>
