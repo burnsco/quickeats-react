@@ -33,12 +33,12 @@ import NavbarMenu from "./NavMenu"
 
 export const sections = [
   { id: "home-link", title: "home", href: "/" },
-  { id: "burgers-link", title: "burgers", href: "/shop/burgers" },
-  { id: "chicken-link", title: "chicken", href: "/shop/chicken" },
-  { id: "pizza-link", title: "pizza", href: "/shop/pizza" },
+  { id: "burgers-link", title: "Burgers", href: "/shop/burgers" },
+  { id: "chicken-link", title: "Chicken", href: "/shop/chicken" },
+  { id: "pizza-link", title: "Pizza", href: "/shop/pizza" },
   { id: "shop-link", title: "shop", href: "/shop/" },
-  { id: "sushi-link", title: "sushi", href: "/shop/sushi" },
-  { id: "sandwiches-link", title: "sandwiches", href: "/shop/sandwiches" }
+  { id: "sushi-link", title: "Sushi", href: "/shop/sushi" },
+  { id: "sandwiches-link", title: "Sandwiches", href: "/shop/sandwiches" }
 ]
 
 const NavbarLogoSection = () => (

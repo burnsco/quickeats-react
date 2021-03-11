@@ -1,6 +1,5 @@
 import { LockIcon } from "@chakra-ui/icons"
 import {
-  Badge,
   Box,
   Button,
   ButtonGroup,
@@ -142,14 +141,14 @@ function CartDrawer() {
                       <Td>
                         <HStack spacing={2}>
                           <Text>{item.name}</Text>
-                          <Badge
+                          <Box
                             borderRadius="full"
                             fontSize="10px"
                             px="2"
                             colorScheme="red"
                           >
                             REMOVE
-                          </Badge>
+                          </Box>
                         </HStack>
                       </Td>
 

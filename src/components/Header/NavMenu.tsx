@@ -7,6 +7,7 @@ import {
   MenuList,
   useColorModeValue
 } from "@chakra-ui/react"
+import { capitalizeFirst } from "@utils/capitalizeFirst"
 import NextLink from "next/link"
 import { useRouter } from "next/router"
 import { FaShoppingBag } from "react-icons/fa"
@@ -83,7 +84,7 @@ export default function NavMenu() {
                 passHref
               >
                 <MenuItem as="a" href={sec.href} key={`nav-menu-${sec.id}`}>
-                  {sec.title}
+                  {capitalizeFirst(sec.title)}
                 </MenuItem>
               </NextLink>
             ))}

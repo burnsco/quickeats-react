@@ -59,7 +59,6 @@ const ProductsList = (props: any) => {
           >
             <Box pos="relative" maxW="md" h="260px">
               <Image
-                priority
                 layout="fill"
                 objectFit="cover"
                 src={`/${props?.data?.routeName}/${item.id}`}
