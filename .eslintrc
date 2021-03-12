@@ -1,33 +1,31 @@
 {
   "parser": "@typescript-eslint/parser",
-  "extends": [
-    "plugin:import/recommended",
-    "plugin:import/typescript",
-    "plugin:react/recommended",
-    "plugin:jest-dom/recommended",
-    "plugin:testing-library/recommended",
-    "plugin:react-hooks/recommended",
-    "airbnb-typescript",
-    "prettier"
-  ],
   "plugins": [
-    "react-hooks",
+    "@typescript-eslint",
     "@typescript-eslint/eslint-plugin",
-    "jsx-a11y",
+    "react",
+    "react-hooks",
+    "prettier",
     "jest-dom",
     "testing-library"
   ],
-  "env": {
-    "es6": true,
-    "browser": true,
-    "node": true
-  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier",
+    "plugin:prettier/recommended",
+    "plugin:testing-library/react",
+    "plugin:jest-dom/recommended",
+    "plugin:testing-library/recommended"
+  ],
   "parserOptions": {
     "ecmaVersion": 2020,
     "ecmaFeatures": {
       "jsx": true
-    },
-    "project": ["tsconfig.json"]
+    }
   },
   "settings": {
     "react": {
