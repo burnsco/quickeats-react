@@ -49,6 +49,5 @@ describe("Category Products Page", () => {
     userEvent.click(addProduct)
     userEvent.click(addProduct)
     expect(getByRole("button", { name: "2" })).toBeInTheDocument()
-    debug()
   })
 })
