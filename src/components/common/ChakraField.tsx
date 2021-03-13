@@ -14,12 +14,14 @@ type ChakraFieldProps = React.InputHTMLAttributes<HTMLInputElement> & {
   name: string
   textarea?: boolean
   label: string
+  testId?: string
   helperText?: string
   size?: string
 }
 
 const ChakraField: React.FC<ChakraFieldProps> = ({
   label,
+  testId,
   type,
   size,
   textarea = false,
@@ -62,6 +64,7 @@ const ChakraField: React.FC<ChakraFieldProps> = ({
         <Input
           {...field}
           {...props}
+          data-testid={testId || "input"}
           focusBorderColor="red.300"
           aria-describedby={`${props.id}-feedback ${props.id}-help`}
           type={type}

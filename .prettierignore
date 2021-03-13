@@ -1,7 +1,7 @@
 node_modules
 .next
 public
-
+env.d.ts
 .out
 .next
 out

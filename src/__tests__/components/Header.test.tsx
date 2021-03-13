@@ -1,5 +1,7 @@
 import "@testing-library/jest-dom"
-import { render } from "@utils/testUtils"
+import userEvent from "@testing-library/user-event"
+import { render } from "@utils/test-utils"
+import { sleepytime } from "../../utils/sleepy-time"
 
 const useRouter = jest.spyOn(require("next/router"), "useRouter")
 
@@ -34,4 +36,68 @@ describe("Header (navbar)", () => {
     const { getByLabelText } = render(<h1>testing</h1>)
     expect(getByLabelText("Switch to dark mode")).toBeInTheDocument()
   })
+
+  it("renders Register button/drawer", async () => {
+    const { getByRole } = render(<h1>testing</h1>)
+    expect(getByRole("button", { name: "Register" })).toBeInTheDocument()
+  })
+
+  it("renders Login button/drawer", async () => {
+    const { getByRole } = render(<h1>testing</h1>)
+    expect(getByRole("button", { name: "Login" })).toBeInTheDocument()
+  })
+
+  it("clicking on Register opens drawer to registration and displays form", async () => {
+    const { getByRole, debug, getByLabelText } = render(<h1>testing</h1>)
+    const RegisterButton = getByRole("button", { name: "Register" })
+    userEvent.click(RegisterButton)
+    sleepytime(1000)
+    expect(getByLabelText("Email")).toBeInTheDocument()
+    expect(getByLabelText("Password")).toBeInTheDocument()
+  })
+
+  it("clicking on Login opens drawer to registration and displays form", async () => {
+    const { getByRole, debug, getByLabelText } = render(<h1>testing</h1>)
+    const RegisterButton = getByRole("button", { name: "Login" })
+    userEvent.click(RegisterButton)
+    sleepytime(1000)
+    expect(getByLabelText("Email")).toBeInTheDocument()
+    expect(getByLabelText("Password")).toBeInTheDocument()
+  })
+
+  it("Login Input Fields Display", async () => {
+    const { getByRole, getByText, getByTestId, debug, getByLabelText } = render(
+      <h1>testing</h1>
+    )
+    const RegisterButton = getByRole("button", { name: "Login" })
+    userEvent.click(RegisterButton)
+
+    sleepytime(1000)
+
+    const emailInput = getByLabelText("Email")
+    const passwordInput = getByLabelText("Password")
+    const submitButton = getByRole("button", { name: "Submit" })
+    expect(emailInput).toBeInTheDocument()
+    expect(passwordInput).toBeInTheDocument()
+    expect(submitButton).toBeInTheDocument()
+  })
+
+  it("renders login portal", async () => {
+    const { getByRole, getByText, getByTestId, debug, getByLabelText } = render(
+      <h1>testing</h1>
+    )
+    const RegisterButton = getByRole("button", { name: "Login" })
+    userEvent.click(RegisterButton)
+
+    sleepytime(1000)
+
+    const emailInput = getByLabelText("Email")
+    const passwordInput = getByLabelText("Password")
+    const submitButton = getByRole("button", { name: "Submit" })
+    expect(emailInput).toBeInTheDocument()
+    expect(passwordInput).toBeInTheDocument()
+    expect(submitButton).toBeInTheDocument()
+  })
+
+  // have to use `baseElement` for rendering my portal
 })

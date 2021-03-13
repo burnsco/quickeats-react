@@ -65,6 +65,7 @@ function LoginDrawer() {
                 <DrawerBody>
                   <Stack spacing={4}>
                     <ChakraField
+                      testId="email-input"
                       id="email"
                       name="email"
                       type="email"
@@ -72,6 +73,7 @@ function LoginDrawer() {
                     />
 
                     <ChakraField
+                      testId="password-input"
                       id="password"
                       name="password"
                       label="Password"

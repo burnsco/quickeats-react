@@ -1,9 +1,9 @@
 import ProductsList from "@components/common/ProductsList"
+import singleProductData from "@data/sush-product"
+import data from "@data/sushi-products"
 import "@testing-library/jest-dom"
 import userEvent from "@testing-library/user-event"
-import singleProductData from "../../data/sush-product"
-import data from "../../data/sushi-products"
-import { render } from "../../utils/testUtils"
+import { render } from "@utils/test-utils"
 
 const useRouter = jest.spyOn(require("next/router"), "useRouter")
 

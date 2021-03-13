@@ -5,6 +5,7 @@ module.exports = {
       tsconfig: "tsconfig.json"
     }
   },
+
   moduleFileExtensions: ["js", "ts", "tsx", "json"],
   testPathIgnorePatterns: ["<rootDir>[/\\\\](node_modules|.next)[/\\\\]"],
   watchPlugins: [
