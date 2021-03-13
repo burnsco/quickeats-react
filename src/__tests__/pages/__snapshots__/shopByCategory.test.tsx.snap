@@ -1,0 +1,533 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Category Products Page matches snapshot 1`] = `
+<DocumentFragment>
+  <header
+    class="css-jcie83"
+    id="navbar"
+  >
+    <div
+      class="css-1a3dn3p"
+    >
+      <nav
+        aria-label="Primary Navigation"
+        class="css-1mnkher"
+      >
+        <div
+          class="css-1u8qly9"
+        >
+          <a
+            aria-label="Home Page Link"
+            class="chakra-link css-1ain0iy"
+            data-testid="nav-logo"
+            href="/"
+          >
+            <div
+              class="chakra-stack css-hqf2zp"
+            >
+              <svg
+                class="chakra-icon css-1ys0947"
+                fill="currentColor"
+                focusable="false"
+                height="1em"
+                stroke="currentColor"
+                stroke-width="0"
+                viewBox="0 0 512 512"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M273.857 21.904c-24.193.012-51.198 5.552-81.1 17.467 143.7 12.608 150.35 129.263 84.032 132.814-85.27 4.565-53.232-57.217-133.34-103.03C200.445 201.48 94.44 190.33 21.054 59.23c12.805 85.755 24.28 116.942 78.26 153.596C261.996 323.294 94.618 347.8 36.82 245.53c14.568 93.454 68.364 132.803 131.707 139.93-42.753 24.49-99.452 32.49-143.01 25.556 51.025 42.317 131.606 40.94 193.515 8.576-37.137 36.123-97.446 70.644-116.803 74.728H276.36C517 405.563 530.305 232.45 454.827 124.492c-2.433 26.21-10.08 49.507-25.545 70.23-18.48-102.394-69.02-172.86-155.426-172.818zm2.82 184.666l141.384 52.155c.286-3.207.86-6.495 1.747-9.807 5.62-20.973 21.605-34.913 35.705-31.135 14.1 3.778 20.973 23.842 15.353 44.815-5.62 20.974-21.603 34.914-35.703 31.136-.725-.194-1.427-.442-2.113-.72l-60.58 49.394 70.637 19.584-140.023 84.71 65.848-68.866-31.32-7.006-150.335 122.58 158.06-196.89-137.39-41.137 137.006 5.654-68.275-54.467z"
+                />
+              </svg>
+              <div
+                class="css-w3wmfi"
+              >
+                <span
+                  class="css-1hy5d9f"
+                >
+                  QUICK
+                </span>
+                EATS
+              </div>
+            </div>
+          </a>
+        </div>
+        <div
+          class="css-1v9wm08"
+        />
+        <button
+          aria-controls="menu-list-7"
+          aria-expanded="false"
+          aria-haspopup="menu"
+          class="chakra-button chakra-menu__menu-button css-lmmwrq"
+          id="menu-button-7"
+          type="button"
+        >
+          <span
+            class="chakra-button__icon css-ws6tz2"
+          >
+            <svg
+              aria-hidden="true"
+              class="chakra-icon css-ebisvn"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <span
+            class="css-1aaibel"
+          >
+            Browse Food
+          </span>
+          <span
+            class="chakra-button__icon css-h9cotc"
+          >
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 448 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M352 160v-32C352 57.42 294.579 0 224 0 153.42 0 96 57.42 96 128v32H0v272c0 44.183 35.817 80 80 80h288c44.183 0 80-35.817 80-80V160h-96zm-192-32c0-35.29 28.71-64 64-64s64 28.71 64 64v32H160v-32zm160 120c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24zm-192 0c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24z"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="css-bxrgm2"
+          style="position: absolute; left: 0px; top: 0px; visibility: hidden;"
+        >
+          <div
+            aria-orientation="vertical"
+            class="chakra-menu__menu-list css-1ouqovg"
+            id="menu-list-7"
+            role="menu"
+            style="transform-origin: top left; opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+            tabindex="-1"
+          >
+            <a
+              class="chakra-menu__menuitem css-18k7hld"
+              href="/shop/burgers"
+              id="menuitem-1"
+              role="menuitem"
+              tabindex="-1"
+            >
+              Burgers
+            </a>
+            <a
+              class="chakra-menu__menuitem css-18k7hld"
+              href="/shop/chicken"
+              id="menuitem-2"
+              role="menuitem"
+              tabindex="-1"
+            >
+              Chicken
+            </a>
+            <a
+              class="chakra-menu__menuitem css-18k7hld"
+              href="/shop/pizza"
+              id="menuitem-3"
+              role="menuitem"
+              tabindex="-1"
+            >
+              Pizza
+            </a>
+            <a
+              class="chakra-menu__menuitem css-18k7hld"
+              href="/shop/sushi"
+              id="menuitem-4"
+              role="menuitem"
+              tabindex="-1"
+            >
+              Sushi
+            </a>
+            <a
+              class="chakra-menu__menuitem css-18k7hld"
+              href="/shop/sandwiches"
+              id="menuitem-5"
+              role="menuitem"
+              tabindex="-1"
+            >
+              Sandwiches
+            </a>
+          </div>
+        </div>
+        <div
+          class="css-1v9wm08"
+        />
+        <div
+          class="chakra-stack css-eceedy"
+        >
+          <button
+            class="chakra-button css-4100bo"
+            type="button"
+          >
+            Register
+          </button>
+          <button
+            class="chakra-button css-4100bo"
+            type="button"
+          >
+            Login
+          </button>
+        </div>
+        <button
+          class="chakra-button css-188msss"
+          type="button"
+        >
+          0
+          <span
+            class="chakra-button__icon css-h9cotc"
+          >
+            <svg
+              aria-hidden="true"
+              fill="currentColor"
+              focusable="false"
+              height="1em"
+              stroke="currentColor"
+              stroke-width="0"
+              viewBox="0 0 576 512"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M576 216v16c0 13.255-10.745 24-24 24h-8l-26.113 182.788C514.509 462.435 494.257 480 470.37 480H105.63c-23.887 0-44.139-17.565-47.518-41.212L32 256h-8c-13.255 0-24-10.745-24-24v-16c0-13.255 10.745-24 24-24h67.341l106.78-146.821c10.395-14.292 30.407-17.453 44.701-7.058 14.293 10.395 17.453 30.408 7.058 44.701L170.477 192h235.046L326.12 82.821c-10.395-14.292-7.234-34.306 7.059-44.701 14.291-10.395 34.306-7.235 44.701 7.058L484.659 192H552c13.255 0 24 10.745 24 24zM312 392V280c0-13.255-10.745-24-24-24s-24 10.745-24 24v112c0 13.255 10.745 24 24 24s24-10.745 24-24zm112 0V280c0-13.255-10.745-24-24-24s-24 10.745-24 24v112c0 13.255 10.745 24 24 24s24-10.745 24-24zm-224 0V280c0-13.255-10.745-24-24-24s-24 10.745-24 24v112c0 13.255 10.745 24 24 24s24-10.745 24-24z"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
+          aria-label="Switch to dark mode"
+          class="chakra-button css-1ad0h1g"
+          type="button"
+        >
+          <svg
+            aria-hidden="true"
+            fill="currentColor"
+            focusable="false"
+            height="1em"
+            stroke="currentColor"
+            stroke-width="0"
+            viewBox="0 0 512 512"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"
+            />
+          </svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+  <div
+    class="chakra-container css-vlghq2"
+  >
+    <div
+      class="simple-grid-shop css-1ua6ocs"
+    >
+      <div
+        class="css-1xkxx33"
+      >
+        <div
+          class="css-1vhy1ez"
+        >
+          <div
+            style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
+          >
+            <img
+              alt="image-undefined"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+            />
+          </div>
+        </div>
+        <div
+          class="css-1r4tef4"
+        >
+          <div
+            class="chakra-stack css-hqf2zp"
+          >
+            <span
+              class="chakra-badge css-ra3ogr"
+            >
+              $8
+            </span>
+            <h3
+              class="css-jre1d"
+            >
+              Salmon Sashimi
+            </h3>
+          </div>
+          <button
+            class="chakra-button css-1plc4v"
+            spacing="6"
+            type="button"
+          >
+            <span
+              class="chakra-button__icon css-ws6tz2"
+            >
+              <svg
+                aria-hidden="true"
+                class="chakra-icon css-ebisvn"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M0,12a1.5,1.5,0,0,0,1.5,1.5h8.75a.25.25,0,0,1,.25.25V22.5a1.5,1.5,0,0,0,3,0V13.75a.25.25,0,0,1,.25-.25H22.5a1.5,1.5,0,0,0,0-3H13.75a.25.25,0,0,1-.25-.25V1.5a1.5,1.5,0,0,0-3,0v8.75a.25.25,0,0,1-.25.25H1.5A1.5,1.5,0,0,0,0,12Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            Add To Cart
+          </button>
+        </div>
+      </div>
+      <div
+        class="css-1xkxx33"
+      >
+        <div
+          class="css-1vhy1ez"
+        >
+          <div
+            style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
+          >
+            <img
+              alt="image-undefined"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+            />
+          </div>
+        </div>
+        <div
+          class="css-1r4tef4"
+        >
+          <div
+            class="chakra-stack css-hqf2zp"
+          >
+            <span
+              class="chakra-badge css-ra3ogr"
+            >
+              $5
+            </span>
+            <h3
+              class="css-jre1d"
+            >
+              California Roll
+            </h3>
+          </div>
+          <button
+            class="chakra-button css-1plc4v"
+            spacing="6"
+            type="button"
+          >
+            <span
+              class="chakra-button__icon css-ws6tz2"
+            >
+              <svg
+                aria-hidden="true"
+                class="chakra-icon css-ebisvn"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M0,12a1.5,1.5,0,0,0,1.5,1.5h8.75a.25.25,0,0,1,.25.25V22.5a1.5,1.5,0,0,0,3,0V13.75a.25.25,0,0,1,.25-.25H22.5a1.5,1.5,0,0,0,0-3H13.75a.25.25,0,0,1-.25-.25V1.5a1.5,1.5,0,0,0-3,0v8.75a.25.25,0,0,1-.25.25H1.5A1.5,1.5,0,0,0,0,12Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            Add To Cart
+          </button>
+        </div>
+      </div>
+      <div
+        class="css-1xkxx33"
+      >
+        <div
+          class="css-1vhy1ez"
+        >
+          <div
+            style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
+          >
+            <img
+              alt="image-undefined"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+            />
+          </div>
+        </div>
+        <div
+          class="css-1r4tef4"
+        >
+          <div
+            class="chakra-stack css-hqf2zp"
+          >
+            <span
+              class="chakra-badge css-ra3ogr"
+            >
+              $7
+            </span>
+            <h3
+              class="css-jre1d"
+            >
+              Cooked Ramen
+            </h3>
+          </div>
+          <button
+            class="chakra-button css-1plc4v"
+            spacing="6"
+            type="button"
+          >
+            <span
+              class="chakra-button__icon css-ws6tz2"
+            >
+              <svg
+                aria-hidden="true"
+                class="chakra-icon css-ebisvn"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M0,12a1.5,1.5,0,0,0,1.5,1.5h8.75a.25.25,0,0,1,.25.25V22.5a1.5,1.5,0,0,0,3,0V13.75a.25.25,0,0,1,.25-.25H22.5a1.5,1.5,0,0,0,0-3H13.75a.25.25,0,0,1-.25-.25V1.5a1.5,1.5,0,0,0-3,0v8.75a.25.25,0,0,1-.25.25H1.5A1.5,1.5,0,0,0,0,12Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            Add To Cart
+          </button>
+        </div>
+      </div>
+      <div
+        class="css-1xkxx33"
+      >
+        <div
+          class="css-1vhy1ez"
+        >
+          <div
+            style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
+          >
+            <img
+              alt="image-undefined"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+            />
+          </div>
+        </div>
+        <div
+          class="css-1r4tef4"
+        >
+          <div
+            class="chakra-stack css-hqf2zp"
+          >
+            <span
+              class="chakra-badge css-ra3ogr"
+            >
+              $7
+            </span>
+            <h3
+              class="css-jre1d"
+            >
+              Avocado Roll
+            </h3>
+          </div>
+          <button
+            class="chakra-button css-1plc4v"
+            spacing="6"
+            type="button"
+          >
+            <span
+              class="chakra-button__icon css-ws6tz2"
+            >
+              <svg
+                aria-hidden="true"
+                class="chakra-icon css-ebisvn"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M0,12a1.5,1.5,0,0,0,1.5,1.5h8.75a.25.25,0,0,1,.25.25V22.5a1.5,1.5,0,0,0,3,0V13.75a.25.25,0,0,1,.25-.25H22.5a1.5,1.5,0,0,0,0-3H13.75a.25.25,0,0,1-.25-.25V1.5a1.5,1.5,0,0,0-3,0v8.75a.25.25,0,0,1-.25.25H1.5A1.5,1.5,0,0,0,0,12Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            Add To Cart
+          </button>
+        </div>
+      </div>
+      <div
+        class="css-1xkxx33"
+      >
+        <div
+          class="css-1vhy1ez"
+        >
+          <div
+            style="display: block; overflow: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; margin: 0px;"
+          >
+            <img
+              alt="image-undefined"
+              decoding="async"
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              style="visibility: hidden; position: absolute; top: 0px; left: 0px; bottom: 0px; right: 0px; box-sizing: border-box; padding: 0px; margin: auto; display: block; width: 0px; height: 0px; min-width: 100%; max-width: 100%; min-height: 100%; max-height: 100%; object-fit: cover;"
+            />
+          </div>
+        </div>
+        <div
+          class="css-1r4tef4"
+        >
+          <div
+            class="chakra-stack css-hqf2zp"
+          >
+            <span
+              class="chakra-badge css-ra3ogr"
+            >
+              $18
+            </span>
+            <h3
+              class="css-jre1d"
+            >
+              Red Dragon Roll
+            </h3>
+          </div>
+          <button
+            class="chakra-button css-1plc4v"
+            spacing="6"
+            type="button"
+          >
+            <span
+              class="chakra-button__icon css-ws6tz2"
+            >
+              <svg
+                aria-hidden="true"
+                class="chakra-icon css-ebisvn"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M0,12a1.5,1.5,0,0,0,1.5,1.5h8.75a.25.25,0,0,1,.25.25V22.5a1.5,1.5,0,0,0,3,0V13.75a.25.25,0,0,1,.25-.25H22.5a1.5,1.5,0,0,0,0-3H13.75a.25.25,0,0,1-.25-.25V1.5a1.5,1.5,0,0,0-3,0v8.75a.25.25,0,0,1-.25.25H1.5A1.5,1.5,0,0,0,0,12Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            Add To Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

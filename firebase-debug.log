@@ -1,0 +1,71 @@
+[debug] [2021-03-13T12:44:23.496Z] ----------------------------------------------------------------------
+[debug] [2021-03-13T12:44:23.497Z] Command:       /usr/local/bin/firebase /home/cburns/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase emulators:start
+[debug] [2021-03-13T12:44:23.497Z] CLI Version:   9.6.1
+[debug] [2021-03-13T12:44:23.498Z] Platform:      linux
+[debug] [2021-03-13T12:44:23.498Z] Node Version:  v12.18.1
+[debug] [2021-03-13T12:44:23.498Z] Time:          Sat Mar 13 2021 07:44:23 GMT-0500 (Eastern Standard Time)
+[debug] [2021-03-13T12:44:23.498Z] ----------------------------------------------------------------------
+[debug] [2021-03-13T12:44:23.498Z] 
+[debug] [2021-03-13T12:44:23.502Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-13T12:44:23.503Z] > authorizing via signed-in user
+[info] i  emulators: Starting emulators: auth, firestore {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, firestore"}}
+[debug] [2021-03-13T12:44:23.515Z] [hub] writing locator at /tmp/hub-quikeats-d24d2.json
+[debug] [2021-03-13T12:44:23.522Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2021-03-13T12:44:23.523Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2021-03-13T12:44:23.523Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","/home/cburns/.cache/firebase/emulators/cloud-firestore-emulator-v1.11.12.jar","--host","localhost","--port",8081,"--rules","/home/cburns/dev/proj/quickeats-react/firestore.rules"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"/home/cburns/.cache/firebase/emulators/cloud-firestore-emulator-v1.11.12.jar\",\"--host\",\"localhost\",\"--port\",8081,\"--rules\",\"/home/cburns/dev/proj/quickeats-react/firestore.rules\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2021-03-13T12:44:24.288Z] API endpoint: http://localhost {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://localhost"}}
+[debug] [2021-03-13T12:44:24.288Z] :8081
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=localhost:8081
+
+Dev App Server is now running.
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":":8081\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\n\n   export FIRESTORE_EMULATOR_HOST=localhost:8081\n\nDev App Server is now running.\n\n"}}
+[info] i  ui: downloading ui-v1.4.2.zip... {"metadata":{"emulator":{"name":"ui"},"message":"downloading ui-v1.4.2.zip..."}}
+[debug] [2021-03-13T12:44:26.606Z] >>> [apiv2][query] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.4.2.zip [none]
+[debug] [2021-03-13T12:44:26.762Z] <<< [apiv2][status] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.4.2.zip 200
+[debug] [2021-03-13T12:44:26.762Z] <<< [apiv2][body] GET https://storage.googleapis.com/firebase-preview-drop/emulator/ui-v1.4.2.zip [stream]
+[debug] [2021-03-13T12:44:27.229Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2021-03-13T12:44:27.229Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2021-03-13T12:44:27.229Z] Starting Emulator UI with command {"binary":"node","args":["/home/cburns/.cache/firebase/emulators/ui-v1.4.2/server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/home/cburns/.cache/firebase/emulators/ui-v1.4.2/server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2021-03-13T12:44:27.373Z] Web / API server started at http://localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at http://localhost:4000\n"}}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4000                │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ localhost:9099 │ http://localhost:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ localhost:8081 │ http://localhost:4000/firestore │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2021-03-13T12:48:47.756Z] Mar. 13, 2021 7:48:47 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Mar. 13, 2021 7:48:47 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2021-03-13T12:48:47.900Z] Mar. 13, 2021 7:48:47 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Mar. 13, 2021 7:48:47 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected HTTP/2 connection.\n"}}
+[debug] [2021-03-13T13:09:28.094Z] Mar. 13, 2021 8:09:28 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Mar. 13, 2021 8:09:28 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2021-03-13T13:09:28.110Z] Mar. 13, 2021 8:09:28 A.M. io.gapi.emulators.netty.NotFoundHandler handleRequest
+INFO: Unknown request URI: /www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyANILBdWUc8OpeTPnATlpuFndCY8zi-U9E
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Mar. 13, 2021 8:09:28 A.M. io.gapi.emulators.netty.NotFoundHandler handleRequest\nINFO: Unknown request URI: /www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyANILBdWUc8OpeTPnATlpuFndCY8zi-U9E\n"}}
+[debug] [2021-03-13T14:15:14.040Z] Mar. 13, 2021 9:15:14 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Mar. 13, 2021 9:15:14 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2021-03-13T14:15:14.046Z] Mar. 13, 2021 9:15:14 A.M. io.gapi.emulators.netty.NotFoundHandler handleRequest
+INFO: Unknown request URI: /www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyANILBdWUc8OpeTPnATlpuFndCY8zi-U9E
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Mar. 13, 2021 9:15:14 A.M. io.gapi.emulators.netty.NotFoundHandler handleRequest\nINFO: Unknown request URI: /www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyANILBdWUc8OpeTPnATlpuFndCY8zi-U9E\n"}}
