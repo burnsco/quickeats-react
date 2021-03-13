@@ -76,6 +76,7 @@ export default function NavMenu() {
           <MenuList bg={bg}>
             {sections.map(sec => (
               <NextLink
+                prefetch={false}
                 key={`nav-dropdown-${sec.title}`}
                 href={{
                   pathname: `${sec.pathname}`,

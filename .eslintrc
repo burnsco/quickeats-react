@@ -95,7 +95,10 @@
     "react/prop-types": "off",
     "@typescript-eslint/no-shadow": "off",
     "react-hooks/exhaustive-deps": "error",
-    "import/no-named-as-default": "off"
+    "import/no-named-as-default": "off",
+    "testing-library/await-async-query": "error",
+    "testing-library/no-await-sync-query": "error",
+    "testing-library/no-debug": "warn"
   },
   "overrides": [
     {

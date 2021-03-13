@@ -6,6 +6,8 @@ import {
   HStack,
   Icon,
   IconButton,
+  LinkBox,
+  LinkOverlay,
   Menu,
   MenuButton,
   MenuDivider,
@@ -18,10 +20,9 @@ import {
   useColorModeValue,
   useToast
 } from "@chakra-ui/react"
-import NextChakraLink from "@components/common/NextChakraLink"
 import CartDrawer from "@components/drawer/CartDrawer"
-import LoginDrawer from "@components/user/LoginDrawer"
-import RegisterDrawer from "@components/user/RegisterDrawer"
+import LoginDrawer from "@components/drawer/LoginDrawer"
+import RegisterDrawer from "@components/drawer/RegisterDrawer"
 import firebaseClient from "@config/firebaseClient"
 import router from "next/router"
 import React from "react"
@@ -43,27 +44,28 @@ export const sections = [
 
 const NavbarLogoSection = () => (
   <Box>
-    <NextChakraLink
-      data-testid="nav-logo"
-      textDecoration="mediumslateblue"
-      fontSize={{ base: "md", md: "large", lg: "2xl" }}
-      letterSpacing="wide"
-      fontWeight="bold"
-      fontFamily="Anton"
-      color="yellow.400"
-      href="/"
-      aria-label="Home Page Link"
-    >
-      <HStack>
-        <Icon as={GiFireDash} boxSize="1.8em" />
-        <Box display={["none", "none", "block"]}>
-          <chakra.span fontStyle="italic" color="mediumorchid">
-            QUICK
-          </chakra.span>
-          EATS
-        </Box>
-      </HStack>
-    </NextChakraLink>
+    <HStack>
+      <LinkBox
+        data-testid="nav-logo"
+        textDecoration="mediumslateblue"
+        fontSize={{ base: "md", md: "large", lg: "2xl" }}
+        letterSpacing="wide"
+        fontWeight="bold"
+        fontFamily="Anton"
+        color="yellow.400"
+        aria-label="Home Page Link"
+      >
+        <LinkOverlay href="/">
+          <Icon as={GiFireDash} boxSize="1.8em" />
+          <Box display={["none", "none", "block"]}>
+            <chakra.span fontStyle="italic" color="mediumorchid">
+              QUICK
+            </chakra.span>
+            EATS
+          </Box>
+        </LinkOverlay>
+      </LinkBox>
+    </HStack>
   </Box>
 )
 

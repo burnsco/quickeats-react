@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom"
 import userEvent from "@testing-library/user-event"
-import { render } from "@utils/test-utils"
+import { render, waitFor } from "@utils/test-utils"
 import { sleepytime } from "../../utils/sleepy-time"
 
 const useRouter = jest.spyOn(require("next/router"), "useRouter")
@@ -82,7 +82,7 @@ describe("Header (navbar)", () => {
     expect(submitButton).toBeInTheDocument()
   })
 
-  it("renders login portal", async () => {
+  it("figure out how to get login working later", async () => {
     const { getByRole, getByText, getByTestId, debug, getByLabelText } = render(
       <h1>testing</h1>
     )
@@ -92,12 +92,22 @@ describe("Header (navbar)", () => {
     sleepytime(1000)
 
     const emailInput = getByLabelText("Email")
+    const email = getByTestId("email-input")
+    expect(email).toBeInTheDocument()
     const passwordInput = getByLabelText("Password")
     const submitButton = getByRole("button", { name: "Submit" })
+
     expect(emailInput).toBeInTheDocument()
     expect(passwordInput).toBeInTheDocument()
     expect(submitButton).toBeInTheDocument()
-  })
 
-  // have to use `baseElement` for rendering my portal
+    // #TODO figure out how to get this to actually type
+    await waitFor(() => {
+      userEvent.type(getByTestId("email-input"), "thomas@gmail.com")
+
+      expect(emailInput).toHaveFocus()
+      userEvent.type(getByTestId("password-input"), "thomas")
+      expect(passwordInput).toHaveFocus()
+    })
+  })
 })
