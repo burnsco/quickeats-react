@@ -1,10 +1,7 @@
-### QUIK EATS ( an ubereats clone)
+### QUICK EATS ( an ubereats clone)
 
 ## Using React, Redux, Styled Components, SASS, Firebase, GraphQL and more
 
-- [ ] Refactor the Forms Page
-- [ ] Make a Footer Component
-- [x] Add Animations for Cards
-- [x] Add Animations for Header
-- [x] Spinner for add to cart
-- [x] PopUp when you added item to cart
+## UPDATE
+
+totally converted this to use typescript, chakra-ui, nextjs and firebase.  Also added hooks and testing, removed redux to use react context and connected cloudinary directly to next.js for nicer image optimization features.
