@@ -65,7 +65,7 @@ export default function NavMenu() {
           <MenuButton
             colorScheme="telegram"
             as={Button}
-            size="sm"
+            size="md"
             leftIcon={isOpen ? <ChevronDownIcon /> : <ChevronRightIcon />}
             rightIcon={<FaShoppingBag />}
             flexGrow={2}
@@ -73,7 +73,7 @@ export default function NavMenu() {
           >
             {isOpen ? "Browse Food" : navCat()}
           </MenuButton>
-          <MenuList bg={bg}>
+          <MenuList bgColor={bg}>
             {sections.map(sec => (
               <NextLink
                 prefetch={false}

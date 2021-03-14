@@ -1,3 +1,4 @@
+import LoginForm from "@components/common/forms/LoginOrRegisterForm"
 import "@testing-library/jest-dom"
 import userEvent from "@testing-library/user-event"
 import { render, waitFor } from "@utils/test-utils"
@@ -83,31 +84,24 @@ describe("Header (navbar)", () => {
   })
 
   it("figure out how to get login working later", async () => {
+    const handleSubmit = jest.fn()
     const { getByRole, getByText, getByTestId, debug, getByLabelText } = render(
-      <h1>testing</h1>
+      <LoginForm onSubmit={handleSubmit} />
     )
-    const RegisterButton = getByRole("button", { name: "Login" })
-    userEvent.click(RegisterButton)
 
-    sleepytime(1000)
-
-    const emailInput = getByLabelText("Email")
-    const email = getByTestId("email-input")
-    expect(email).toBeInTheDocument()
-    const passwordInput = getByLabelText("Password")
-    const submitButton = getByRole("button", { name: "Submit" })
-
-    expect(emailInput).toBeInTheDocument()
-    expect(passwordInput).toBeInTheDocument()
-    expect(submitButton).toBeInTheDocument()
-
-    // #TODO figure out how to get this to actually type
     await waitFor(() => {
-      userEvent.type(getByTestId("email-input"), "thomas@gmail.com")
-
-      expect(emailInput).toHaveFocus()
-      userEvent.type(getByTestId("password-input"), "thomas")
-      expect(passwordInput).toHaveFocus()
+      userEvent.type(getByLabelText(/email/i), "frank@gmail.com")
+      userEvent.type(getByLabelText(/passwordl/i), "frank123")
     })
+    await waitFor(() => {
+      userEvent.click(getByRole("button", { name: /submit/i }))
+    })
+    expect(handleSubmit).toHaveBeenCalledWith(
+      {
+        email: "frank@gmail.com",
+        password: "frank123"
+      },
+      expect.anything()
+    )
   })
 })

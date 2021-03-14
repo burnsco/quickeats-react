@@ -10,7 +10,7 @@ import theme from "../theme"
 
 const Noop: FC = ({ children }) => <>{children}</>
 
-function MyApp({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   const Layout = (Component as any).Layout || Noop
 
   return (
@@ -41,4 +41,3 @@ function MyApp({ Component, pageProps }: AppProps) {
     </>
   )
 }
-export default MyApp

@@ -70,6 +70,7 @@ const NavbarLogoSection = () => (
 )
 
 export default function NavbarContent() {
+  const bg = useColorModeValue("whitesmoke", "#202020")
   const { user } = useAuth()
   const toast = useToast()
   const { toggleColorMode: toggleMode } = useColorMode()
@@ -80,8 +81,7 @@ export default function NavbarContent() {
     return (
       <Menu>
         <MenuButton as={Button}>{user?.email}</MenuButton>
-
-        <MenuList opacity="0.7" bg="#202020">
+        <MenuList opacity="0.7" bg={bg}>
           <MenuGroup title="user">
             <MenuDivider />
             <MenuItem onClick={() => router.push("/user/profile")}>

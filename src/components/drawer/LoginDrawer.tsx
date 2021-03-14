@@ -12,7 +12,7 @@ import {
   useToast
 } from "@chakra-ui/react"
 import ChakraField from "@components/common/ChakraField"
-import firebaseClient from "@config/firebaseClient"
+import onSubmitLogin from "@components/common/forms/submitLogin"
 import { Form, Formik } from "formik"
 import { useRef } from "react"
 
@@ -20,7 +20,6 @@ function LoginDrawer() {
   const toast = useToast()
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef<HTMLButtonElement | null>(null)
-
   return (
     <>
       <Button variant="outline" size="sm" ref={btnRef} onClick={onOpen}>
@@ -39,28 +38,22 @@ function LoginDrawer() {
           <DrawerHeader>Login</DrawerHeader>
           <Formik
             initialValues={{ email: "", password: "" }}
-            onSubmit={async (values, { setErrors }) => {
-              try {
-                await firebaseClient
-                  .auth()
-                  .signInWithEmailAndPassword(values.email, values.password)
+            onSubmit={async (values, actions) => {
+              const response = await onSubmitLogin(values, actions)
+              if (response && response.user && response.user.email) {
                 toast({
                   id: "success-singing-in",
-                  title: `Congrats`,
-                  description: "You you were signed in successfully.",
+                  title: `Congrats!`,
+                  description: "You were signed in successfully.",
                   status: "success",
                   duration: 3000,
                   isClosable: true
                 })
-              } catch (ex) {
-                setErrors({
-                  email: "email and/or password not correct",
-                  password: "or not available. try again"
-                })
               }
+              return null
             }}
           >
-            {({ isSubmitting }) => (
+            {formik => (
               <Form>
                 <DrawerBody>
                   <Stack spacing={4}>
@@ -88,8 +81,8 @@ function LoginDrawer() {
 
                   <Button
                     type="submit"
-                    isDisabled={isSubmitting}
-                    isLoading={isSubmitting}
+                    isDisabled={formik.isSubmitting}
+                    isLoading={formik.isSubmitting}
                     colorScheme="linkedin"
                   >
                     Submit

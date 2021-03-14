@@ -12,17 +12,14 @@ import {
   useToast
 } from "@chakra-ui/react"
 import ChakraField from "@components/common/ChakraField"
-import firebaseClient from "@config/firebaseClient"
+import onSubmitRegister from "@components/common/forms/submitRegister"
 import { Form, Formik } from "formik"
 import { useRef } from "react"
 
 function RegisterDrawer() {
   const toast = useToast()
-
   const { isOpen, onOpen, onClose } = useDisclosure()
-
   const btnRef = useRef<HTMLButtonElement | null>(null)
-
   return (
     <>
       <Button variant="outline" size="sm" ref={btnRef} onClick={onOpen}>
@@ -40,32 +37,19 @@ function RegisterDrawer() {
           <DrawerHeader>Register</DrawerHeader>
           <Formik
             initialValues={{ email: "", password: "" }}
-            onSubmit={async (values, { setErrors }) => {
-              try {
-                await firebaseClient
-                  .auth()
-                  .createUserWithEmailAndPassword(values.email, values.password)
+            onSubmit={async (values, actions) => {
+              const response = await onSubmitRegister(values, actions)
+              if (response && response.user && response.user.email) {
                 toast({
-                  id: "success-singing-in",
+                  id: "success-registering",
                   title: `Congrats!`,
-                  description: "You were signed in successfully.",
+                  description: "You are registered and signed in!",
                   status: "success",
                   duration: 3000,
                   isClosable: true
                 })
-              } catch (ex) {
-                const errorCode = ex.code
-                const errorMessage = ex.message
-                if (errorCode === "auth/weak-password") {
-                  setErrors({
-                    password: "weak password, try again."
-                  })
-                } else {
-                  setErrors({
-                    email: `${errorMessage}`
-                  })
-                }
               }
+              return null
             }}
           >
             {({ isSubmitting }) => (

@@ -5,15 +5,3 @@ If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment
 
 Dev App Server is now running.
 
-Mar. 13, 2021 7:48:47 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Mar. 13, 2021 7:48:47 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected HTTP/2 connection.
-Mar. 13, 2021 8:09:28 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Mar. 13, 2021 8:09:28 A.M. io.gapi.emulators.netty.NotFoundHandler handleRequest
-INFO: Unknown request URI: /www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyANILBdWUc8OpeTPnATlpuFndCY8zi-U9E
-Mar. 13, 2021 9:15:14 A.M. io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
-INFO: Detected non-HTTP/2 connection.
-Mar. 13, 2021 9:15:14 A.M. io.gapi.emulators.netty.NotFoundHandler handleRequest
-INFO: Unknown request URI: /www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=AIzaSyANILBdWUc8OpeTPnATlpuFndCY8zi-U9E
