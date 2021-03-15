@@ -1,8 +1,7 @@
-import LoginForm from "@components/common/forms/LoginOrRegisterForm"
 import "@testing-library/jest-dom"
 import userEvent from "@testing-library/user-event"
-import { render, waitFor } from "@utils/test-utils"
-import { sleepytime } from "../../utils/sleepy-time"
+import { sleepytime } from "@utils/sleepy-time"
+import { render } from "@utils/test-utils"
 
 const useRouter = jest.spyOn(require("next/router"), "useRouter")
 
@@ -81,27 +80,5 @@ describe("Header (navbar)", () => {
     expect(emailInput).toBeInTheDocument()
     expect(passwordInput).toBeInTheDocument()
     expect(submitButton).toBeInTheDocument()
-  })
-
-  it("figure out how to get login working later", async () => {
-    const handleSubmit = jest.fn()
-    const { getByRole, getByText, getByTestId, debug, getByLabelText } = render(
-      <LoginForm onSubmit={handleSubmit} />
-    )
-
-    await waitFor(() => {
-      userEvent.type(getByLabelText(/email/i), "frank@gmail.com")
-      userEvent.type(getByLabelText(/passwordl/i), "frank123")
-    })
-    await waitFor(() => {
-      userEvent.click(getByRole("button", { name: /submit/i }))
-    })
-    expect(handleSubmit).toHaveBeenCalledWith(
-      {
-        email: "frank@gmail.com",
-        password: "frank123"
-      },
-      expect.anything()
-    )
   })
 })

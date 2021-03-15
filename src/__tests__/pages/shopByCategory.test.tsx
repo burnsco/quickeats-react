@@ -8,11 +8,6 @@ import { render } from "@utils/test-utils"
 const useRouter = jest.spyOn(require("next/router"), "useRouter")
 
 describe("Category Products Page", () => {
-  it("matches snapshot", () => {
-    const { asFragment } = render(<ProductsList {...data} />, {})
-    expect(asFragment()).toMatchSnapshot()
-  })
-
   it("Renders all the products (ie. sushi)", async () => {
     useRouter.mockImplementation(() => ({
       route: "/shop/[category]",

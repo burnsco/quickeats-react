@@ -3,7 +3,6 @@ import {
   Box,
   Button,
   ButtonGroup,
-  Center,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
@@ -23,10 +22,10 @@ import {
   useDisclosure,
   VisuallyHidden
 } from "@chakra-ui/react"
+import { useAuth } from "@hooks/auth"
 import { useCart } from "@hooks/cart/cart"
 import React, { useRef } from "react"
 import { FaShoppingBasket } from "react-icons/fa"
-import { useAuth } from "../../hooks/auth"
 
 function CartDrawer() {
   const { dispatch } = useCart()
@@ -113,7 +112,7 @@ function CartDrawer() {
               overflow="hidden"
               p={1}
             >
-              <Table variant="simple" size="sm">
+              <Table size="sm">
                 <Thead>
                   <Tr>
                     <Th ml="5">QTY</Th>
@@ -161,7 +160,7 @@ function CartDrawer() {
                       </Tr>
                     ))
                   ) : (
-                    <Center p={5}>Cart Is Empty.</Center>
+                    <>Cart Is Empty.</>
                   )}
                 </Tbody>
                 {totalPrice > 0 ? (
