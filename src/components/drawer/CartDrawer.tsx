@@ -12,6 +12,7 @@ import {
   DrawerOverlay,
   HStack,
   Table,
+  TableCaption,
   Tbody,
   Td,
   Text,
@@ -113,6 +114,9 @@ function CartDrawer() {
               p={1}
             >
               <Table size="sm">
+                <TableCaption>
+                  {cartItems && cartItems.length < 1 ? "CART EMPTY" : null}
+                </TableCaption>
                 <Thead>
                   <Tr>
                     <Th ml="5">QTY</Th>
@@ -121,47 +125,45 @@ function CartDrawer() {
                   </Tr>
                 </Thead>
                 <Tbody>
-                  {cartItems && cartItems.length > 0 ? (
-                    cartItems?.map(item => (
-                      <Tr key={`Cart-Item-${item.name}`}>
-                        <Td>
-                          <HStack maxW="80px">
-                            <Button
-                              size="xs"
-                              onClick={() => handleAddItem(item)}
-                            >
-                              +
-                            </Button>
-                            <Text>{item.qty}</Text>
+                  {cartItems
+                    ? cartItems.map(item => (
+                        <Tr key={`Cart-Item-${item.name}`}>
+                          <Td>
+                            <HStack maxW="80px">
+                              <Button
+                                size="xs"
+                                onClick={() => handleAddItem(item)}
+                              >
+                                +
+                              </Button>
+                              <Text>{item.qty}</Text>
 
-                            <Button
-                              size="xs"
-                              onClick={() => handleRemoveItem(item)}
-                            >
-                              -
-                            </Button>
-                          </HStack>
-                        </Td>
-                        <Td>
-                          <HStack spacing={2}>
-                            <Text>{item.name}</Text>
-                            <Box
-                              borderRadius="full"
-                              fontSize="10px"
-                              px="2"
-                              colorScheme="red"
-                            >
-                              REMOVE
-                            </Box>
-                          </HStack>
-                        </Td>
+                              <Button
+                                size="xs"
+                                onClick={() => handleRemoveItem(item)}
+                              >
+                                -
+                              </Button>
+                            </HStack>
+                          </Td>
+                          <Td>
+                            <HStack spacing={2}>
+                              <Text>{item.name}</Text>
+                              <Box
+                                borderRadius="full"
+                                fontSize="10px"
+                                px="2"
+                                colorScheme="red"
+                              >
+                                REMOVE
+                              </Box>
+                            </HStack>
+                          </Td>
 
-                        <Td isNumeric>${item.price}</Td>
-                      </Tr>
-                    ))
-                  ) : (
-                    <>Cart Is Empty.</>
-                  )}
+                          <Td isNumeric>${item.price}</Td>
+                        </Tr>
+                      ))
+                    : null}
                 </Tbody>
                 {totalPrice > 0 ? (
                   <Tfoot>

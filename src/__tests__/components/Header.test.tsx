@@ -1,14 +1,10 @@
+import LoginForm from "@components/common/forms/LoginOrRegisterForm"
 import "@testing-library/jest-dom"
 import userEvent from "@testing-library/user-event"
 import { sleepytime } from "@utils/sleepy-time"
-import { render } from "@utils/test-utils"
+import { fireEvent, render, waitFor } from "@utils/test-utils"
 
 const useRouter = jest.spyOn(require("next/router"), "useRouter")
-
-const testUser = {
-  email: "testuser@testing.com",
-  password: "testuser123"
-}
 
 describe("Header (navbar)", () => {
   useRouter.mockImplementation(() => ({
@@ -17,32 +13,32 @@ describe("Header (navbar)", () => {
     asPath: "/"
   }))
 
-  it("Renders logo", async () => {
+  it("Renders `nav-logo`", async () => {
     const { getByTestId } = render(<h1>testing</h1>)
     expect(getByTestId("nav-logo")).toBeInTheDocument()
   })
 
-  it("Renders NavMenu ", async () => {
+  it("Renders `NavMenu` ", async () => {
     const { getByRole } = render(<h1>testing</h1>)
     expect(getByRole("button", { name: "Browse Food" })).toBeInTheDocument()
   })
 
-  it("Renders Cart", async () => {
+  it("Renders `Cart`", async () => {
     const { getByRole } = render(<h1>testing</h1>)
     expect(getByRole("button", { name: "0" })).toBeInTheDocument()
   })
 
-  it("toggle dark mode", async () => {
+  it("Toggle `dark mode` button in nav", async () => {
     const { getByLabelText } = render(<h1>testing</h1>)
     expect(getByLabelText("Switch to dark mode")).toBeInTheDocument()
   })
 
-  it("renders Register button/drawer", async () => {
+  it("Renders `Register` button/drawer", async () => {
     const { getByRole } = render(<h1>testing</h1>)
     expect(getByRole("button", { name: "Register" })).toBeInTheDocument()
   })
 
-  it("renders Login button/drawer", async () => {
+  it("Renders `Login` button/drawer", async () => {
     const { getByRole } = render(<h1>testing</h1>)
     expect(getByRole("button", { name: "Login" })).toBeInTheDocument()
   })
@@ -65,14 +61,11 @@ describe("Header (navbar)", () => {
     expect(getByLabelText("Password")).toBeInTheDocument()
   })
 
-  it("Login Input Fields Display", async () => {
+  it("Login/Register form displays and calls with correct DATA", async () => {
+    const handleSubmit = jest.fn()
     const { getByRole, getByText, getByTestId, debug, getByLabelText } = render(
-      <h1>testing</h1>
+      <LoginForm onSubmit={handleSubmit} />
     )
-    const RegisterButton = getByRole("button", { name: "Login" })
-    userEvent.click(RegisterButton)
-
-    sleepytime(1000)
 
     const emailInput = getByLabelText("Email")
     const passwordInput = getByLabelText("Password")
@@ -80,5 +73,27 @@ describe("Header (navbar)", () => {
     expect(emailInput).toBeInTheDocument()
     expect(passwordInput).toBeInTheDocument()
     expect(submitButton).toBeInTheDocument()
+
+    fireEvent.change(emailInput, {
+      target: {
+        value: "corey1234@gmail.com"
+      }
+    })
+    fireEvent.change(passwordInput, {
+      target: {
+        value: "corey1234"
+      }
+    })
+    fireEvent.click(submitButton)
+
+    await waitFor(() =>
+      expect(handleSubmit).toHaveBeenCalledWith(
+        {
+          email: "corey1234@gmail.com",
+          password: "corey1234"
+        },
+        expect.anything()
+      )
+    )
   })
 })
