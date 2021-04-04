@@ -56,13 +56,15 @@ const NavbarLogoSection = () => (
         aria-label="Home Page Link"
       >
         <LinkOverlay href="/">
-          <Icon as={GiFireDash} boxSize="1.8em" />
-          <Box display={["none", "none", "block"]}>
-            <chakra.span fontStyle="italic" color="mediumorchid">
-              QUICK
-            </chakra.span>
-            EATS
-          </Box>
+          <HStack>
+            <Icon as={GiFireDash} boxSize="1.8em" />
+            <Box display={["none", "none", "block"]}>
+              <chakra.span fontStyle="italic" color="mediumorchid">
+                QUICK
+              </chakra.span>
+              EATS
+            </Box>
+          </HStack>
         </LinkOverlay>
       </LinkBox>
     </HStack>

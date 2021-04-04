@@ -1,7 +1,7 @@
 import { Button, Center, Stack } from "@chakra-ui/react"
 import ChakraField from "@components/common/ChakraField"
+import { sleepytime } from "@utils/sleepy-time"
 import { Form, Formik } from "formik"
-import { sleepytime } from "../../../utils/sleepy-time"
 
 function LoginOrRegisterForm({ onSubmit }: any) {
   const handleSubmit = async (values: any, actions: any) => {
