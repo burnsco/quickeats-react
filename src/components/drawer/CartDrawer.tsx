@@ -1,5 +1,6 @@
 import { LockIcon } from "@chakra-ui/icons"
 import {
+  Alert,
   Box,
   Button,
   ButtonGroup,
@@ -180,7 +181,11 @@ function CartDrawer() {
             </Box>
           </DrawerBody>
           <DrawerFooter>
-            {!user ? "please login/register" : null}
+            {!user ? (
+              <Alert variant="top-accent" status="warning" mr="2">
+                Please Register/Login to Checkout
+              </Alert>
+            ) : null}
             <ButtonGroup spacing={10}>
               <Button onClick={onClose}>Exit</Button>
               <Button

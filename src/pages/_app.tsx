@@ -5,14 +5,9 @@ import { AuthProvider } from "@hooks/auth"
 import { CartProvider } from "@hooks/cart/cart"
 import type { AppProps } from "next/app"
 import Head from "next/head"
-import type { FC } from "react"
 import theme from "../theme"
 
-const Noop: FC = ({ children }) => <>{children}</>
-
 export default function App({ Component, pageProps }: AppProps) {
-  const Layout = (Component as any).Layout || Noop
-
   return (
     <>
       <Head>
@@ -30,11 +25,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <ChakraProvider theme={theme}>
           <CartProvider>
             <Navbar />
-            <Layout pageProps={pageProps}>
-              <PageContainer>
-                <Component {...pageProps} />
-              </PageContainer>
-            </Layout>
+            <PageContainer>
+              <Component {...pageProps} />
+            </PageContainer>
           </CartProvider>
         </ChakraProvider>
       </AuthProvider>
