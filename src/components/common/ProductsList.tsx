@@ -13,7 +13,7 @@ import { useCart } from "@hooks/cart/cart"
 import "firebase/firestore"
 import Image from "next/image"
 
-const ProductsList = (props: any) => {
+export default function ProductsList(props: any) {
   const borderColor = useColorModeValue("gray.100", "#313131")
   const hoverColor = useColorModeValue("gray.200", "gray.600")
   const bg = useColorModeValue("whitesmoke", "#202020")
@@ -109,5 +109,3 @@ const ProductsList = (props: any) => {
     </Container>
   )
 }
-
-export default ProductsList

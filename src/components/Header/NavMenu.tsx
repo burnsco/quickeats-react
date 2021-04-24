@@ -46,7 +46,6 @@ export const sections = [
 ]
 
 export default function NavMenu() {
-  const isClient = typeof window !== "undefined"
   const router = useRouter()
 
   const bg = useColorModeValue("whitesmoke", "#202020")
@@ -64,7 +63,7 @@ export default function NavMenu() {
       {({ isOpen }) => (
         <>
           <MenuButton
-            colorScheme="telegram"
+            colorScheme="orange"
             as={Button}
             size="sm"
             leftIcon={isOpen ? <ChevronDownIcon /> : <ChevronRightIcon />}
