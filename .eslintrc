@@ -73,6 +73,7 @@
     "consistent-return": "off",
     "react/react-in-jsx-scope": "off",
     "react/state-in-constructor": "off",
+    "react/display-name": "off",
     "no-restricted-syntax": "off",
     "no-continue": "off",
     "react/destructuring-assignment": "off",

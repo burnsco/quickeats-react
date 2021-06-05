@@ -24,12 +24,11 @@ import CartDrawer from "@components/drawer/CartDrawer"
 import LoginDrawer from "@components/drawer/LoginDrawer"
 import RegisterDrawer from "@components/drawer/RegisterDrawer"
 import firebaseClient from "@config/firebaseClient"
+import { useAuth } from "@hooks/auth"
 import router from "next/router"
-import React from "react"
 import { FaMoon, FaSun, FaUserCircle } from "react-icons/fa"
 import { GiFireDash } from "react-icons/gi"
 import { MdSettings } from "react-icons/md"
-import { useAuth } from "../../hooks/auth"
 import NavbarMenu from "./NavMenu"
 
 export const sections = [

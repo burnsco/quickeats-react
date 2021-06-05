@@ -92,10 +92,9 @@ export default function ProductsList(props: any) {
                 onClick={() => {
                   handleAddItem(item)
                   toast({
-                    title: `${item.name}`,
-                    description: "Was added to your cart.",
-                    status: "success",
-                    duration: 2000,
+                    status: "info",
+                    title: `${item.name} was added to your cart.`,
+                    variant: "top-accent",
                     isClosable: true
                   })
                 }}
