@@ -109,7 +109,7 @@ export default function NavbarContent() {
                     duration: 2000,
                     isClosable: true
                   })
-                } catch (error) {
+                } catch (error: any) {
                   toast({
                     id: "warning-cannot-sign-out",
                     title: `hmmmmm`,

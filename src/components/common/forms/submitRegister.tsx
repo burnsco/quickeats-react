@@ -7,7 +7,7 @@ const onSubmitRegister = async (values: any, actions: any) => {
       .auth()
       .createUserWithEmailAndPassword(values.email, values.password)
     return response
-  } catch (ex) {
+  } catch (ex: any) {
     const errorCode = ex.code
     const errorMessage = ex.message
     if (errorCode === "auth/weak-password") {
