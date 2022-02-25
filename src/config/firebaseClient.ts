@@ -1,6 +1,6 @@
 import firebaseClient from "firebase/app"
-import "firebase/auth" // If you need it
-import "firebase/firestore" // If you need it
+import "firebase/auth"
+import "firebase/firestore"
 
 const CLIENT_CONFIG = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
