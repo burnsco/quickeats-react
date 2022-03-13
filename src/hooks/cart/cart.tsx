@@ -3,8 +3,9 @@ import {
   Dispatch,
   FC,
   ReactNode,
+  useCallback,
   useContext,
-  useEffect,
+  useMemo,
   useReducer
 } from "react"
 import { addItemToCart, removeItemFromCart } from "./cart-functions"
@@ -38,9 +39,10 @@ function reducer(state: State, action: ActionType): State {
 }
 
 export const CartProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const newState = useMemo(() => initialState, [])
+  const [state, dispatch] = useReducer(reducer, newState)
 
-  useEffect(() => {
+  useCallback(() => {
     localStorage.setItem("quickeats-cart", JSON.stringify(state))
   }, [state])
 

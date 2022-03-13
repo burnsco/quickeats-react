@@ -29,12 +29,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false
+    fallback: "blocking"
   }
 }
 
-const ShopByCategoryPage = (props: ProductDataType) => (
-  <ProductsList {...props} />
-)
-
-export default ShopByCategoryPage
+export default function ShopByCategoryPage(props: any) {
+  return <ProductsList {...props} />
+}

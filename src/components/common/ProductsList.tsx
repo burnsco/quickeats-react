@@ -1,13 +1,11 @@
 import { Container, SimpleGrid } from "@chakra-ui/react"
-import ProductAddToCart from "@components/common/ProductAddToCart"
+import ProductCard from "@components/common/ProductCard"
 import "firebase/firestore"
 
 export default function ProductsList(props: any) {
   const { data } = props
   const { items } = data
   const { routeName } = props.data
-  console.log("productslist")
-  console.log(props)
 
   return (
     <Container maxW="xxl" mt="3rem">
@@ -17,16 +15,13 @@ export default function ProductsList(props: any) {
         spacing={4}
         w="full"
       >
-        {items.map((item: any) => {
-          return (
-            // <ProductCard
-            //   key={`product-${item}`}
-            //   item={item}
-            //   routeName={routeName}
-            // />
-            <ProductAddToCart key={item.id} />
-          )
-        })}
+        {items.map((item: any) => (
+          <ProductCard
+            key={`product-${item}`}
+            item={item}
+            routeName={routeName}
+          />
+        ))}
       </SimpleGrid>
     </Container>
   )
