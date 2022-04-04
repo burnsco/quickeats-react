@@ -8,11 +8,11 @@ function Navbar() {
       id="navbar"
       pos="fixed"
       top="0"
+      p="1"
       zIndex="1"
       bg={bg}
       left="0"
       right="0"
-      boxShadow="base"
       transition="top 0.3s"
       width="full"
     >

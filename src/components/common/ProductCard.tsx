@@ -74,16 +74,16 @@ export default function ProductCard({ item, routeName }: any) {
         <Button
           size="sm"
           w="full"
-          colorScheme="purple"
+          border="2px solid #f87060"
           mt={4}
           leftIcon={<AddIcon />}
           mr="-px"
           onClick={() => {
             handleAddItem(item)
             toast({
-              status: "info",
+              status: "warning",
               title: `${item.name} was added to your cart.`,
-              variant: "top-accent",
+
               isClosable: true
             })
           }}

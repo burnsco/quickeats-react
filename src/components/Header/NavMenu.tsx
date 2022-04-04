@@ -63,9 +63,8 @@ export default function NavMenu() {
       {({ isOpen }) => (
         <>
           <MenuButton
-            colorScheme="orange"
             as={Button}
-            size="sm"
+            size="md"
             leftIcon={isOpen ? <ChevronDownIcon /> : <ChevronRightIcon />}
             rightIcon={<FaShoppingBag />}
             flexGrow={2}

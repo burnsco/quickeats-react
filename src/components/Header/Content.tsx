@@ -42,32 +42,30 @@ export const sections = [
 ]
 
 const NavbarLogoSection = () => (
-  <Box>
-    <HStack>
-      <LinkBox
-        data-testid="nav-logo"
-        textDecoration="mediumslateblue"
-        fontSize={{ base: "md", md: "large", lg: "2xl" }}
-        letterSpacing="wide"
-        fontWeight="bold"
-        fontFamily="Anton"
-        color="yellow.400"
-        aria-label="Home Page Link"
-      >
-        <LinkOverlay href="/">
-          <HStack>
-            <Icon as={GiFireDash} boxSize="1.8em" />
-            <Box display={["none", "none", "block"]}>
-              <chakra.span fontStyle="italic" color="mediumorchid">
-                QUICK
-              </chakra.span>
-              EATS
-            </Box>
-          </HStack>
-        </LinkOverlay>
-      </LinkBox>
-    </HStack>
-  </Box>
+  <HStack px="2">
+    <LinkBox
+      data-testid="nav-logo"
+      textDecoration="mediumslateblue"
+      fontSize={{ base: "md", md: "large", lg: "2xl" }}
+      letterSpacing="wide"
+      fontWeight="bold"
+      fontFamily="Anton"
+      color="yellow.400"
+      aria-label="Home Page Link"
+    >
+      <LinkOverlay href="/">
+        <HStack>
+          <Icon as={GiFireDash} boxSize="1.8em" />
+          <Box display={["none", "none", "block"]}>
+            <chakra.span fontStyle="italic" color="mediumorchid">
+              QUICK
+            </chakra.span>
+            EATS
+          </Box>
+        </HStack>
+      </LinkOverlay>
+    </LinkBox>
+  </HStack>
 )
 
 export default function NavbarContent() {
