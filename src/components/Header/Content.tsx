@@ -29,7 +29,6 @@ import router from "next/router"
 import { FaMoon, FaSun, FaUserCircle } from "react-icons/fa"
 import { GiFireDash } from "react-icons/gi"
 import { MdSettings } from "react-icons/md"
-import NavbarMenu from "./NavMenu"
 
 export const sections = [
   { id: "home-link", title: "home", href: "/" },
@@ -56,7 +55,7 @@ const NavbarLogoSection = () => (
       <LinkOverlay href="/">
         <HStack>
           <Icon as={GiFireDash} boxSize="1.8em" />
-          <Box display={["none", "none", "block"]}>
+          <Box>
             <chakra.span fontStyle="italic" color="mediumorchid">
               QUICK
             </chakra.span>
@@ -129,7 +128,13 @@ export default function NavbarContent() {
 
   function NavBarUserSection() {
     return (
-      <Stack mr={6} spacing={2} direction="row" align="center">
+      <Stack
+        w="full"
+        spacing={2}
+        direction="row"
+        justify="center"
+        align="center"
+      >
         {user && user.email ? (
           <UserMenu />
         ) : (
@@ -152,8 +157,6 @@ export default function NavbarContent() {
       h="full"
     >
       <NavbarLogoSection />
-      <Spacer />
-      <NavbarMenu />
       <Spacer />
       <NavBarUserSection />
       <CartDrawer />

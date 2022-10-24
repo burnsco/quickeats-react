@@ -66,7 +66,6 @@ export default function ProductCard({ item, routeName }: any) {
             fontSize="md"
             as="h3"
             lineHeight="tight"
-            isTruncated
           >
             {item.name}
           </Box>
