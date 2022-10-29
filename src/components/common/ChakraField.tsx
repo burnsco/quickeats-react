@@ -55,7 +55,6 @@ const ChakraField: React.FC<ChakraFieldProps> = ({
           {...field}
           focusBorderColor="red.300"
           aria-describedby={`${props.id}-feedback ${props.id}-help`}
-          type={type}
           onFocus={handleFocus}
           id={field.name}
           placeholder={props.placeholder}
