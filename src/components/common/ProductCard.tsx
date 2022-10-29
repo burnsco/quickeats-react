@@ -3,6 +3,7 @@ import {
   Badge,
   Box,
   Button,
+  GridItem,
   HStack,
   useColorModeValue,
   useToast
@@ -32,7 +33,8 @@ export default function ProductCard({ item, routeName }: any) {
     })
 
   return (
-    <Box
+    <GridItem
+      display="grid"
       bg={bg}
       borderColor={borderColor}
       key={item.id}
@@ -55,8 +57,9 @@ export default function ProductCard({ item, routeName }: any) {
           alt={`image-${item.title}`}
         />
       </Box>
-      <Box p={4}>
-        <HStack>
+
+      <Box p="2">
+        <HStack p="2">
           <Badge borderRadius="full" px="2" colorScheme="orange">
             ${item.price}
           </Badge>
@@ -71,10 +74,10 @@ export default function ProductCard({ item, routeName }: any) {
           </Box>
         </HStack>
         <Button
+          as="footer"
           size="sm"
           w="full"
           border="2px solid #f87060"
-          mt={4}
           leftIcon={<AddIcon />}
           mr="-px"
           onClick={() => {
@@ -90,6 +93,6 @@ export default function ProductCard({ item, routeName }: any) {
           Add To Cart
         </Button>
       </Box>
-    </Box>
+    </GridItem>
   )
 }

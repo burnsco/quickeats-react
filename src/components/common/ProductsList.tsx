@@ -1,4 +1,4 @@
-import { Container, SimpleGrid } from "@chakra-ui/react"
+import { chakra, Container } from "@chakra-ui/react"
 import ProductCard from "@components/common/ProductCard"
 import "firebase/firestore"
 
@@ -9,20 +9,21 @@ export default function ProductsList(props: any) {
 
   return (
     <Container maxW="xxl" mt="3rem">
-      <SimpleGrid
+      <chakra.section
+        display="grid"
+        gridTemplateColumns="repeat(auto-fill, minmax(230px, 1fr))"
+        gap="20px"
         className="simple-grid-shop"
-        columns={[1, 2, 3]}
-        spacing={4}
-        w="full"
       >
         {items.map((item: any) => (
           <ProductCard
+            as="aside"
             key={`product-${item}`}
             item={item}
             routeName={routeName}
           />
         ))}
-      </SimpleGrid>
+      </chakra.section>
     </Container>
   )
 }
