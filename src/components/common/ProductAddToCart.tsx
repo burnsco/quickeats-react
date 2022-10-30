@@ -29,7 +29,7 @@ interface RatingProps {
 
 function Rating({ rating, numReviews }: RatingProps) {
   return (
-    <Box d="flex" alignItems="center">
+    <Flex alignItems="center">
       {Array(5)
         .fill("")
         .map((_, i) => {
@@ -51,7 +51,7 @@ function Rating({ rating, numReviews }: RatingProps) {
       <Box as="span" ml="2" color="gray.600" fontSize="sm">
         {numReviews} review{numReviews > 1 && "s"}
       </Box>
-    </Box>
+    </Flex>
   )
 }
 
@@ -83,20 +83,19 @@ function ProductAddToCart() {
         />
 
         <Box p="6">
-          <Box d="flex" alignItems="baseline">
+          <Flex alignItems="baseline">
             {data.isNew && (
               <Badge rounded="full" px="2" fontSize="0.8em" colorScheme="red">
                 New
               </Badge>
             )}
-          </Box>
+          </Flex>
           <Flex mt="1" justifyContent="space-between" alignContent="center">
             <Box
               fontSize="2xl"
               fontWeight="semibold"
               as="h4"
               lineHeight="tight"
-              isTruncated
             >
               {data.name}
             </Box>
