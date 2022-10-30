@@ -26,7 +26,7 @@ import {
 } from "@chakra-ui/react"
 import { useAuth } from "@hooks/auth"
 import { useCart } from "@hooks/cart/cart"
-import React, { useRef } from "react"
+import { useRef } from "react"
 import { FaShoppingBasket } from "react-icons/fa"
 
 function CartDrawer() {
@@ -150,12 +150,7 @@ function CartDrawer() {
                           <Td>
                             <HStack spacing={2}>
                               <Text>{item.name}</Text>
-                              <Box
-                                borderRadius="full"
-                                fontSize="10px"
-                                px="2"
-                                colorScheme="red"
-                              >
+                              <Box borderRadius="full" fontSize="10px" px="2">
                                 REMOVE
                               </Box>
                             </HStack>

@@ -2,22 +2,24 @@ import { ChakraProvider } from "@chakra-ui/react"
 import Navbar from "@components/Header/"
 import { CartProvider } from "@hooks/cart/cart"
 import { render, RenderOptions } from "@testing-library/react"
+import Router from "next/router"
+import { createContext } from "react"
 import theme from "../theme"
 
-export * from "@testing-library/react"
-// override render method
-export { customRender as render }
+const RouterContext = createContext(Router)
 
 const AllProviders = ({ children }: { children?: React.ReactNode }) => (
-  <ChakraProvider theme={theme}>
-    <CartProvider>
-      <Navbar />
-      {children}
-    </CartProvider>
-  </ChakraProvider>
+  <RouterContext.Provider value={Router}>
+    <ChakraProvider theme={theme}>
+      <CartProvider>
+        <Navbar />
+        {children}
+      </CartProvider>
+    </ChakraProvider>
+  </RouterContext.Provider>
 )
 
 const customRender = (ui: React.ReactElement, options?: RenderOptions) =>
   render(ui, { wrapper: AllProviders, ...options })
 
-export default customRender
+export { customRender as render }

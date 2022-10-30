@@ -1,4 +1,8 @@
 #!/bin/bash
 
-docker build -t coreymburns/quickeats:latest .
-docker push coreymburns/quickeats:latest
+echo What should the version be?
+read VERSION
+
+
+docker build -t coreymburns/quickeats:$VERSION .
+docker push coreymburns/quickeats:$VERSION
