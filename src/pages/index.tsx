@@ -8,7 +8,7 @@ import {
 } from "@chakra-ui/react"
 import fetchAllProducts from "@utils/getAllProducts"
 import "firebase/firestore"
-import Image from "next/image"
+import Image from "next/legacy/image"
 import { useState } from "react"
 
 export function getStaticProps() {

@@ -9,7 +9,7 @@ import {
   useToast
 } from "@chakra-ui/react"
 import { useCart } from "@hooks/cart/cart"
-import Image from "next/image"
+import Image from "next/legacy/image"
 
 export default function ProductCard({ item, routeName }: any) {
   console.log("productCard", item, routeName)
