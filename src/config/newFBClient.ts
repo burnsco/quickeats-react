@@ -1,6 +1,5 @@
-import firebaseClient from "firebase/compat/app"
-import "firebase/compat/auth"
-import "firebase/compat/firestore"
+import { getApps, initializeApp } from "firebase/app"
+import { connectAuthEmulator, getAuth } from "firebase/auth"
 
 const CLIENT_CONFIG = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -22,19 +21,20 @@ const TESTING_CLIENT_CONFIG = {
   appId: "1:708033252363:web:385f17204525cd8959cb0e"
 }
 
-if (typeof window !== "undefined" && !firebaseClient.apps.length) {
-  if (window.location.hostname === "localhost") {
-    firebaseClient.initializeApp(TESTING_CLIENT_CONFIG)
-    firebaseClient.auth()
-    ;(window as any).firebase = firebaseClient
-    firebaseClient.auth().useEmulator("http://localhost:9099")
-  } else {
-    firebaseClient.initializeApp(CLIENT_CONFIG)
-    firebaseClient
-      .auth()
-      .setPersistence(firebaseClient.auth.Auth.Persistence.SESSION)
-    ;(window as any).firebase = firebaseClient
-  }
-}
+export const firebaseClient = () => {
+  if (typeof window !== "undefined" && !getApps().length) {
+    if (window.location.hostname === "localhost") {
+      const testApp = initializeApp(TESTING_CLIENT_CONFIG)
+      const authorizedApp = getAuth(testApp)
+      ;(window as any).firebase = authorizedApp
 
-export { firebaseClient as default }
+      connectAuthEmulator(authorizedApp, "http://localhost:9099")
+      return testApp
+    }
+    const app = initializeApp(CLIENT_CONFIG)
+    const auth = getAuth(app)
+    ;(window as any).firebase = auth
+    return app
+  }
+  return null
+}

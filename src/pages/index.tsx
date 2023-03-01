@@ -7,7 +7,6 @@ import {
   useColorModeValue
 } from "@chakra-ui/react"
 import fetchAllProducts from "@utils/getAllProducts"
-import "firebase/firestore"
 import Image from "next/legacy/image"
 import { useState } from "react"
 
