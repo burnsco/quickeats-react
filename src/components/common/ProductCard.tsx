@@ -73,11 +73,12 @@ export default function ProductCard({ item, routeName }: any) {
             {item.name}
           </Box>
         </HStack>
+
         <Button
           as="footer"
           size="sm"
           w="full"
-          border="2px solid #f87060"
+          border="1px dashed #f87060"
           leftIcon={<AddIcon />}
           mr="-px"
           onClick={() => {
