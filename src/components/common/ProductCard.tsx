@@ -12,7 +12,6 @@ import { useCart } from "@hooks/cart/cart"
 import Image from "next/legacy/image"
 
 export default function ProductCard({ item, routeName }: any) {
-  console.log("productCard", item, routeName)
   const borderColor = useColorModeValue("gray.100", "#313131")
   const hoverColor = useColorModeValue("gray.200", "gray.600")
   const bg = useColorModeValue("whitesmoke", "#202020")
@@ -78,6 +77,8 @@ export default function ProductCard({ item, routeName }: any) {
           as="footer"
           size="sm"
           w="full"
+          transition="background 0.8s"
+          backgroundPosition="center"
           border="1px dashed #f87060"
           leftIcon={<AddIcon />}
           mr="-px"
