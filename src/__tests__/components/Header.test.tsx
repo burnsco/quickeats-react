@@ -1,8 +1,9 @@
 import LoginForm from "@components/common/forms/LoginOrRegisterForm"
 import "@testing-library/jest-dom"
+import { fireEvent, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import { sleepytime } from "@utils/sleepy-time"
-import { fireEvent, render, screen, waitFor } from "@utils/test-utils"
+import { render } from "@utils/test-utils"
 
 const useRouter = jest.spyOn(require("next/router"), "useRouter")
 
@@ -14,8 +15,8 @@ describe("Header (navbar)", () => {
   }))
 
   it("Renders `nav-logo`", async () => {
-    const { getByTestId } = render(<h1>testing</h1>)
-    expect(screen.getByTestId("nav-logo")).toBeInTheDocument()
+    render(<h1>testing</h1>)
+    expect(screen.getByTestId("nav-logo")).to
   })
 
   it("Renders `NavMenu` ", async () => {
