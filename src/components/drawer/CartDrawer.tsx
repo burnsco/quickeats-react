@@ -70,7 +70,7 @@ function CartDrawer() {
         ?.map(item => item.price * item.qty)
         .reduce((a, b) => a + b)
     }
-    return "0"
+    return 0
   }
   const btnRef = useRef<HTMLButtonElement | null>(null)
 
