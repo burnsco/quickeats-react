@@ -1,13 +1,14 @@
 import LoginForm from "@components/common/forms/LoginOrRegisterForm"
 import "@testing-library/jest-dom"
-import { fireEvent, screen, waitFor } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
+
 import { sleepytime } from "@utils/sleepy-time"
-import { render } from "@utils/test-utils"
+import { fireEvent, render, screen, waitFor } from "@utils/test-utils"
 
 const useRouter = jest.spyOn(require("next/router"), "useRouter")
 
 describe("Header (navbar)", () => {
+  const user = userEvent.setup()
   useRouter.mockImplementation(() => ({
     route: "/",
     pathname: "/",
@@ -49,7 +50,7 @@ describe("Header (navbar)", () => {
   it("clicking on Register opens drawer to registration and displays form", async () => {
     render(<h1>testing</h1>)
     const RegisterButton = screen.getByRole("button", { name: "Register" })
-    userEvent.click(RegisterButton)
+    user.click(RegisterButton)
     sleepytime(1000)
     expect(screen.getByLabelText("Email")).toBeInTheDocument()
     expect(screen.getByLabelText("Password")).toBeInTheDocument()
@@ -58,7 +59,7 @@ describe("Header (navbar)", () => {
   it("clicking on Login opens drawer to registration and displays form", async () => {
     render(<h1>testing</h1>)
     const RegisterButton = screen.getByRole("button", { name: "Login" })
-    userEvent.click(RegisterButton)
+    user.click(RegisterButton)
     sleepytime(1000)
     expect(screen.getByLabelText("Email")).toBeInTheDocument()
     expect(screen.getByLabelText("Password")).toBeInTheDocument()

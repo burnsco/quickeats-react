@@ -19,7 +19,10 @@ const AllProviders = ({ children }: { children?: React.ReactNode }) => (
   </RouterContext.Provider>
 )
 
-const customRender = (ui: React.ReactElement, options?: RenderOptions) =>
-  render(ui, { wrapper: AllProviders, ...options })
+const customRender = (
+  ui: React.ReactElement,
+  options?: Omit<RenderOptions, "wrapper">
+) => render(ui, { wrapper: AllProviders, ...options })
 
+export * from "@testing-library/react"
 export { customRender as render }
