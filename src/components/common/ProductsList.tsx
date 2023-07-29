@@ -15,10 +15,10 @@ export default function ProductsList(props: any) {
         gap="20px"
         className="simple-grid-shop"
       >
-        {items.map((item: any) => (
+        {items.map((item: any, i: number) => (
           <ProductCard
             as="aside"
-            key={`product-${item}`}
+            key={`product-${item}-${i}`}
             item={item}
             routeName={routeName}
           />
