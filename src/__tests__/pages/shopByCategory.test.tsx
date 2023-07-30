@@ -1,6 +1,7 @@
 import ProductsList from "@components/common/ProductsList"
 import singleProductData from "@data/sush-product"
 import data from "@data/sushi-products"
+import userEvent from "@testing-library/user-event"
 import { render, screen } from "@utils/test-utils"
 
 const useRouter = jest.spyOn(require("next/router"), "useRouter")
@@ -23,6 +24,7 @@ describe("Category Products Page", () => {
   })
 
   it("Updates the QTY in the Navbar after adding an item", async () => {
+    const user = userEvent.setup()
     useRouter.mockImplementation(() => ({
       route: "/shop/[category]",
       pathname: "/shop/[category]",
@@ -33,12 +35,13 @@ describe("Category Products Page", () => {
 
     const product = screen.getByText(/salmon sashimi/i)
     expect(product).toBeInTheDocument()
+    // yes it could be any product, but we know this is working properly
+    const addProduct = screen.getByText("Add To Cart")
+    expect(addProduct).toBeInTheDocument()
 
-    // const addProduct = screen.getByRole("button", { name: "Add To Cart" })
-    // expect(addProduct).toBeInTheDocument()
+    await user.click(addProduct)
+    await user.click(addProduct)
 
-    // user.click(addProduct)
-    // user.click(addProduct)
-    // expect(screen.getByRole("button", { name: "2" })).toBeInTheDocument()
+    expect(screen.getByRole("button", { name: "2" })).toBeInTheDocument()
   })
 })
