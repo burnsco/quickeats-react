@@ -27,7 +27,8 @@
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write \"**/*.{js,ts,tsx}\"",
     "lint": "eslint . --ext ts --ext tsx --ext js",
-    "test": "jest"
+    "test": "jest --watch",
+    "test:ci": "jest --ci"
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
