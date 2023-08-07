@@ -20,7 +20,7 @@
     "build-export": "next build && next export",
     "postinstall": "husky install",
     "pre-commit": "lint-staged",
-    "pre-push": "npm run type-check",
+    "pre-push": "pnpm run type-check",
     "gen-env": "gen-env-types .env.local -o env.d.ts -e .",
     "analyze": "BUNDLE_ANALYZE=both yarn build",
     "find:unused": "next-unused",

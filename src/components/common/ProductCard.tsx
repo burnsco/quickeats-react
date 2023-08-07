@@ -38,9 +38,10 @@ export default function ProductCard({ item, routeName }: any) {
       borderColor={borderColor}
       key={item.id}
       maxW="md"
+      rounded="lg"
       borderWidth="1px"
       borderRadius="md"
-      shadow="md"
+      shadow="lg"
       _hover={{
         boxShadow: "md",
         borderWidth: "1px",
@@ -79,7 +80,7 @@ export default function ProductCard({ item, routeName }: any) {
           w="full"
           transition="background 0.8s"
           backgroundPosition="center"
-          border="1px dashed #f87060"
+          border="2px #f87060"
           leftIcon={<AddIcon />}
           mr="-px"
           onClick={() => {

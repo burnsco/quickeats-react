@@ -1,5 +1,5 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-npm run pre-commit
-npm run type-check && npm run lint && npm run format
+pnpm run pre-commit
+pnpm run type-check && pnpm run lint && pnpm run format
