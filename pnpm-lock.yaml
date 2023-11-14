@@ -10,7 +10,7 @@ dependencies:
     version: 2.1.1(@chakra-ui/system@2.6.2)(react@18.2.0)
   '@chakra-ui/react':
     specifier: ^2.8.2
-    version: 2.8.2(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.37)(framer-motion@10.16.4)(react-dom@18.2.0)(react@18.2.0)
+    version: 2.8.2(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.37)(framer-motion@10.16.5)(react-dom@18.2.0)(react@18.2.0)
   '@chakra-ui/theme-tools':
     specifier: 2.0.18
     version: 2.0.18(@chakra-ui/styled-system@2.9.2)
@@ -33,8 +33,8 @@ dependencies:
     specifier: ^2.4.5
     version: 2.4.5(react@18.2.0)
   framer-motion:
-    specifier: ^10.16.4
-    version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^10.16.5
+    version: 10.16.5(react-dom@18.2.0)(react@18.2.0)
   gen-env-types:
     specifier: ^1.3.4
     version: 1.3.4
@@ -57,8 +57,8 @@ dependencies:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   react-icons:
-    specifier: ^4.11.0
-    version: 4.11.0(react@18.2.0)
+    specifier: ^4.12.0
+    version: 4.12.0(react@18.2.0)
   react-intersection-observer:
     specifier: ^9.5.3
     version: 9.5.3(react@18.2.0)
@@ -539,7 +539,7 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@chakra-ui/accordion@2.3.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.4)(react@18.2.0):
+  /@chakra-ui/accordion@2.3.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.5)(react@18.2.0):
     resolution: {integrity: sha512-FSXRm8iClFyU+gVaXisOSEw0/4Q+qZbFRiuhIAkVU6Boj0FxAMrlo9a8AV5TuF77rgaHytCdHk0Ng+cyUijrag==}
     peerDependencies:
       '@chakra-ui/system': '>=2.0.0'
@@ -553,8 +553,8 @@ packages:
       '@chakra-ui/react-use-merge-refs': 2.1.0(react@18.2.0)
       '@chakra-ui/shared-utils': 2.0.5
       '@chakra-ui/system': 2.6.2(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(react@18.2.0)
-      '@chakra-ui/transition': 2.1.0(framer-motion@10.16.4)(react@18.2.0)
-      framer-motion: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+      '@chakra-ui/transition': 2.1.0(framer-motion@10.16.5)(react@18.2.0)
+      framer-motion: 10.16.5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -886,7 +886,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@chakra-ui/menu@2.2.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.4)(react@18.2.0):
+  /@chakra-ui/menu@2.2.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.5)(react@18.2.0):
     resolution: {integrity: sha512-lJS7XEObzJxsOwWQh7yfG4H8FzFPRP5hVPN/CL+JzytEINCSBvsCDHrYPQGp7jzpCi8vnTqQQGQe0f8dwnXd2g==}
     peerDependencies:
       '@chakra-ui/system': '>=2.0.0'
@@ -908,12 +908,12 @@ packages:
       '@chakra-ui/react-use-update-effect': 2.1.0(react@18.2.0)
       '@chakra-ui/shared-utils': 2.0.5
       '@chakra-ui/system': 2.6.2(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(react@18.2.0)
-      '@chakra-ui/transition': 2.1.0(framer-motion@10.16.4)(react@18.2.0)
-      framer-motion: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+      '@chakra-ui/transition': 2.1.0(framer-motion@10.16.5)(react@18.2.0)
+      framer-motion: 10.16.5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
     dev: false
 
-  /@chakra-ui/modal@2.3.1(@chakra-ui/system@2.6.2)(@types/react@18.2.37)(framer-motion@10.16.4)(react-dom@18.2.0)(react@18.2.0):
+  /@chakra-ui/modal@2.3.1(@chakra-ui/system@2.6.2)(@types/react@18.2.37)(framer-motion@10.16.5)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-TQv1ZaiJMZN+rR9DK0snx/OPwmtaGH1HbZtlYt4W4s6CzyK541fxLRTjIXfEzIGpvNW+b6VFuFjbcR78p4DEoQ==}
     peerDependencies:
       '@chakra-ui/system': '>=2.0.0'
@@ -929,9 +929,9 @@ packages:
       '@chakra-ui/react-use-merge-refs': 2.1.0(react@18.2.0)
       '@chakra-ui/shared-utils': 2.0.5
       '@chakra-ui/system': 2.6.2(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(react@18.2.0)
-      '@chakra-ui/transition': 2.1.0(framer-motion@10.16.4)(react@18.2.0)
+      '@chakra-ui/transition': 2.1.0(framer-motion@10.16.5)(react@18.2.0)
       aria-hidden: 1.2.3
-      framer-motion: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+      framer-motion: 10.16.5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       react-remove-scroll: 2.5.7(@types/react@18.2.37)(react@18.2.0)
@@ -985,7 +985,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@chakra-ui/popover@2.2.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.4)(react@18.2.0):
+  /@chakra-ui/popover@2.2.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.5)(react@18.2.0):
     resolution: {integrity: sha512-K+2ai2dD0ljvJnlrzesCDT9mNzLifE3noGKZ3QwLqd/K34Ym1W/0aL1ERSynrcG78NKoXS54SdEzkhCZ4Gn/Zg==}
     peerDependencies:
       '@chakra-ui/system': '>=2.0.0'
@@ -1004,7 +1004,7 @@ packages:
       '@chakra-ui/react-use-merge-refs': 2.1.0(react@18.2.0)
       '@chakra-ui/shared-utils': 2.0.5
       '@chakra-ui/system': 2.6.2(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(react@18.2.0)
-      framer-motion: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+      framer-motion: 10.16.5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -1272,7 +1272,7 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@chakra-ui/react@2.8.2(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.37)(framer-motion@10.16.4)(react-dom@18.2.0)(react@18.2.0):
+  /@chakra-ui/react@2.8.2(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.37)(framer-motion@10.16.5)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-Hn0moyxxyCDKuR9ywYpqgX8dvjqwu9ArwpIb9wHNYjnODETjLwazgNIliCVBRcJvysGRiV51U2/JtJVrpeCjUQ==}
     peerDependencies:
       '@emotion/react': ^11.0.0
@@ -1281,7 +1281,7 @@ packages:
       react: '>=18'
       react-dom: '>=18'
     dependencies:
-      '@chakra-ui/accordion': 2.3.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.4)(react@18.2.0)
+      '@chakra-ui/accordion': 2.3.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.5)(react@18.2.0)
       '@chakra-ui/alert': 2.2.2(@chakra-ui/system@2.6.2)(react@18.2.0)
       '@chakra-ui/avatar': 2.3.0(@chakra-ui/system@2.6.2)(react@18.2.0)
       '@chakra-ui/breadcrumb': 2.2.0(@chakra-ui/system@2.6.2)(react@18.2.0)
@@ -1302,11 +1302,11 @@ packages:
       '@chakra-ui/layout': 2.3.1(@chakra-ui/system@2.6.2)(react@18.2.0)
       '@chakra-ui/live-region': 2.1.0(react@18.2.0)
       '@chakra-ui/media-query': 3.3.0(@chakra-ui/system@2.6.2)(react@18.2.0)
-      '@chakra-ui/menu': 2.2.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.4)(react@18.2.0)
-      '@chakra-ui/modal': 2.3.1(@chakra-ui/system@2.6.2)(@types/react@18.2.37)(framer-motion@10.16.4)(react-dom@18.2.0)(react@18.2.0)
+      '@chakra-ui/menu': 2.2.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.5)(react@18.2.0)
+      '@chakra-ui/modal': 2.3.1(@chakra-ui/system@2.6.2)(@types/react@18.2.37)(framer-motion@10.16.5)(react-dom@18.2.0)(react@18.2.0)
       '@chakra-ui/number-input': 2.1.2(@chakra-ui/system@2.6.2)(react@18.2.0)
       '@chakra-ui/pin-input': 2.1.0(@chakra-ui/system@2.6.2)(react@18.2.0)
-      '@chakra-ui/popover': 2.2.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.4)(react@18.2.0)
+      '@chakra-ui/popover': 2.2.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.5)(react@18.2.0)
       '@chakra-ui/popper': 3.1.0(react@18.2.0)
       '@chakra-ui/portal': 2.1.0(react-dom@18.2.0)(react@18.2.0)
       '@chakra-ui/progress': 2.2.0(@chakra-ui/system@2.6.2)(react@18.2.0)
@@ -1321,7 +1321,7 @@ packages:
       '@chakra-ui/stat': 2.1.1(@chakra-ui/system@2.6.2)(react@18.2.0)
       '@chakra-ui/stepper': 2.3.1(@chakra-ui/system@2.6.2)(react@18.2.0)
       '@chakra-ui/styled-system': 2.9.2
-      '@chakra-ui/switch': 2.1.2(@chakra-ui/system@2.6.2)(framer-motion@10.16.4)(react@18.2.0)
+      '@chakra-ui/switch': 2.1.2(@chakra-ui/system@2.6.2)(framer-motion@10.16.5)(react@18.2.0)
       '@chakra-ui/system': 2.6.2(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(react@18.2.0)
       '@chakra-ui/table': 2.1.0(@chakra-ui/system@2.6.2)(react@18.2.0)
       '@chakra-ui/tabs': 3.0.0(@chakra-ui/system@2.6.2)(react@18.2.0)
@@ -1329,14 +1329,14 @@ packages:
       '@chakra-ui/textarea': 2.1.2(@chakra-ui/system@2.6.2)(react@18.2.0)
       '@chakra-ui/theme': 3.3.1(@chakra-ui/styled-system@2.9.2)
       '@chakra-ui/theme-utils': 2.0.21
-      '@chakra-ui/toast': 7.0.2(@chakra-ui/system@2.6.2)(framer-motion@10.16.4)(react-dom@18.2.0)(react@18.2.0)
-      '@chakra-ui/tooltip': 2.3.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.4)(react-dom@18.2.0)(react@18.2.0)
-      '@chakra-ui/transition': 2.1.0(framer-motion@10.16.4)(react@18.2.0)
+      '@chakra-ui/toast': 7.0.2(@chakra-ui/system@2.6.2)(framer-motion@10.16.5)(react-dom@18.2.0)(react@18.2.0)
+      '@chakra-ui/tooltip': 2.3.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.5)(react-dom@18.2.0)(react@18.2.0)
+      '@chakra-ui/transition': 2.1.0(framer-motion@10.16.5)(react@18.2.0)
       '@chakra-ui/utils': 2.0.15
       '@chakra-ui/visually-hidden': 2.2.0(@chakra-ui/system@2.6.2)(react@18.2.0)
       '@emotion/react': 11.11.1(@types/react@18.2.37)(react@18.2.0)
       '@emotion/styled': 11.11.0(@emotion/react@11.11.1)(@types/react@18.2.37)(react@18.2.0)
-      framer-motion: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+      framer-motion: 10.16.5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     transitivePeerDependencies:
@@ -1447,7 +1447,7 @@ packages:
       lodash.mergewith: 4.6.2
     dev: false
 
-  /@chakra-ui/switch@2.1.2(@chakra-ui/system@2.6.2)(framer-motion@10.16.4)(react@18.2.0):
+  /@chakra-ui/switch@2.1.2(@chakra-ui/system@2.6.2)(framer-motion@10.16.5)(react@18.2.0):
     resolution: {integrity: sha512-pgmi/CC+E1v31FcnQhsSGjJnOE2OcND4cKPyTE+0F+bmGm48Q/b5UmKD9Y+CmZsrt/7V3h8KNczowupfuBfIHA==}
     peerDependencies:
       '@chakra-ui/system': '>=2.0.0'
@@ -1457,7 +1457,7 @@ packages:
       '@chakra-ui/checkbox': 2.3.2(@chakra-ui/system@2.6.2)(react@18.2.0)
       '@chakra-ui/shared-utils': 2.0.5
       '@chakra-ui/system': 2.6.2(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(react@18.2.0)
-      framer-motion: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+      framer-motion: 10.16.5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -1577,7 +1577,7 @@ packages:
       '@chakra-ui/theme-tools': 2.1.2(@chakra-ui/styled-system@2.9.2)
     dev: false
 
-  /@chakra-ui/toast@7.0.2(@chakra-ui/system@2.6.2)(framer-motion@10.16.4)(react-dom@18.2.0)(react@18.2.0):
+  /@chakra-ui/toast@7.0.2(@chakra-ui/system@2.6.2)(framer-motion@10.16.5)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-yvRP8jFKRs/YnkuE41BVTq9nB2v/KDRmje9u6dgDmE5+1bFt3bwjdf9gVbif4u5Ve7F7BGk5E093ARRVtvLvXA==}
     peerDependencies:
       '@chakra-ui/system': 2.6.2
@@ -1595,12 +1595,12 @@ packages:
       '@chakra-ui/styled-system': 2.9.2
       '@chakra-ui/system': 2.6.2(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(react@18.2.0)
       '@chakra-ui/theme': 3.3.1(@chakra-ui/styled-system@2.9.2)
-      framer-motion: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+      framer-motion: 10.16.5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@chakra-ui/tooltip@2.3.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.4)(react-dom@18.2.0)(react@18.2.0):
+  /@chakra-ui/tooltip@2.3.1(@chakra-ui/system@2.6.2)(framer-motion@10.16.5)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-Rh39GBn/bL4kZpuEMPPRwYNnccRCL+w9OqamWHIB3Qboxs6h8cOyXfIdGxjo72lvhu1QI/a4KFqkM3St+WfC0A==}
     peerDependencies:
       '@chakra-ui/system': '>=2.0.0'
@@ -1617,19 +1617,19 @@ packages:
       '@chakra-ui/react-use-merge-refs': 2.1.0(react@18.2.0)
       '@chakra-ui/shared-utils': 2.0.5
       '@chakra-ui/system': 2.6.2(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(react@18.2.0)
-      framer-motion: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+      framer-motion: 10.16.5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@chakra-ui/transition@2.1.0(framer-motion@10.16.4)(react@18.2.0):
+  /@chakra-ui/transition@2.1.0(framer-motion@10.16.5)(react@18.2.0):
     resolution: {integrity: sha512-orkT6T/Dt+/+kVwJNy7zwJ+U2xAZ3EU7M3XCs45RBvUnZDr/u9vdmaM/3D/rOpmQJWgQBwKPJleUXrYWUagEDQ==}
     peerDependencies:
       framer-motion: '>=4.0.0'
       react: '>=18'
     dependencies:
       '@chakra-ui/shared-utils': 2.0.5
-      framer-motion: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+      framer-motion: 10.16.5(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
     dev: false
 
@@ -2659,8 +2659,8 @@ packages:
       '@jridgewell/resolve-uri': 3.1.1
       '@jridgewell/sourcemap-codec': 1.4.15
 
-  /@jsdoc/salty@0.2.5:
-    resolution: {integrity: sha512-TfRP53RqunNe2HBobVBJ0VLhK1HbfvBYeTC1ahnN64PWvyYyGebmMiPkuwvD9fpw2ZbkoPb8Q7mwy0aR8Z9rvw==}
+  /@jsdoc/salty@0.2.6:
+    resolution: {integrity: sha512-aA+awb5yoml8TQ3CzI5Ue7sM3VMRC4l1zJJW4fgZ8OCL1wshJZhNzaf0PL85DSnOUw6QuFgeHGD/eq/xwwAF2g==}
     engines: {node: '>=v12.0.0'}
     requiresBuild: true
     dependencies:
@@ -3796,8 +3796,8 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001561
-      electron-to-chromium: 1.4.580
+      caniuse-lite: 1.0.30001562
+      electron-to-chromium: 1.4.583
       node-releases: 2.0.13
       update-browserslist-db: 1.0.13(browserslist@4.22.1)
 
@@ -3857,8 +3857,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /caniuse-lite@1.0.30001561:
-    resolution: {integrity: sha512-NTt0DNoKe958Q0BE0j0c1V9jbUzhBxHIEJy7asmGrpE0yG63KTV7PLHPnK2E1O9RsQrQ081I3NLuXGS6zht3cw==}
+  /caniuse-lite@1.0.30001562:
+    resolution: {integrity: sha512-kfte3Hym//51EdX4239i+Rmp20EsLIYGdPkERegTgU19hQWCRhsRFGKHTliUlsry53tv17K7n077Kqa0WJU4ng==}
 
   /catharsis@0.9.0:
     resolution: {integrity: sha512-prMTQVpcns/tzFgFVkVp6ak6RykZyWb3gu8ckUpd6YkTlacOd3DXGJjIpD4Q6zJirizvaiAjSSHlOsA+6sNh2A==}
@@ -4435,8 +4435,8 @@ packages:
       safe-buffer: 5.2.1
     dev: false
 
-  /electron-to-chromium@1.4.580:
-    resolution: {integrity: sha512-T5q3pjQon853xxxHUq3ZP68ZpvJHuSMY2+BZaW3QzjS4HvNuvsMmZ/+lU+nCrftre1jFZ+OSlExynXWBihnXzw==}
+  /electron-to-chromium@1.4.583:
+    resolution: {integrity: sha512-93y1gcONABZ7uqYe/JWDVQP/Pj/sQSunF0HVAPdlg/pfBnOyBMLlQUxWvkqcljJg1+W6cjvPuYD+r1Th9Tn8mA==}
 
   /emittery@0.13.1:
     resolution: {integrity: sha512-DeWwawk6r5yR9jFgnDKYt4sLS0LmHJJi3ZOnb5/JdbYwj3nW+FxQnHIjhBKz8YLC7oRNPVM9NQ47I3CVx34eqQ==}
@@ -5129,7 +5129,7 @@ packages:
     resolution: {integrity: sha512-7Gps/XWymbLk2QLYK4NzpMOrYjMhdIxXuIvy2QBsLE6ljuodKvdkWs/cpyJJ3CVIVpH0Oi1Hvg1ovbMzLdFBBg==}
     engines: {node: ^10.12.0 || >=12.0.0}
     dependencies:
-      flat-cache: 3.1.1
+      flat-cache: 3.2.0
     dev: true
 
   /filing-cabinet@3.3.1:
@@ -5249,9 +5249,9 @@ packages:
       - encoding
     dev: false
 
-  /flat-cache@3.1.1:
-    resolution: {integrity: sha512-/qM2b3LUIaIgviBQovTLvijfyOQXPtSRnRK26ksj2J7rzPIecePUIpJsZ4T02Qg+xiAEKIs5K8dsHEd+VaKa/Q==}
-    engines: {node: '>=12.0.0'}
+  /flat-cache@3.2.0:
+    resolution: {integrity: sha512-CYcENa+FtcUKLmhhqyctpclsq7QF38pKjZHsGNiSQF5r4FtoKDWabFDl3hzaEQMvT1LHEysw5twgLvpYYb4vbw==}
+    engines: {node: ^10.12.0 || >=12.0.0}
     dependencies:
       flatted: 3.2.9
       keyv: 4.5.4
@@ -5311,8 +5311,8 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /framer-motion@10.16.4(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-p9V9nGomS3m6/CALXqv6nFGMuFOxbWsmaOrdmhyQimMIlLl3LC7h7l86wge/Js/8cRu5ktutS/zlzgR7eBOtFA==}
+  /framer-motion@10.16.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-GEzVjOYP2MIpV9bT/GbhcsBNoImG3/2X3O/xVNWmktkv9MdJ7P/44zELm/7Fjb+O3v39SmKFnoDQB32giThzpg==}
     peerDependencies:
       react: ^18.0.0
       react-dom: ^18.0.0
@@ -6575,7 +6575,7 @@ packages:
     requiresBuild: true
     dependencies:
       '@babel/parser': 7.23.3
-      '@jsdoc/salty': 0.2.5
+      '@jsdoc/salty': 0.2.6
       '@types/markdown-it': 12.2.3
       bluebird: 3.7.2
       catharsis: 0.9.0
@@ -7252,7 +7252,7 @@ packages:
       '@next/env': 13.4.4
       '@swc/helpers': 0.5.1
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001561
+      caniuse-lite: 1.0.30001562
       postcss: 8.4.14
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -7951,8 +7951,8 @@ packages:
       use-sidecar: 1.1.2(@types/react@18.2.37)(react@18.2.0)
     dev: false
 
-  /react-icons@4.11.0(react@18.2.0):
-    resolution: {integrity: sha512-V+4khzYcE5EBk/BvcuYRq6V/osf11ODUM2J8hg2FDSswRrGvqiYUYPRy4OdrWaQOBj4NcpJfmHZLNaD+VH0TyA==}
+  /react-icons@4.12.0(react@18.2.0):
+    resolution: {integrity: sha512-IBaDuHiShdZqmfc/TwHu6+d6k2ltNCf3AszxNmjJc1KUfXdEeRJOKyNvLmAHaarhzGmTSVygNdyu8/opXv2gaw==}
     peerDependencies:
       react: '*'
     dependencies:
