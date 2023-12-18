@@ -31,38 +31,19 @@
     "test:ci": "jest --ci"
   },
   "lint-staged": {
-    "*.@(ts|tsx)": [
-      "npm run lint",
-      "npm run format"
-    ]
+    "*.@(ts|tsx)": ["npm run lint", "npm run format"]
   },
   "next-unused": {
     "alias": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@hooks/*": [
-        "src/components/hooks/*"
-      ],
-      "@config/*": [
-        "src/config/*"
-      ],
-      "@pages/*": [
-        "src/pages/*"
-      ]
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/components/hooks/*"],
+      "@config/*": ["src/config/*"],
+      "@pages/*": ["src/pages/*"]
     },
     "debug": true,
-    "include": [
-      "hooks",
-      "layout",
-      "components",
-      "configs",
-      "pages"
-    ],
+    "include": ["hooks", "layout", "components", "configs", "pages"],
     "exclude": [],
-    "entrypoints": [
-      "pages"
-    ]
+    "entrypoints": ["pages"]
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",

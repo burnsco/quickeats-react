@@ -31,38 +31,19 @@
     "test:ci": "jest --ci"
   },
   "lint-staged": {
-    "*.@(ts|tsx)": [
-      "npm run lint",
-      "npm run format"
-    ]
+    "*.@(ts|tsx)": ["npm run lint", "npm run format"]
   },
   "next-unused": {
     "alias": {
-      "@components/*": [
-        "src/components/*"
-      ],
-      "@hooks/*": [
-        "src/components/hooks/*"
-      ],
-      "@config/*": [
-        "src/config/*"
-      ],
-      "@pages/*": [
-        "src/pages/*"
-      ]
+      "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/components/hooks/*"],
+      "@config/*": ["src/config/*"],
+      "@pages/*": ["src/pages/*"]
     },
     "debug": true,
-    "include": [
-      "hooks",
-      "layout",
-      "components",
-      "configs",
-      "pages"
-    ],
+    "include": ["hooks", "layout", "components", "configs", "pages"],
     "exclude": [],
-    "entrypoints": [
-      "pages"
-    ]
+    "entrypoints": ["pages"]
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.1.1",
@@ -78,7 +59,7 @@
     "gen-env-types": "^1.3.4",
     "isomorphic-unfetch": "^4.0.2",
     "keen-slider": "^6.8.6",
-    "next": "latest",
+    "next": "13.4.4",
     "nookies": "^2.5.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
