@@ -102,6 +102,7 @@
     "@types/yup": "^0.29.14",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
+    "autoprefixer": "^10.4.16",
     "babel-jest": "^29.7.0",
     "babel-plugin-chakra-ui": "1.0.0-next.3",
     "babel-plugin-dynamic-import-node": "^2.3.3",
@@ -126,7 +127,9 @@
     "jest-watch-typeahead": "^2.2.2",
     "lint-staged": "^13.3.0",
     "next-unused": "^0.0.6",
+    "postcss": "^8.4.32",
     "prettier": "^2.8.8",
+    "tailwindcss": "^3.4.0",
     "ts-jest": "^29.1.1"
   }
 }
