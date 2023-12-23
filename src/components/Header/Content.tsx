@@ -41,7 +41,7 @@ export const sections = [
 ]
 
 const NavbarLogoSection = () => (
-  <HStack px="2">
+  <div className="container px-2">
     <LinkBox
       data-testid="nav-logo"
       textDecoration="mediumslateblue"
@@ -64,7 +64,7 @@ const NavbarLogoSection = () => (
         </HStack>
       </LinkOverlay>
     </LinkBox>
-  </HStack>
+  </div>
 )
 
 export default function NavbarContent() {

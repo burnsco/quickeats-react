@@ -1,4 +1,4 @@
-import { Box, Icon, Link, Stack, Text } from "@chakra-ui/react"
+import { Icon, Link, Stack, Text } from "@chakra-ui/react"
 import React from "react"
 import { FaCanadianMapleLeaf, FaGithub, FaTelegram } from "react-icons/fa"
 import { MdEmail } from "react-icons/md"
@@ -34,7 +34,7 @@ const links = [
 ]
 
 export const Footer = () => (
-  <Box as="footer" mt={12} textAlign="center">
+  <footer className="mt-4 text-center">
     <Text fontSize="sm">
       Proudly made in
       <Icon
@@ -52,7 +52,7 @@ export const Footer = () => (
         <FooterLink key={link.href} {...link} />
       ))}
     </Stack>
-  </Box>
+  </footer>
 )
 
 export default Footer

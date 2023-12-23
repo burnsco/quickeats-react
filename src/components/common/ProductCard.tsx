@@ -1,11 +1,8 @@
-import { useColorModeValue, useToast } from "@chakra-ui/react"
+import { useToast } from "@chakra-ui/react"
 import { useCart } from "@hooks/cart/cart"
 import Image from "next/legacy/image"
 
 export default function ProductCard({ item, routeName }: any) {
-  const borderColor = useColorModeValue("gray.100", "#313131")
-  const hoverColor = useColorModeValue("gray.200", "gray.600")
-  const bg = useColorModeValue("whitesmoke", "#202020")
   const { dispatch } = useCart()
 
   const toast = useToast()

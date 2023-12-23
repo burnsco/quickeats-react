@@ -6,4 +6,5 @@ env.d.ts
 .next
 out
 next
+.history
 

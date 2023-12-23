@@ -1,6 +1,5 @@
 import { ChakraProvider } from "@chakra-ui/react"
 import Navbar from "@components/Header"
-import PageContainer from "@components/layout/page-container"
 import { AuthProvider } from "@hooks/auth"
 import { CartProvider } from "@hooks/cart/cart"
 import type { AppProps } from "next/app"
@@ -21,9 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <ChakraProvider theme={theme}>
           <CartProvider>
             <Navbar />
-            <PageContainer>
+            <main className="container mt-[8rem]">
               <Component {...pageProps} />
-            </PageContainer>
+            </main>
           </CartProvider>
         </ChakraProvider>
       </AuthProvider>
