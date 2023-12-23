@@ -5,6 +5,7 @@ import { AuthProvider } from "@hooks/auth"
 import { CartProvider } from "@hooks/cart/cart"
 import type { AppProps } from "next/app"
 import Head from "next/head"
+import "../globals.css"
 import theme from "../theme"
 
 export default function App({ Component, pageProps }: AppProps) {
