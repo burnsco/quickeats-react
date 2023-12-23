@@ -1,13 +1,4 @@
-import { AddIcon } from "@chakra-ui/icons"
-import {
-  Badge,
-  Box,
-  Button,
-  GridItem,
-  HStack,
-  useColorModeValue,
-  useToast
-} from "@chakra-ui/react"
+import { useColorModeValue, useToast } from "@chakra-ui/react"
 import { useCart } from "@hooks/cart/cart"
 import Image from "next/legacy/image"
 
@@ -32,70 +23,38 @@ export default function ProductCard({ item, routeName }: any) {
     })
 
   return (
-    <GridItem
-      display="grid"
-      bg={bg}
-      borderColor={borderColor}
+    <div
+      className="grid max-w-screen-md rounded-md border-2 shadow-sm overflow-hidden"
       key={item.id}
-      maxW="md"
-      rounded="lg"
-      borderWidth="1px"
-      borderRadius="md"
-      shadow="lg"
-      _hover={{
-        boxShadow: "md",
-        borderWidth: "1px",
-        borderColor: hoverColor
-      }}
-      overflow="hidden"
     >
-      <Box pos="relative" maxW="md" h="260px">
+      <div className="relative max-w-screen-md h-[260px]">
         <Image
           layout="fill"
           objectFit="cover"
           src={`/${routeName}/${item.id}`}
           alt={`image-${item.title}`}
         />
-      </Box>
+      </div>
 
-      <Box p="2">
-        <HStack p="2">
-          <Badge borderRadius="full" px="2" colorScheme="orange">
-            ${item.price}
-          </Badge>
-          <Box
-            ml={2}
-            fontWeight="semibold"
-            fontSize="md"
-            as="h3"
-            lineHeight="tight"
-          >
-            {item.name}
-          </Box>
-        </HStack>
+      {/* put a badge here later, centered */}
+      <div className="flex content-center p-2">
+        <div className="center">${item.price}</div>
+        <h3 className="ml-2 font-semibold text-xl">{item.name}</h3>
+      </div>
 
-        <Button
-          as="footer"
-          size="sm"
-          w="full"
-          transition="background 0.8s"
-          backgroundPosition="center"
-          border="2px #f87060"
-          leftIcon={<AddIcon />}
-          mr="-px"
-          onClick={() => {
-            handleAddItem(item)
-            toast({
-              status: "warning",
-              title: `${item.name} was added to your cart.`,
+      <footer
+        onClick={() => {
+          handleAddItem(item)
+          toast({
+            status: "warning",
+            title: `${item.name} was added to your cart.`,
 
-              isClosable: true
-            })
-          }}
-        >
-          Add To Cart
-        </Button>
-      </Box>
-    </GridItem>
+            isClosable: true
+          })
+        }}
+      >
+        Add To Cart
+      </footer>
+    </div>
   )
 }
