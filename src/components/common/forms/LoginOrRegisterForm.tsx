@@ -1,4 +1,4 @@
-import { Button, Center, Stack } from "@chakra-ui/react"
+import { Button } from "@chakra-ui/react"
 import ChakraField from "@components/common/ChakraField"
 import { sleepytime } from "@utils/sleepy-time"
 import { Form, Formik } from "formik"
@@ -10,14 +10,14 @@ function LoginOrRegisterForm({ onSubmit }: any) {
   }
 
   return (
-    <Center p={2}>
+    <div className="p-2 flex items-center justify-center">
       <Formik
         initialValues={{ email: "", password: "" }}
         onSubmit={handleSubmit}
       >
         {formik => (
           <Form>
-            <Stack spacing={4}>
+            <div className="flex gap-2">
               <ChakraField
                 testId="email-input"
                 id="email"
@@ -33,7 +33,7 @@ function LoginOrRegisterForm({ onSubmit }: any) {
                 label="Password"
                 type="password"
               />
-            </Stack>
+            </div>
 
             <Button
               type="submit"
@@ -46,7 +46,7 @@ function LoginOrRegisterForm({ onSubmit }: any) {
           </Form>
         )}
       </Formik>
-    </Center>
+    </div>
   )
 }
 
