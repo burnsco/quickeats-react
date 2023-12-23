@@ -56,7 +56,9 @@ export default function IndexPage(props: any) {
       <nav className="p-1 mr-2">{renderFoodTypesMenu()}</nav>
 
       <div className="container flex-1 p-1">
-        <div className="grid grid-cols-4 gap-4">{renderFoodTypesGrid()}</div>
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:px-5">
+          {renderFoodTypesGrid()}
+        </div>
       </div>
     </article>
   )

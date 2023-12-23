@@ -1,4 +1,3 @@
-import { chakra, Container } from "@chakra-ui/react"
 import ProductCard from "@components/common/ProductCard"
 import "firebase/firestore"
 
@@ -8,13 +7,8 @@ export default function ProductsList(props: any) {
   const { routeName } = props.data
 
   return (
-    <Container maxW="xxl" mt="3rem">
-      <chakra.section
-        display="grid"
-        gridTemplateColumns="repeat(auto-fill, minmax(230px, 1fr))"
-        gap="20px"
-        className="simple-grid-shop"
-      >
+    <article className="container">
+      <section className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
         {items.map((item: any, i: number) => (
           <ProductCard
             as="aside"
@@ -23,7 +17,7 @@ export default function ProductsList(props: any) {
             routeName={routeName}
           />
         ))}
-      </chakra.section>
-    </Container>
+      </section>
+    </article>
   )
 }
