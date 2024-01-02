@@ -52,10 +52,12 @@ export default function IndexPage(props: any) {
   }
 
   return (
-    <article className="flex container p-0">
-      <nav className="p-1 mr-2">{renderFoodTypesMenu()}</nav>
+    <article className="flex container p-2">
+      <nav className="p-1 mr-2 border-2 flex flex-col justify-evenly">
+        {renderFoodTypesMenu()}
+      </nav>
 
-      <div className="container flex-1 p-1">
+      <div className="container p-2 border-2">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:px-5">
           {renderFoodTypesGrid()}
         </div>
